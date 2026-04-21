@@ -22,6 +22,8 @@
       *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
       html { scroll-behavior:smooth; font-size:16px; }
       body { background:var(--bg); color:var(--text); font-family:var(--body); font-weight:300; line-height:1.7; overflow-x:hidden; }
+      .project-images { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+      .project-images img { width:100%; border-radius:10px; border:1px solid rgba(255,255,255,0.1); }
       body::before { content:""; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.4; }
 
       nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:64px; background:rgba(8,12,16,0.85); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); transition:all 0.3s; }
@@ -724,26 +726,27 @@
             </div>
           </div>
         </div>
-       <div class="modal-step">
-  <div class="modal-step-num">04</div>
-  <div class="modal-step-content">
-    <h4>Dashboard Images</h4>
-    <div style="display:flex;flex-direction:column;gap:10px;margin-top:10px;">
-      <!-- Hero image — full width -->
-      <img src="Dashboard.png" alt="Dashboard overview"
-           style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"/>
-      <!-- 3 smaller images below -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-        <img src="Calling per.png" alt="Calling performance"
-             style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"/>
-        <img src="Conversion.png" alt="Conversion rates"
-             style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"/>
-        <img src="First Call.png" alt="First call metrics"
-             style="width:100%;border-radius:8px;border:1px solid rgba(255,255,255,0.1);"/>
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Dashboard Screenshots</h4>
+            <!-- FIX: Labels existed but img tags were completely missing -->
+            <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px">
+              <div>
+                <p style="font-size:0.75rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.05em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p>
+                <img src="Apps Home.png" alt="Overview — KPI Cards and Course Comparison" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"/>
+              </div>
+              <div>
+                <p style="font-size:0.75rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.05em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p>
+                <img src="Apps MOM.png" alt="Month on Month Applications 2025 vs 2026" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"/>
+              </div>
+              <div>
+                <p style="font-size:0.75rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.05em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p>
+                <img src="Apps YTD.png" alt="YTD Comparison — Course-wise UTD Growth" style="width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1);"/>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="modal-step">
           <div class="modal-step-num">05</div>
           <div class="modal-step-content">
