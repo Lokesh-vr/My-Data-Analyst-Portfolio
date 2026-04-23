@@ -3,1861 +3,366 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Lokesh VR — Data Analyst | Excel · Power BI · SQL · CRM · Python
-    </title>
-    <meta
-      name="description"
-      content="Data Analyst specializing in turning raw data into business decisions. Expert in Excel, Power BI, SQL, Python(Fundamentals). Based in Bangalore."
-    />
+    <title>Lokesh VR — Data Analyst | Excel · Power BI · SQL · CRM · Python</title>
+    <meta name="description" content="Data Analyst specializing in turning raw data into business decisions. Expert in Excel, Power BI, SQL, Python(Fundamentals). Based in Bangalore." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
       :root {
         --bg: #060818;
         --bg2: #080d20;
-        --glass: rgba(255, 255, 255, 0.05);
-        --glass-hover: rgba(255, 255, 255, 0.09);
-        --glass-border: rgba(255, 255, 255, 0.12);
-        --glass-border-hover: rgba(255, 255, 255, 0.22);
-        --glass-strong: rgba(255, 255, 255, 0.08);
+        --glass: rgba(255,255,255,0.05);
+        --glass-hover: rgba(255,255,255,0.09);
+        --glass-border: rgba(255,255,255,0.12);
+        --glass-border-hover: rgba(255,255,255,0.22);
+        --glass-strong: rgba(255,255,255,0.08);
         --accent: #5eead4;
         --accent2: #818cf8;
         --accent3: #fb7185;
-        --accent-glow: rgba(94, 234, 212, 0.25);
-        --accent2-glow: rgba(129, 140, 248, 0.25);
+        --accent-glow: rgba(94,234,212,0.25);
+        --accent2-glow: rgba(129,140,248,0.25);
         --text: #f1f5f9;
         --text2: #94a3b8;
         --text3: #475569;
-        --heading: "Outfit", sans-serif;
-        --body: "Space Grotesk", sans-serif;
-        --mono: "JetBrains Mono", monospace;
+        --heading: "Outfit",sans-serif;
+        --body: "Space Grotesk",sans-serif;
+        --mono: "JetBrains Mono",monospace;
         --blur: blur(20px);
         --blur-heavy: blur(40px);
         --radius: 20px;
         --radius-sm: 12px;
       }
+      *,*::before,*::after { box-sizing:border-box;margin:0;padding:0; }
+      html { scroll-behavior:smooth;font-size:16px; }
+      body { background:var(--bg);color:var(--text);font-family:var(--body);font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh; }
 
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        scroll-behavior: smooth;
-        font-size: 16px;
-      }
+      /* BG MESH */
+      .bg-mesh { position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden; }
+      .bg-orb { position:absolute;border-radius:50%;filter:blur(90px);animation:orbDrift 18s ease-in-out infinite;opacity:0.55; }
+      .bg-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(94,234,212,0.22),transparent 65%);top:-200px;left:-150px;animation-duration:20s; }
+      .bg-orb-2 { width:600px;height:600px;background:radial-gradient(circle,rgba(129,140,248,0.18),transparent 65%);top:200px;right:-180px;animation-duration:25s;animation-delay:-8s; }
+      .bg-orb-3 { width:500px;height:500px;background:radial-gradient(circle,rgba(251,113,133,0.12),transparent 65%);bottom:10%;left:30%;animation-duration:22s;animation-delay:-12s; }
+      .bg-orb-4 { width:400px;height:400px;background:radial-gradient(circle,rgba(94,234,212,0.15),transparent 65%);bottom:-100px;right:10%;animation-duration:28s;animation-delay:-5s; }
+      @keyframes orbDrift { 0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-60px) scale(1.08)}66%{transform:translate(-30px,40px) scale(0.95)} }
+      body::before { content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.5; }
+      body::after { content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:1;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 30%,transparent 100%); }
 
-      body {
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--body);
-        font-weight: 400;
-        line-height: 1.7;
-        overflow-x: hidden;
-        min-height: 100vh;
-      }
+      /* GLASS */
+      .glass { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius); }
+      .glass-sm { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius-sm); }
 
-      /* ── ANIMATED BG MESH ── */
-      .bg-mesh {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .bg-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        animation: orbDrift 18s ease-in-out infinite;
-        opacity: 0.55;
-      }
-      .bg-orb-1 {
-        width: 700px;
-        height: 700px;
-        background: radial-gradient(
-          circle,
-          rgba(94, 234, 212, 0.22),
-          transparent 65%
-        );
-        top: -200px;
-        left: -150px;
-        animation-duration: 20s;
-      }
-      .bg-orb-2 {
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(129, 140, 248, 0.18),
-          transparent 65%
-        );
-        top: 200px;
-        right: -180px;
-        animation-duration: 25s;
-        animation-delay: -8s;
-      }
-      .bg-orb-3 {
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(
-          circle,
-          rgba(251, 113, 133, 0.12),
-          transparent 65%
-        );
-        bottom: 10%;
-        left: 30%;
-        animation-duration: 22s;
-        animation-delay: -12s;
-      }
-      .bg-orb-4 {
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(
-          circle,
-          rgba(94, 234, 212, 0.15),
-          transparent 65%
-        );
-        bottom: -100px;
-        right: 10%;
-        animation-duration: 28s;
-        animation-delay: -5s;
-      }
+      /* SCROLL PROGRESS */
+      .scroll-progress { position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));z-index:999;transition:width 0.1s linear;box-shadow:0 0 12px var(--accent-glow); }
 
-      @keyframes orbDrift {
-        0%,
-        100% {
-          transform: translate(0, 0) scale(1);
-        }
-        33% {
-          transform: translate(40px, -60px) scale(1.08);
-        }
-        66% {
-          transform: translate(-30px, 40px) scale(0.95);
-        }
-      }
+      /* NAV */
+      nav { position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;width:min(1060px,calc(100% - 32px));background:rgba(10,15,35,0.6);backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);border:1px solid var(--glass-border);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);transition:all 0.4s; }
+      .nav-logo { font-family:var(--heading);font-size:1.05rem;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.02em; }
+      .nav-logo span { color:var(--accent); }
+      .nav-links { display:flex;align-items:center;gap:28px;list-style:none; }
+      .nav-links a { color:var(--text2);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;position:relative; }
+      .nav-links a::after { content:"";position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s ease; }
+      .nav-links a:hover { color:var(--text); }
+      .nav-links a:hover::after { width:100%; }
+      .nav-badge { display:flex;align-items:center;gap:7px;padding:5px 14px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.28);border-radius:100px;font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);font-weight:600;white-space:nowrap; }
+      .nav-badge::before { content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:blink 2s ease-in-out infinite;flex-shrink:0; }
+      @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
+      .nav-resume { display:flex;align-items:center;gap:6px;padding:7px 16px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.35)!important;border-radius:100px;color:var(--accent)!important;font-size:0.78rem!important;font-weight:600!important;transition:all 0.25s!important; }
+      .nav-resume:hover { background:var(--accent)!important;color:var(--bg)!important;box-shadow:0 4px 20px var(--accent-glow)!important; }
+      .nav-resume::after { display:none!important; }
+      .nav-left { display:flex;align-items:center;gap:14px; }
+      .nav-hamburger { display:none;flex-direction:column;gap:5px;background:var(--glass);backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:10px;cursor:pointer;padding:8px;transition:all 0.2s; }
+      .nav-hamburger:hover { border-color:var(--accent); }
+      .nav-hamburger span { display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s; }
+      .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+      .nav-hamburger.open span:nth-child(2) { opacity:0; }
+      .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+      .nav-mobile-menu { display:none;position:fixed;top:86px;left:16px;right:16px;background:rgba(8,13,32,0.95);backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);border:1px solid var(--glass-border);border-radius:20px;flex-direction:column;z-index:99;padding:8px 0 12px;transform:translateY(-10px);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+      .nav-mobile-menu.open { display:flex;transform:translateY(0);opacity:1;pointer-events:all; }
+      .nav-mobile-menu a { color:var(--text2);text-decoration:none;font-size:0.9rem;padding:13px 22px;border-bottom:1px solid var(--glass-border);transition:color 0.2s,background 0.2s; }
+      .nav-mobile-menu a:last-child { border-bottom:none;color:var(--accent);font-weight:600; }
+      .nav-mobile-menu a:hover { color:var(--text);background:var(--glass); }
 
-      /* noise overlay */
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 1;
-        opacity: 0.5;
-      }
+      /* HERO */
+      #hero { min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 40px 80px;position:relative;z-index:2;max-width:1200px;margin:0 auto; }
+      .hero-h1 span { color:#5eead4; }
+      .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.2);border-radius:100px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content;margin-bottom:28px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;font-family:var(--mono);backdrop-filter:var(--blur); }
+      .hero-h1 { font-family:var(--heading);font-size:clamp(2.4rem,7vw,6.4rem);font-weight:900;line-height:1.02;letter-spacing:-0.04em;color:transparent;background:linear-gradient(150deg,#fff 0%,rgba(255,255,255,0.85) 40%,rgba(94,234,212,0.9) 70%,rgba(129,140,248,0.85) 100%);-webkit-background-clip:text;background-clip:text;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.25s ease forwards; }
+      .hero-sub { font-size:1rem;color:var(--text2);max-width:560px;line-height:1.65;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.4s ease forwards;font-weight:400; }
+      .hero-metric { display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;width:fit-content;font-size:0.85rem;color:var(--text);margin-bottom:40px;position:relative;overflow:hidden;backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);opacity:0;animation:fadeUp 0.7s 0.55s ease forwards;transition:all 0.3s;flex-wrap:wrap; }
+      .hero-metric:hover { border-color:rgba(94,234,212,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(94,234,212,0.15),inset 0 1px 0 rgba(255,255,255,0.12);transform:translateY(-2px); }
+      .hero-metric::before { content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(94,234,212,0.15),transparent);animation:shimmer 4s ease-in-out infinite; }
+      @keyframes shimmer { 0%{left:-100%}100%{left:120%} }
+      .hero-metric .highlight { color:var(--accent);font-weight:700;font-family:var(--mono); }
+      .hero-ctas { display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s 0.7s ease forwards; }
+      .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,rgba(94,234,212,0.9),rgba(129,140,248,0.9));color:#060818;border:none;border-radius:100px;font-family:var(--body);font-size:0.88rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 20px rgba(94,234,212,0.3);letter-spacing:0.02em; }
+      .btn-primary:hover { transform:translateY(-2px);box-shadow:0 8px 32px rgba(94,234,212,0.4);filter:brightness(1.1); }
+      .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:rgba(255,255,255,0.05);color:var(--text);border:1px solid rgba(255,255,255,0.15);border-radius:100px;font-family:var(--body);font-size:0.88rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.25s;backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1); }
+      .btn-secondary:hover { background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.15); }
+      .hero-scroll { position:absolute;bottom:36px;left:40px;z-index:1;display:flex;align-items:center;gap:10px;color:var(--text3);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0;animation:fadeUp 1s 1.2s ease forwards;font-family:var(--mono); }
+      .scroll-line { width:36px;height:1px;background:linear-gradient(90deg,var(--text3),transparent); }
+      @keyframes fadeUp { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
 
-      /* grid lines */
-      body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image: linear-gradient(
-            rgba(255, 255, 255, 0.02) 1px,
-            transparent 1px
-          ),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-        background-size: 72px 72px;
-        pointer-events: none;
-        z-index: 1;
-        mask-image: radial-gradient(
-          ellipse 90% 90% at 50% 50%,
-          black 30%,
-          transparent 100%
-        );
-      }
+      /* IMPACT */
+      #impact { position:relative;z-index:2;padding:0 40px;max-width:1200px;margin:0 auto; }
+      .impact-glass { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:24px;padding:36px 48px;box-shadow:0 8px 40px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .impact-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:0; }
+      .impact-item { display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;border-right:1px solid rgba(255,255,255,0.07);gap:4px;opacity:0;transform:translateY(20px);transition:all 0.5s ease; }
+      .impact-item:last-child { border-right:none; }
+      .impact-item.visible { opacity:1;transform:translateY(0); }
+      .impact-item:hover { transform:translateY(-4px); }
+      .impact-icon { width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:12px;margin-bottom:10px;font-size:1.1rem;transition:transform 0.3s; }
+      .impact-item:hover .impact-icon { transform:scale(1.15) rotate(-5deg); }
+      .impact-number { font-family:var(--heading);font-size:2rem;font-weight:900;color:transparent;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 100%);-webkit-background-clip:text;background-clip:text;letter-spacing:-0.03em;line-height:1; }
+      .impact-label { font-size:0.74rem;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;margin-top:3px; }
 
-      /* ── GLASS UTILITY ── */
-      .glass {
-        background: var(--glass);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid var(--glass-border);
-        border-radius: var(--radius);
-      }
-      .glass-sm {
-        background: var(--glass);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid var(--glass-border);
-        border-radius: var(--radius-sm);
-      }
+      /* SECTIONS */
+      section { position:relative;z-index:2; }
+      .section-inner { max-width:1200px;margin:0 auto;padding:100px 40px; }
+      .section-tag { display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;width:fit-content; }
+      .section-tag::before { content:"◈";font-size:0.6rem;opacity:0.7; }
+      .section-h2 { font-family:var(--heading);font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;background-clip:text;color:transparent; }
+      .section-desc { font-size:0.98rem;color:var(--text2);max-width:520px;line-height:1.7;margin-bottom:52px; }
 
-      /* ── SCROLL PROGRESS ── */
-      .scroll-progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 2px;
-        width: 0%;
-        background: linear-gradient(
-          90deg,
-          var(--accent),
-          var(--accent2),
-          var(--accent3)
-        );
-        z-index: 999;
-        transition: width 0.1s linear;
-        box-shadow: 0 0 12px var(--accent-glow);
-      }
+      /* PROJECT CARDS */
+      .project-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
+      .project-card:nth-child(4) { grid-column:2/3; }
+      .project-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;display:block;color:inherit;box-shadow:0 4px 24px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .project-card::before { content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(94,234,212,0.12),transparent 55%);opacity:0;transition:opacity 0.4s;pointer-events:none;border-radius:inherit; }
+      .project-card::after { content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(94,234,212,0.5),rgba(129,140,248,0.5),transparent);opacity:0;transition:opacity 0.4s; }
+      .project-card:hover { border-color:rgba(94,234,212,0.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(94,234,212,0.12),inset 0 1px 0 rgba(255,255,255,0.12);background:rgba(255,255,255,0.07); }
+      .project-card:hover::before { opacity:1; }
+      .project-card:hover::after { opacity:1; }
+      .project-card-top { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px; }
+      .project-num { font-family:var(--mono);font-size:0.68rem;color:var(--accent);letter-spacing:0.12em;opacity:0.8; }
+      .project-tag { font-size:0.68rem;padding:3px 10px;background:rgba(129,140,248,0.1);border:1px solid rgba(129,140,248,0.2);border-radius:100px;color:var(--accent2);letter-spacing:0.04em;font-weight:500; }
+      .project-title { font-family:var(--heading);font-size:1.18rem;font-weight:700;letter-spacing:-0.025em;color:var(--text);margin-bottom:10px;line-height:1.25; }
+      .project-problem { font-size:0.86rem;color:var(--text2);line-height:1.6;margin-bottom:20px; }
+      .project-metrics { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px; }
+      .metric-pill { display:flex;align-items:center;gap:5px;padding:5px 12px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.18);border-radius:100px;font-family:var(--mono);font-size:0.72rem;color:var(--accent);font-weight:500;backdrop-filter:blur(8px); }
+      .project-tools { display:flex;gap:5px;flex-wrap:wrap;margin-bottom:20px; }
+      .tool-tag { font-size:0.68rem;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:6px;color:var(--text3);border:1px solid rgba(255,255,255,0.08);font-family:var(--mono);transition:all 0.2s; }
+      .tool-tag:hover { color:var(--text2);border-color:rgba(255,255,255,0.15); }
+      .project-arrow { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--accent);font-weight:600;transition:gap 0.2s;letter-spacing:0.02em; }
+      .project-card:hover .project-arrow { gap:10px; }
+      .project-viz { height:4px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;margin-bottom:22px; }
+      .project-viz-bar { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width 1.4s cubic-bezier(0.16,1,0.3,1);width:0;box-shadow:0 0 8px var(--accent-glow); }
 
-      /* ── NAV ── */
-      nav {
-        position: fixed;
-        top: 16px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 28px;
-        height: 58px;
-        width: min(1060px, calc(100% - 32px));
-        background: rgba(10, 15, 35, 0.6);
-        backdrop-filter: var(--blur-heavy);
-        -webkit-backdrop-filter: var(--blur-heavy);
-        border: 1px solid var(--glass-border);
-        border-radius: 100px;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        transition: all 0.4s;
-      }
-      .nav-logo {
-        font-family: var(--heading);
-        font-size: 1.05rem;
-        font-weight: 800;
-        color: var(--text);
-        text-decoration: none;
-        letter-spacing: -0.02em;
-      }
-      .nav-logo span {
-        color: var(--accent);
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 28px;
-        list-style: none;
-      }
-      .nav-links a {
-        color: var(--text2);
-        text-decoration: none;
-        font-size: 0.82rem;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-        transition: color 0.2s;
-        position: relative;
-      }
-      .nav-links a::after {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background: var(--accent);
-        transition: width 0.3s ease;
-      }
-      .nav-links a:hover {
-        color: var(--text);
-      }
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+      /* MODAL */
+      .modal-overlay { position:fixed;inset:0;z-index:200;background:rgba(4,8,22,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s; }
+      .modal-overlay.active { opacity:1;pointer-events:all; }
+      .modal { background:rgba(12,18,42,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:44px;transform:translateY(30px) scale(0.97);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06),inset 0 1px 0 rgba(255,255,255,0.1);position:relative; }
+      .modal::before { content:"";position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(180deg,rgba(94,234,212,0.06),transparent);pointer-events:none;border-radius:24px 24px 0 0; }
+      .modal-overlay.active .modal { transform:translateY(0) scale(1); }
+      .modal-close { position:sticky;top:0;float:right;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;z-index:10;backdrop-filter:blur(10px); }
+      .modal-close:hover { color:var(--text);background:rgba(255,255,255,0.12); }
+      .modal-step { display:flex;flex-direction:column;gap:12px;margin-bottom:28px; }
+      .modal-step-num { min-width:28px;height:28px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;align-self:flex-start;backdrop-filter:blur(8px); }
+      .modal-step-content h4 { font-family:var(--heading);font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px; }
+      .modal-step-content p { font-size:0.87rem;color:var(--text2);line-height:1.68; }
+      .modal-kpi-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0; }
+      .modal-kpi { background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px 14px;text-align:center;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);transition:all 0.2s; }
+      .modal-kpi:hover { border-color:rgba(94,234,212,0.25);background:rgba(94,234,212,0.04); }
+      .modal-kpi-val { font-family:var(--heading);font-size:1.7rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:6px;letter-spacing:-0.02em; }
+      .modal-kpi-label { font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-weight:500; }
+      .project-images { display:grid;grid-template-columns:repeat(2,1fr);gap:10px; }
+      .project-images img { width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1); }
 
-      .nav-badge {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 5px 14px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.28);
-        border-radius: 100px;
-        font-size: 0.67rem;
-        letter-spacing: 0.07em;
-        text-transform: uppercase;
-        color: var(--accent);
-        font-weight: 600;
-        white-space: nowrap;
-      }
-      .nav-badge::before {
-        content: "";
-        width: 5px;
-        height: 5px;
-        background: var(--accent);
-        border-radius: 50%;
-        box-shadow: 0 0 8px var(--accent);
-        animation: blink 2s ease-in-out infinite;
-        flex-shrink: 0;
-      }
-      @keyframes blink {
-        0%,
-        100% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0.3;
-        }
+      /* SKILLS */
+      .skills-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px; }
+      .skill-group { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:28px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);position:relative;overflow:hidden; }
+      .skill-group::before { content:"";position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(180deg,rgba(94,234,212,0.04),transparent);pointer-events:none; }
+      .skill-group:hover { border-color:rgba(255,255,255,0.16);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.1); }
+      .skill-group-icon { width:40px;height:40px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px; }
+      .skill-group-title { font-family:var(--heading);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:18px;letter-spacing:-0.01em; }
+      .skill-item { margin-bottom:14px; }
+      .skill-row { display:flex;justify-content:space-between;align-items:center;margin-bottom:6px; }
+      .skill-name { font-size:0.8rem;color:var(--text2);font-family:var(--mono); }
+      .skill-level { font-size:0.68rem;color:var(--text3);letter-spacing:0.06em;font-weight:500; }
+      .skill-bar { height:3px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden; }
+      .skill-bar-fill { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;width:0;transition:width 1.5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 0 6px var(--accent-glow); }
+      .skill-tags { display:flex;flex-wrap:wrap;gap:6px; }
+      .skill-tag { padding:4px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:8px;font-size:0.72rem;color:var(--text2);font-family:var(--mono);transition:all 0.2s;backdrop-filter:blur(6px); }
+      .skill-tag:hover { background:rgba(94,234,212,0.08);border-color:rgba(94,234,212,0.25);color:var(--accent); }
+
+      /* EXPERIENCE */
+      .exp-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;transition:all 0.35s;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08);position:relative;overflow:hidden; }
+      .exp-card::before { content:"";position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none; }
+      .exp-card:hover { border-color:rgba(94,234,212,0.22);box-shadow:0 20px 60px rgba(0,0,0,0.35),0 0 0 1px rgba(94,234,212,0.08),inset 0 1px 0 rgba(255,255,255,0.1); }
+      .exp-role-row { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px; }
+      .exp-role-row h3 { font-family:var(--heading);font-size:1.35rem;font-weight:800;color:var(--text);letter-spacing:-0.025em; }
+      .exp-tenure { display:inline-flex;align-items:center;gap:6px;padding:4px 13px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.25);border-radius:100px;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;letter-spacing:0.04em;white-space:nowrap;backdrop-filter:blur(8px); }
+      .exp-tenure::before { content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:blink 2s infinite;flex-shrink:0; }
+      .exp-org-row { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px; }
+      .exp-org { font-size:0.9rem;color:var(--text2);font-weight:400; }
+      .exp-date { font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;opacity:0.75; }
+      .exp-context { font-size:0.78rem;color:var(--text3);font-style:italic;line-height:1.5;margin-bottom:18px; }
+      .exp-tool-row { display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px; }
+      .exp-metrics { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.06); }
+      .exp-metrics span { font-size:0.74rem;padding:5px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;color:var(--accent);font-family:var(--mono);font-weight:600;backdrop-filter:blur(8px); }
+      .exp-blocks { display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:28px; }
+      .exp-block h4 { font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-family:var(--mono);margin-bottom:10px; }
+      .exp-block p { font-size:0.87rem;color:var(--text2);line-height:1.65; }
+      .exp-block ul { list-style:none;display:flex;flex-direction:column;gap:7px; }
+      .exp-block ul li { font-size:0.84rem;color:var(--text2);line-height:1.5;display:flex;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);border-left:2px solid transparent;transition:all 0.2s;backdrop-filter:blur(6px); }
+      .exp-block ul li:hover { background:rgba(94,234,212,0.05);border-left-color:var(--accent);border-color:rgba(94,234,212,0.15); }
+      .exp-block ul li::before { content:"→";color:var(--accent);font-size:0.72rem;flex-shrink:0;margin-top:2px; }
+
+      /* TIMELINE */
+      .timeline { position:relative;padding-left:32px; }
+      .timeline::before { content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--accent),rgba(94,234,212,0.05)); }
+      .timeline-item { position:relative;padding-bottom:48px; }
+      .timeline-item:last-child { padding-bottom:0; }
+      .timeline-dot { position:absolute;left:-38px;top:4px;width:13px;height:13px;background:var(--accent);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 0 1px var(--accent),0 0 16px var(--accent-glow); }
+      .timeline-date { font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:8px;text-transform:uppercase; }
+      .timeline-role { font-family:var(--heading);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-0.02em; }
+      .timeline-org { font-size:0.88rem;color:var(--text2);margin-bottom:16px; }
+      .timeline-impacts { list-style:none;display:flex;flex-direction:column;gap:8px; }
+      .timeline-impacts li { display:flex;gap:10px;font-size:0.87rem;color:var(--text2);line-height:1.55;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;border-left:2px solid transparent;transition:all 0.2s;backdrop-filter:blur(6px); }
+      .timeline-impacts li:hover { background:rgba(94,234,212,0.05);border-left-color:var(--accent);border-color:rgba(94,234,212,0.15); }
+      .timeline-impacts li::before { content:"→";color:var(--accent);font-size:0.75rem;margin-top:2px;flex-shrink:0; }
+      strong { color:var(--text);font-weight:600; }
+
+      /* ABOUT */
+      .about-grid { display:grid;grid-template-columns:1.8fr 1fr;gap:56px;align-items:start; }
+      .about-text p { font-size:1.02rem;text-align:justify;color:var(--text2);line-height:1.78;margin-bottom:18px; }
+      .about-text p strong { color:var(--accent);font-weight:600; }
+      .about-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .about-card-title { font-family:var(--heading);font-size:0.8rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px; }
+      .cert-item { display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.2s; }
+      .cert-item:last-child { border-bottom:none; }
+      .cert-item:hover { padding-left:4px; }
+      .cert-icon { width:34px;height:34px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.88rem;flex-shrink:0;transition:transform 0.2s; }
+      .cert-item:hover .cert-icon { transform:scale(1.1) rotate(-5deg); }
+      .cert-name { font-size:0.83rem;color:var(--text);font-weight:500;line-height:1.4; }
+      .cert-issuer { font-size:0.73rem;color:var(--text3);margin-top:2px; }
+
+      /* CTA */
+      #cta { border-top:1px solid rgba(255,255,255,0.06); }
+      .cta-inner { max-width:900px;margin:0 auto;padding:100px 40px;text-align:center; }
+      .cta-h2 { font-family:var(--heading);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.75) 100%);-webkit-background-clip:text;background-clip:text;color:transparent; }
+      .cta-h2 em { font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent; }
+      .cta-sub { font-size:1rem;color:var(--text2);line-height:1.65;margin-bottom:44px;max-width:420px;margin-left:auto;margin-right:auto; }
+      .cta-buttons { display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:52px; }
+      .contact-grid { display:flex;justify-content:center;gap:8px;flex-wrap:wrap; }
+      .contact-link { display:flex;align-items:center;gap:7px;padding:9px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.25s;backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07); }
+      .contact-link:hover { background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12); }
+
+      /* FOOTER */
+      footer { border-top:1px solid rgba(255,255,255,0.06);padding:24px 80px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;background:rgba(6,8,24,0.5);backdrop-filter:blur(10px); }
+      .footer-left { font-size:0.78rem;color:var(--text3); }
+      .footer-left span { color:var(--accent);font-weight:600; }
+      .footer-right { font-size:0.73rem;color:var(--text3);font-family:var(--mono); }
+
+      /* REVEAL */
+      .reveal { opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease; }
+      .reveal.visible { opacity:1;transform:translateY(0); }
+      .reveal-delay-1 { transition-delay:0.1s; }
+      .reveal-delay-2 { transition-delay:0.2s; }
+      .reveal-delay-3 { transition-delay:0.3s; }
+      .reveal-delay-4 { transition-delay:0.4s; }
+
+      /* ═══════════════════════════════════════════
+         RESPONSIVE — TABLET (max 1200px)
+      ═══════════════════════════════════════════ */
+      @media (max-width:1200px) {
+        .project-grid { grid-template-columns:repeat(2,1fr); }
+        .project-card:nth-child(4) { grid-column:auto; }
       }
 
-      .nav-resume {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 7px 16px;
-        background: rgba(94, 234, 212, 0.1);
-        border: 1px solid rgba(94, 234, 212, 0.35) !important;
-        border-radius: 100px;
-        color: var(--accent) !important;
-        font-size: 0.78rem !important;
-        font-weight: 600 !important;
-        transition: all 0.25s !important;
-      }
-      .nav-resume:hover {
-        background: var(--accent) !important;
-        color: var(--bg) !important;
-        box-shadow: 0 4px 20px var(--accent-glow) !important;
-      }
-      .nav-resume::after {
-        display: none !important;
+      /* ═══════════════════════════════════════════
+         RESPONSIVE — MOBILE (max 768px)
+         Fixed: nav, hero, impact, cards, modals,
+         skills, exp, about, footer
+      ═══════════════════════════════════════════ */
+      @media (max-width:768px) {
+        /* NAV */
+        nav { top:10px;padding:0 16px;height:52px; }
+        .nav-badge { display:none; }
+        .nav-links { display:none; }
+        .nav-hamburger { display:flex; }
+
+        /* HERO */
+        #hero { padding:88px 20px 80px;min-height:100svh; }
+        .hero-h1 { font-size:clamp(2rem,9vw,3rem);margin-bottom:20px; }
+        .hero-sub { font-size:0.92rem;margin-bottom:22px; }
+        .hero-metric { font-size:0.78rem;padding:10px 14px;margin-bottom:28px;gap:8px; }
+        .hero-metric svg { flex-shrink:0; }
+        .hero-ctas { gap:10px; }
+        .btn-primary,.btn-secondary { padding:12px 20px;font-size:0.82rem;width:100%;justify-content:center; }
+        .hero-scroll { left:20px;bottom:24px; }
+
+        /* IMPACT */
+        #impact { padding:0 16px; }
+        .impact-glass { padding:24px 16px;border-radius:18px; }
+        .impact-grid { grid-template-columns:repeat(2,1fr);gap:0; }
+        .impact-item { border-right:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07);padding:16px 8px; }
+        .impact-item:nth-child(2n) { border-right:none; }
+        .impact-item:nth-child(3),.impact-item:nth-child(4) { border-bottom:none; }
+        .impact-number { font-size:1.6rem; }
+        .impact-label { font-size:0.65rem; }
+        .impact-icon { width:34px;height:34px;font-size:0.9rem;margin-bottom:8px; }
+
+        /* SECTIONS */
+        .section-inner { padding:56px 20px; }
+        .section-desc { margin-bottom:32px;font-size:0.92rem; }
+
+        /* PROJECTS */
+        .project-grid { grid-template-columns:1fr;gap:16px; }
+        .project-card:nth-child(4) { grid-column:auto; }
+        .project-card { padding:20px; }
+        .project-title { font-size:1.05rem; }
+
+        /* MODAL */
+        .modal-overlay { padding:12px; }
+        .modal { padding:20px 16px;border-radius:18px;max-height:90vh; }
+        .modal-kpi-grid { grid-template-columns:repeat(2,1fr);gap:8px; }
+        .modal-kpi-val { font-size:1.3rem; }
+        .modal-kpi { padding:14px 10px; }
+        .project-images { grid-template-columns:1fr; }
+
+        /* SKILLS */
+        .skills-grid { grid-template-columns:1fr;gap:14px; }
+        .skill-group { padding:22px; }
+
+        /* EXPERIENCE */
+        .exp-card { padding:20px; }
+        .exp-role-row h3 { font-size:1.15rem; }
+        .exp-blocks { grid-template-columns:1fr;gap:18px; }
+        .exp-metrics { gap:6px; }
+        .exp-metrics span { font-size:0.7rem;padding:4px 10px; }
+
+        /* TIMELINE */
+        .timeline { padding-left:24px; }
+        .timeline-dot { left:-30px; }
+        .timeline-role { font-size:1rem; }
+
+        /* ABOUT */
+        .about-grid { grid-template-columns:1fr;gap:24px; }
+        .about-text p { font-size:0.94rem;text-align:left; }
+
+        /* CTA */
+        .cta-inner { padding:56px 20px; }
+        .cta-buttons { flex-direction:column;align-items:stretch; }
+        .cta-buttons a { width:100%;justify-content:center; }
+        .contact-grid { flex-direction:column;align-items:stretch; }
+        .contact-link { justify-content:center; }
+
+        /* FOOTER */
+        footer { padding:20px;flex-direction:column;gap:8px;text-align:center; }
       }
 
-      .nav-left {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-      }
-
-      .nav-hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        background: var(--glass);
-        backdrop-filter: var(--blur);
-        border: 1px solid var(--glass-border);
-        border-radius: 10px;
-        cursor: pointer;
-        padding: 8px;
-        transition: all 0.2s;
-      }
-      .nav-hamburger:hover {
-        border-color: var(--accent);
-      }
-      .nav-hamburger span {
-        display: block;
-        width: 18px;
-        height: 2px;
-        background: var(--text);
-        border-radius: 2px;
-        transition: all 0.3s;
-      }
-      .nav-hamburger.open span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-      }
-      .nav-hamburger.open span:nth-child(2) {
-        opacity: 0;
-      }
-      .nav-hamburger.open span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-      }
-
-      .nav-mobile-menu {
-        display: none;
-        position: fixed;
-        top: 86px;
-        left: 16px;
-        right: 16px;
-        background: rgba(8, 13, 32, 0.92);
-        backdrop-filter: var(--blur-heavy);
-        -webkit-backdrop-filter: var(--blur-heavy);
-        border: 1px solid var(--glass-border);
-        border-radius: 20px;
-        flex-direction: column;
-        z-index: 99;
-        padding: 8px 0 12px;
-        transform: translateY(-10px);
-        opacity: 0;
-        transition: transform 0.3s ease, opacity 0.3s ease;
-        pointer-events: none;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-      }
-      .nav-mobile-menu.open {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: all;
-      }
-      .nav-mobile-menu a {
-        color: var(--text2);
-        text-decoration: none;
-        font-size: 0.9rem;
-        padding: 13px 22px;
-        border-bottom: 1px solid var(--glass-border);
-        transition: color 0.2s, background 0.2s;
-      }
-      .nav-mobile-menu a:last-child {
-        border-bottom: none;
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .nav-mobile-menu a:hover {
-        color: var(--text);
-        background: var(--glass);
-      }
-
-      /* ── HERO ── */
-      #hero {
-        min-height: 100svh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 120px 40px 80px;
-        position: relative;
-        z-index: 2;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-       .hero-h1 span {
-        color: #5eead4;
-       }
-      .hero-eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 7px 16px;
-        background: rgba(94, 234, 212, 0.07);
-        border: 1px solid rgba(94, 234, 212, 0.2);
-        border-radius: 100px;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--accent);
-        font-weight: 600;
-        width: fit-content;
-        margin-bottom: 28px;
-        opacity: 0;
-        animation: fadeUp 0.6s 0.1s ease forwards;
-        font-family: var(--mono);
-        backdrop-filter: var(--blur);
-      }
-
-      .hero-h1 {
-        font-family: var(--heading);
-        font-size: clamp(2.8rem, 8vw, 6.4rem);
-        font-weight: 900;
-        line-height: 1.02;
-        letter-spacing: -0.04em;
-        color: transparent;
-        background: linear-gradient(
-          150deg,
-          #fff 0%,
-          rgba(255, 255, 255, 0.85) 40%,
-          rgba(94, 234, 212, 0.9) 70%,
-          rgba(129, 140, 248, 0.85) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        margin-bottom: 28px;
-        opacity: 0;
-        animation: fadeUp 0.7s 0.25s ease forwards;
-      }
-
-      .hero-sub {
-        font-size: 1.08rem;
-        color: var(--text2);
-        max-width: 560px;
-        line-height: 1.65;
-        margin-bottom: 28px;
-        opacity: 0;
-        animation: fadeUp 0.7s 0.4s ease forwards;
-        font-weight: 400;
-      }
-
-      .hero-metric {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 12px 20px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 14px;
-        width: fit-content;
-        font-size: 0.85rem;
-        color: var(--text);
-        margin-bottom: 40px;
-        position: relative;
-        overflow: hidden;
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        opacity: 0;
-        animation: fadeUp 0.7s 0.55s ease forwards;
-        transition: all 0.3s;
-      }
-      .hero-metric:hover {
-        border-color: rgba(94, 234, 212, 0.3);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
-          0 0 0 1px rgba(94, 234, 212, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        transform: translateY(-2px);
-      }
-      .hero-metric::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 60%;
-        height: 100%;
-        background: linear-gradient(
-          120deg,
-          transparent,
-          rgba(94, 234, 212, 0.15),
-          transparent
-        );
-        animation: shimmer 4s ease-in-out infinite;
-      }
-      @keyframes shimmer {
-        0% {
-          left: -100%;
-        }
-        100% {
-          left: 120%;
-        }
-      }
-      .hero-metric .highlight {
-        color: var(--accent);
-        font-weight: 700;
-        font-family: var(--mono);
-      }
-
-      .hero-ctas {
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-        opacity: 0;
-        animation: fadeUp 0.7s 0.7s ease forwards;
-      }
-
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 14px 28px;
-        background: linear-gradient(
-          135deg,
-          rgba(94, 234, 212, 0.9),
-          rgba(129, 140, 248, 0.9)
-        );
-        color: #060818;
-        border: none;
-        border-radius: 100px;
-        font-family: var(--body);
-        font-size: 0.88rem;
-        font-weight: 700;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.25s;
-        box-shadow: 0 4px 20px rgba(94, 234, 212, 0.3);
-        letter-spacing: 0.02em;
-      }
-      .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 32px rgba(94, 234, 212, 0.4);
-        filter: brightness(1.1);
-      }
-
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 14px 28px;
-        background: rgba(255, 255, 255, 0.05);
-        color: var(--text);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 100px;
-        font-family: var(--body);
-        font-size: 0.88rem;
-        font-weight: 500;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.25s;
-        backdrop-filter: var(--blur);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-      .btn-secondary:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-color: rgba(255, 255, 255, 0.25);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      }
-
-      .hero-scroll {
-        position: absolute;
-        bottom: 36px;
-        left: 40px;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text3);
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        opacity: 0;
-        animation: fadeUp 1s 1.2s ease forwards;
-        font-family: var(--mono);
-      }
-      .scroll-line {
-        width: 36px;
-        height: 1px;
-        background: linear-gradient(90deg, var(--text3), transparent);
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(24px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* ── IMPACT BAR ── */
-      #impact {
-        position: relative;
-        z-index: 2;
-        padding: 0 40px;
-        max-width: 1200px;
-        margin: 0 auto 0;
-      }
-      .impact-glass {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid var(--glass-border);
-        border-radius: 24px;
-        padding: 36px 48px;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0;
-      }
-      .impact-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px;
-        border-right: 1px solid rgba(255, 255, 255, 0.07);
-        gap: 4px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.5s ease;
-      }
-      .impact-item:last-child {
-        border-right: none;
-      }
-      .impact-item.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .impact-item:hover {
-        transform: translateY(-4px);
-      }
-      .impact-icon {
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.15);
-        border-radius: 12px;
-        margin-bottom: 10px;
-        font-size: 1.1rem;
-        transition: transform 0.3s;
-      }
-      .impact-item:hover .impact-icon {
-        transform: scale(1.15) rotate(-5deg);
-      }
-      .impact-number {
-        font-family: var(--heading);
-        font-size: 2rem;
-        font-weight: 900;
-        color: transparent;
-        background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        letter-spacing: -0.03em;
-        line-height: 1;
-      }
-      .impact-label {
-        font-size: 0.74rem;
-        color: var(--text3);
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-        font-weight: 500;
-        margin-top: 3px;
-      }
-
-      /* ── SECTIONS ── */
-      section {
-        position: relative;
-        z-index: 2;
-      }
-      .section-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 100px 40px;
-      }
-      .section-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        color: var(--accent);
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        margin-bottom: 16px;
-        padding: 4px 12px;
-        background: rgba(94, 234, 212, 0.07);
-        border: 1px solid rgba(94, 234, 212, 0.18);
-        border-radius: 100px;
-        width: fit-content;
-      }
-      .section-tag::before {
-        content: "◈";
-        font-size: 0.6rem;
-        opacity: 0.7;
-      }
-      .section-h2 {
-        font-family: var(--heading);
-        font-size: clamp(1.9rem, 3.5vw, 2.8rem);
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        line-height: 1.1;
-        color: var(--text);
-        margin-bottom: 16px;
-        background: linear-gradient(
-          135deg,
-          #fff 30%,
-          rgba(255, 255, 255, 0.7) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .section-desc {
-        font-size: 0.98rem;
-        color: var(--text2);
-        max-width: 520px;
-        line-height: 1.7;
-        margin-bottom: 52px;
-      }
-
-      /* ── PROJECT CARDS ── */
-      #projects {
-        background: transparent;
-      }
-
-      .project-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-      .project-card:nth-child(4) {
-        grid-column: 2 / 3;
-      }
-
-      .project-card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: var(--radius);
-        padding: 30px;
-        position: relative;
-        overflow: hidden;
-        cursor: pointer;
-        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        text-decoration: none;
-        display: block;
-        color: inherit;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-
-      /* inner glow on hover */
-      .project-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(
-          circle at var(--x, 50%) var(--y, 50%),
-          rgba(94, 234, 212, 0.12),
-          transparent 55%
-        );
-        opacity: 0;
-        transition: opacity 0.4s;
-        pointer-events: none;
-        border-radius: inherit;
-      }
-
-      /* top edge glow */
-      .project-card::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 10%;
-        right: 10%;
-        height: 1px;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(94, 234, 212, 0.5),
-          rgba(129, 140, 248, 0.5),
-          transparent
-        );
-        opacity: 0;
-        transition: opacity 0.4s;
-      }
-
-      .project-card:hover {
-        border-color: rgba(94, 234, 212, 0.3);
-        transform: translateY(-6px);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4),
-          0 0 0 1px rgba(94, 234, 212, 0.12),
-          inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        background: rgba(255, 255, 255, 0.07);
-      }
-      .project-card:hover::before {
-        opacity: 1;
-      }
-      .project-card:hover::after {
-        opacity: 1;
-      }
-
-      .project-card-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 18px;
-      }
-      .project-num {
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--accent);
-        letter-spacing: 0.12em;
-        opacity: 0.8;
-      }
-      .project-tag {
-        font-size: 0.68rem;
-        padding: 3px 10px;
-        background: rgba(129, 140, 248, 0.1);
-        border: 1px solid rgba(129, 140, 248, 0.2);
-        border-radius: 100px;
-        color: var(--accent2);
-        letter-spacing: 0.04em;
-        font-weight: 500;
-      }
-      .project-title {
-        font-family: var(--heading);
-        font-size: 1.18rem;
-        font-weight: 700;
-        letter-spacing: -0.025em;
-        color: var(--text);
-        margin-bottom: 10px;
-        line-height: 1.25;
-      }
-      .project-problem {
-        font-size: 0.86rem;
-        color: var(--text2);
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-      .project-metrics {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-
-      .metric-pill {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        padding: 5px 12px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.18);
-        border-radius: 100px;
-        font-family: var(--mono);
-        font-size: 0.72rem;
-        color: var(--accent);
-        font-weight: 500;
-        backdrop-filter: blur(8px);
-      }
-
-      .project-tools {
-        display: flex;
-        gap: 5px;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-      }
-      .tool-tag {
-        font-size: 0.68rem;
-        padding: 3px 8px;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 6px;
-        color: var(--text3);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        font-family: var(--mono);
-        transition: all 0.2s;
-      }
-      .tool-tag:hover {
-        color: var(--text2);
-        border-color: rgba(255, 255, 255, 0.15);
-      }
-
-      .project-arrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.8rem;
-        color: var(--accent);
-        font-weight: 600;
-        transition: gap 0.2s;
-        letter-spacing: 0.02em;
-      }
-      .project-card:hover .project-arrow {
-        gap: 10px;
-      }
-
-      .project-viz {
-        height: 4px;
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 100px;
-        overflow: hidden;
-        margin-bottom: 22px;
-      }
-      .project-viz-bar {
-        height: 100%;
-        background: linear-gradient(90deg, var(--accent), var(--accent2));
-        border-radius: 100px;
-        transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
-        width: 0;
-        box-shadow: 0 0 8px var(--accent-glow);
-      }
-
-      /* ── MODAL ── */
-      .modal-overlay {
-        position: fixed;
-        inset: 0;
-        z-index: 200;
-        background: rgba(4, 8, 22, 0.85);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
-      }
-      .modal-overlay.active {
-        opacity: 1;
-        pointer-events: all;
-      }
-      .modal {
-        background: rgba(12, 18, 42, 0.92);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 24px;
-        max-width: 760px;
-        width: 100%;
-        max-height: 88vh;
-        overflow-y: auto;
-        padding: 44px;
-        transform: translateY(30px) scale(0.97);
-        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        scrollbar-width: thin;
-        scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6),
-          0 0 0 1px rgba(255, 255, 255, 0.06),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        position: relative;
-      }
-      .modal::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 180px;
-        background: linear-gradient(
-          180deg,
-          rgba(94, 234, 212, 0.06),
-          transparent
-        );
-        pointer-events: none;
-        border-radius: 24px 24px 0 0;
-      }
-      .modal-overlay.active .modal {
-        transform: translateY(0) scale(1);
-      }
-      .modal-close {
-        position: sticky;
-        top: 0;
-        float: right;
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 8px;
-        color: var(--text2);
-        width: 32px;
-        height: 32px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 0.9rem;
-        transition: all 0.2s;
-        z-index: 10;
-        backdrop-filter: blur(10px);
-      }
-      .modal-close:hover {
-        color: var(--text);
-        background: rgba(255, 255, 255, 0.12);
-      }
-
-      .modal-step {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 28px;
-      }
-      .modal-step-num {
-        min-width: 28px;
-        height: 28px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.25);
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--accent);
-        font-weight: 600;
-        align-self: flex-start;
-        backdrop-filter: blur(8px);
-      }
-      .modal-step-content h4 {
-        font-family: var(--heading);
-        font-size: 0.92rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 8px;
-      }
-      .modal-step-content p {
-        font-size: 0.87rem;
-        color: var(--text2);
-        line-height: 1.68;
-      }
-      .modal-kpi-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin: 24px 0;
-      }
-      .modal-kpi {
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 14px;
-        padding: 20px 14px;
-        text-align: center;
-        backdrop-filter: blur(10px);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
-        transition: all 0.2s;
-      }
-      .modal-kpi:hover {
-        border-color: rgba(94, 234, 212, 0.25);
-        background: rgba(94, 234, 212, 0.04);
-      }
-      .modal-kpi-val {
-        font-family: var(--heading);
-        font-size: 1.7rem;
-        font-weight: 900;
-        color: var(--accent);
-        line-height: 1;
-        margin-bottom: 6px;
-        letter-spacing: -0.02em;
-      }
-      .modal-kpi-label {
-        font-size: 0.7rem;
-        color: var(--text3);
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        font-weight: 500;
-      }
-
-      .project-images {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-      .project-images img {
-        width: 100%;
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-      }
-
-      /* ── SKILLS ── */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 16px;
-      }
-      .skill-group {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: var(--radius);
-        padding: 28px;
-        transition: all 0.3s;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.07);
-        position: relative;
-        overflow: hidden;
-      }
-      .skill-group::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 80px;
-        background: linear-gradient(
-          180deg,
-          rgba(94, 234, 212, 0.04),
-          transparent
-        );
-        pointer-events: none;
-      }
-      .skill-group:hover {
-        border-color: rgba(255, 255, 255, 0.16);
-        transform: translateY(-3px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-      .skill-group-icon {
-        width: 40px;
-        height: 40px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.15);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.1rem;
-        margin-bottom: 14px;
-      }
-      .skill-group-title {
-        font-family: var(--heading);
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 18px;
-        letter-spacing: -0.01em;
-      }
-      .skill-item {
-        margin-bottom: 14px;
-      }
-      .skill-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 6px;
-      }
-      .skill-name {
-        font-size: 0.8rem;
-        color: var(--text2);
-        font-family: var(--mono);
-      }
-      .skill-level {
-        font-size: 0.68rem;
-        color: var(--text3);
-        letter-spacing: 0.06em;
-        font-weight: 500;
-      }
-      .skill-bar {
-        height: 3px;
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 100px;
-        overflow: hidden;
-      }
-      .skill-bar-fill {
-        height: 100%;
-        background: linear-gradient(90deg, var(--accent), var(--accent2));
-        border-radius: 100px;
-        width: 0;
-        transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 0 6px var(--accent-glow);
-      }
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-      }
-      .skill-tag {
-        padding: 4px 10px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.09);
-        border-radius: 8px;
-        font-size: 0.72rem;
-        color: var(--text2);
-        font-family: var(--mono);
-        transition: all 0.2s;
-        backdrop-filter: blur(6px);
-      }
-      .skill-tag:hover {
-        background: rgba(94, 234, 212, 0.08);
-        border-color: rgba(94, 234, 212, 0.25);
-        color: var(--accent);
-      }
-
-      /* ── EXPERIENCE ── */
-      .exp-card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 24px;
-        padding: 36px;
-        transition: all 0.35s;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        position: relative;
-        overflow: hidden;
-      }
-      .exp-card::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 200px;
-        background: linear-gradient(
-          180deg,
-          rgba(94, 234, 212, 0.05),
-          transparent
-        );
-        pointer-events: none;
-      }
-      .exp-card:hover {
-        border-color: rgba(94, 234, 212, 0.22);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35),
-          0 0 0 1px rgba(94, 234, 212, 0.08),
-          inset 0 1px 0 rgba(255, 255, 255, 0.1);
-      }
-
-      .exp-role-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 6px;
-      }
-      .exp-role-row h3 {
-        font-family: var(--heading);
-        font-size: 1.35rem;
-        font-weight: 800;
-        color: var(--text);
-        letter-spacing: -0.025em;
-      }
-      .exp-tenure {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 4px 13px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.25);
-        border-radius: 100px;
-        font-family: var(--mono);
-        font-size: 0.68rem;
-        color: var(--accent);
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        white-space: nowrap;
-        backdrop-filter: blur(8px);
-      }
-      .exp-tenure::before {
-        content: "";
-        width: 5px;
-        height: 5px;
-        background: var(--accent);
-        border-radius: 50%;
-        box-shadow: 0 0 8px var(--accent);
-        animation: blink 2s infinite;
-        flex-shrink: 0;
-      }
-      .exp-org-row {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin-bottom: 8px;
-      }
-      .exp-org {
-        font-size: 0.9rem;
-        color: var(--text2);
-        font-weight: 400;
-      }
-      .exp-date {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        color: var(--accent);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        opacity: 0.75;
-      }
-      .exp-context {
-        font-size: 0.78rem;
-        color: var(--text3);
-        font-style: italic;
-        line-height: 1.5;
-        margin-bottom: 18px;
-      }
-      .exp-tool-row {
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        margin-bottom: 22px;
-      }
-      .exp-metrics {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-bottom: 28px;
-        padding-bottom: 28px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .exp-metrics span {
-        font-size: 0.74rem;
-        padding: 5px 12px;
-        background: rgba(94, 234, 212, 0.07);
-        border: 1px solid rgba(94, 234, 212, 0.18);
-        border-radius: 100px;
-        color: var(--accent);
-        font-family: var(--mono);
-        font-weight: 600;
-        backdrop-filter: blur(8px);
-      }
-      .exp-blocks {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1.2fr;
-        gap: 28px;
-      }
-      .exp-block h4 {
-        font-size: 0.66rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        font-family: var(--mono);
-        margin-bottom: 10px;
-      }
-      .exp-block p {
-        font-size: 0.87rem;
-        color: var(--text2);
-        line-height: 1.65;
-      }
-      .exp-block ul {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 7px;
-      }
-      .exp-block ul li {
-        font-size: 0.84rem;
-        color: var(--text2);
-        line-height: 1.5;
-        display: flex;
-        gap: 8px;
-        padding: 8px 12px;
-        background: rgba(255, 255, 255, 0.03);
-        border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-left: 2px solid transparent;
-        transition: all 0.2s;
-        backdrop-filter: blur(6px);
-      }
-      .exp-block ul li:hover {
-        background: rgba(94, 234, 212, 0.05);
-        border-left-color: var(--accent);
-        border-color: rgba(94, 234, 212, 0.15);
-      }
-      .exp-block ul li::before {
-        content: "→";
-        color: var(--accent);
-        font-size: 0.72rem;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-
-      /* ── TIMELINE ── */
-      .timeline {
-        position: relative;
-        padding-left: 32px;
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 8px;
-        bottom: 8px;
-        width: 1px;
-        background: linear-gradient(
-          to bottom,
-          var(--accent),
-          rgba(94, 234, 212, 0.05)
-        );
-      }
-      .timeline-item {
-        position: relative;
-        padding-bottom: 48px;
-      }
-      .timeline-item:last-child {
-        padding-bottom: 0;
-      }
-      .timeline-dot {
-        position: absolute;
-        left: -38px;
-        top: 4px;
-        width: 13px;
-        height: 13px;
-        background: var(--accent);
-        border-radius: 50%;
-        border: 3px solid var(--bg);
-        box-shadow: 0 0 0 1px var(--accent), 0 0 16px var(--accent-glow);
-      }
-      .timeline-date {
-        font-family: var(--mono);
-        font-size: 0.7rem;
-        color: var(--accent);
-        letter-spacing: 0.1em;
-        margin-bottom: 8px;
-        text-transform: uppercase;
-      }
-      .timeline-role {
-        font-family: var(--heading);
-        font-size: 1.15rem;
-        font-weight: 700;
-        color: var(--text);
-        margin-bottom: 4px;
-        letter-spacing: -0.02em;
-      }
-      .timeline-org {
-        font-size: 0.88rem;
-        color: var(--text2);
-        margin-bottom: 16px;
-      }
-      .timeline-impacts {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .timeline-impacts li {
-        display: flex;
-        gap: 10px;
-        font-size: 0.87rem;
-        color: var(--text2);
-        line-height: 1.55;
-        padding: 10px 14px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 12px;
-        border-left: 2px solid transparent;
-        transition: all 0.2s;
-        backdrop-filter: blur(6px);
-      }
-      .timeline-impacts li:hover {
-        background: rgba(94, 234, 212, 0.05);
-        border-left-color: var(--accent);
-        border-color: rgba(94, 234, 212, 0.15);
-      }
-      .timeline-impacts li::before {
-        content: "→";
-        color: var(--accent);
-        font-size: 0.75rem;
-        margin-top: 2px;
-        flex-shrink: 0;
-      }
-      strong {
-        color: var(--text);
-        font-weight: 600;
-      }
-
-      /* ── ABOUT ── */
-      .about-grid {
-        display: grid;
-        grid-template-columns: 1.8fr 1fr;
-        gap: 56px;
-        align-items: start;
-      }
-      .about-text p {
-        font-size: 1.02rem;
-        text-align: justify;
-        color: var(--text2);
-        line-height: 1.78;
-        margin-bottom: 18px;
-      }
-      .about-text p strong {
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .about-card {
-        background: rgba(255, 255, 255, 0.04);
-        backdrop-filter: var(--blur);
-        -webkit-backdrop-filter: var(--blur);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: var(--radius);
-        padding: 28px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
-          inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      }
-      .about-card-title {
-        font-family: var(--heading);
-        font-size: 0.8rem;
-        font-weight: 700;
-        color: var(--text3);
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        margin-bottom: 20px;
-      }
-      .cert-item {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        padding: 12px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        transition: all 0.2s;
-      }
-      .cert-item:last-child {
-        border-bottom: none;
-      }
-      .cert-item:hover {
-        padding-left: 4px;
-      }
-      .cert-icon {
-        width: 34px;
-        height: 34px;
-        background: rgba(94, 234, 212, 0.08);
-        border: 1px solid rgba(94, 234, 212, 0.15);
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.88rem;
-        flex-shrink: 0;
-        transition: transform 0.2s;
-      }
-      .cert-item:hover .cert-icon {
-        transform: scale(1.1) rotate(-5deg);
-      }
-      .cert-name {
-        font-size: 0.83rem;
-        color: var(--text);
-        font-weight: 500;
-        line-height: 1.4;
-      }
-      .cert-issuer {
-        font-size: 0.73rem;
-        color: var(--text3);
-        margin-top: 2px;
-      }
-
-      /* ── CTA ── */
-      #cta {
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-      }
-      .cta-inner {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 100px 40px;
-        text-align: center;
-      }
-      .cta-h2 {
-        font-family: var(--heading);
-        font-size: clamp(2.2rem, 4.5vw, 3.4rem);
-        font-weight: 900;
-        letter-spacing: -0.04em;
-        line-height: 1.05;
-        margin-bottom: 16px;
-        background: linear-gradient(
-          135deg,
-          #fff 0%,
-          rgba(255, 255, 255, 0.75) 100%
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .cta-h2 em {
-        font-style: normal;
-        background: linear-gradient(135deg, var(--accent), var(--accent2));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .cta-sub {
-        font-size: 1rem;
-        color: var(--text2);
-        line-height: 1.65;
-        margin-bottom: 44px;
-        max-width: 420px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      .cta-buttons {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin-bottom: 52px;
-      }
-      .contact-grid {
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .contact-link {
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 9px 18px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 100px;
-        color: var(--text2);
-        text-decoration: none;
-        font-size: 0.8rem;
-        transition: all 0.25s;
-        backdrop-filter: var(--blur);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
-      }
-      .contact-link:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.2);
-        color: var(--text);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
-          inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      }
-
-      /* ── FOOTER ── */
-      footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 24px 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: relative;
-        z-index: 2;
-        background: rgba(6, 8, 24, 0.5);
-        backdrop-filter: blur(10px);
-      }
-      .footer-left {
-        font-size: 0.78rem;
-        color: var(--text3);
-      }
-      .footer-left span {
-        color: var(--accent);
-        font-weight: 600;
-      }
-      .footer-right {
-        font-size: 0.73rem;
-        color: var(--text3);
-        font-family: var(--mono);
-      }
-
-      /* ── REVEAL ── */
-      .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
-      }
-      .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .reveal-delay-1 {
-        transition-delay: 0.1s;
-      }
-      .reveal-delay-2 {
-        transition-delay: 0.2s;
-      }
-      .reveal-delay-3 {
-        transition-delay: 0.3s;
-      }
-      .reveal-delay-4 {
-        transition-delay: 0.4s;
-      }
-
-      /* ── RESPONSIVE ── */
-      @media (max-width: 900px) {
-        nav {
-          top: 10px;
-          padding: 0 20px;
-          height: 52px;
-          border-radius: 100px;
-        }
-        .nav-badge {
-          display: none;
-        }
-        .nav-links {
-          display: none;
-        }
-        .nav-hamburger {
-          display: flex;
-        }
-        #hero {
-          padding: 90px 20px 90px;
-        }
-        .hero-scroll {
-          left: 20px;
-        }
-        .hero-orb-1,
-        .hero-orb-2 {
-          display: none;
-        }
-        #impact {
-          padding: 0 20px;
-        }
-        .impact-glass {
-          padding: 28px 20px;
-          border-radius: 20px;
-        }
-        .impact-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 8px;
-        }
-        .impact-item {
-          border-right: 1px solid rgba(255, 255, 255, 0.06);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-          padding: 14px 8px;
-        }
-        .impact-item:nth-child(2n) {
-          border-right: none;
-        }
-        .impact-item:nth-child(3),
-        .impact-item:nth-child(4) {
-          border-bottom: none;
-        }
-        .impact-number {
-          font-size: 1.5rem;
-        }
-        .section-inner {
-          padding: 60px 20px;
-        }
-        .section-desc {
-          margin-bottom: 36px;
-        }
-        .project-grid {
-          grid-template-columns: 1fr;
-        }
-        .project-card:nth-child(4) {
-          grid-column: auto;
-        }
-        .project-card {
-          padding: 22px;
-        }
-        .modal {
-          padding: 24px 18px;
-          max-height: 90vh;
-          border-radius: 18px;
-        }
-        .modal-kpi-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .project-images {
-          grid-template-columns: 1fr;
-        }
-        .skills-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .exp-card {
-          padding: 22px;
-        }
-        .exp-blocks {
-          grid-template-columns: 1fr;
-          gap: 20px;
-        }
-        .about-grid {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-        .about-text p {
-          font-size: 0.94rem;
-          text-align: left;
-        }
-        .cta-inner {
-          padding: 60px 20px;
-        }
-        .cta-buttons {
-          flex-direction: column;
-          align-items: center;
-        }
-        .cta-buttons a {
-          width: 100%;
-          justify-content: center;
-        }
-        .contact-grid {
-          flex-direction: column;
-          align-items: stretch;
-        }
-        .contact-link {
-          justify-content: center;
-        }
-        footer {
-          padding: 20px;
-          flex-direction: column;
-          gap: 8px;
-          text-align: center;
-        }
-      }
-      @media (max-width: 480px) {
-        .skills-grid {
-          grid-template-columns: 1fr;
-        }
-        .modal-kpi-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 1200px) {
-        .project-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .project-card:nth-child(4) {
-          grid-column: auto;
-        }
+      /* ═══════════════════════════════════════════
+         RESPONSIVE — SMALL PHONES (max 390px)
+      ═══════════════════════════════════════════ */
+      @media (max-width:390px) {
+        .hero-h1 { font-size:1.9rem; }
+        .hero-eyebrow { font-size:0.62rem;padding:6px 12px; }
+        .modal-kpi-grid { grid-template-columns:1fr; }
+        .impact-number { font-size:1.4rem; }
+        .metric-pill { font-size:0.65rem;padding:4px 9px; }
+        .section-h2 { font-size:1.6rem; }
+        .exp-role-row { flex-direction:column;align-items:flex-start;gap:8px; }
       }
     </style>
   </head>
@@ -1883,34 +388,9 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
-        <li>
-          <a
-            href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing"
-            target="_blank"
-            class="nav-resume"
-          >
-            <svg
-              width="11"
-              height="11"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Resume
-          </a>
-        </li>
+        <li><a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="nav-resume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resume</a></li>
       </ul>
-      <button
-        class="nav-hamburger"
-        id="hamburger"
-        onclick="toggleMenu()"
-        aria-label="Toggle menu"
-      >
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -1921,146 +401,37 @@
       <a href="#skills" onclick="closeMenu()">Skills</a>
       <a href="#experience" onclick="closeMenu()">Experience</a>
       <a href="#education" onclick="closeMenu()">Education</a>
-      <a
-        href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing"
-        target="_blank"
-        onclick="closeMenu()"
-        >↓ Resume</a
-      >
+      <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" onclick="closeMenu()">↓ Resume</a>
     </div>
 
     <!-- HERO -->
     <section id="hero">
       <div class="hero-eyebrow">
-        <svg
-          width="10"
-          height="10"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-        >
-          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-        </svg>
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
         Data Analyst · Bangalore
       </div>
-    <h1 class="hero-h1">
-  Turning Raw Data<br />Into
-  <span>Business Decisions</span><br />
-  That Drive Results
-</h1>
-      
-      <p class="hero-sub">
-        Using data to solve operational problems, improve efficiency, and
-        support business growth — with
-        <strong style="color: var(--text); font-weight: 600"
-          >Power BI · Excel · Google Sheets · SQL · CRM</strong
-        >
-      </p>
+      <h1 class="hero-h1">Turning Raw Data<br />Into <span>Business Decisions</span><br />That Drive Results</h1>
+      <p class="hero-sub">Using data to solve operational problems, improve efficiency, and support business growth — with <strong style="color:var(--text);font-weight:600">Power BI · Excel · Google Sheets · SQL · CRM</strong></p>
       <div class="hero-metric">
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="var(--accent)"
-          stroke-width="2"
-        >
-          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-          <polyline points="16 7 22 7 22 13" />
-        </svg>
-        Analyzed <span class="highlight">1M+ records</span>, automated
-        <span class="highlight">70% of manual workflows</span>, saving
-        <span class="highlight">₹4.5L+</span> through Publisher Analysis
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        Analyzed <span class="highlight">1M+ records</span>, automated <span class="highlight">70% of manual workflows</span>, saving <span class="highlight">₹4.5L+</span> through Publisher Analysis
       </div>
       <div class="hero-ctas">
-        <a href="#projects" class="btn-primary">
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <rect x="3" y="3" width="7" height="7" />
-            <rect x="14" y="3" width="7" height="7" />
-            <rect x="3" y="14" width="7" height="7" />
-            <rect x="14" y="14" width="7" height="7" />
-          </svg>
-          View Projects
-        </a>
-        <a
-          href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing"
-          target="_blank"
-          class="btn-secondary"
-        >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          Download Resume
-        </a>
-        <a
-          href="http://www.linkedin.com/in/lokesh252003"
-          target="_blank"
-          class="btn-secondary"
-        >
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-            />
-            <circle cx="4" cy="4" r="2" />
-          </svg>
-          LinkedIn
-        </a>
+        <a href="#projects" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Projects</a>
+        <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
+        <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
       </div>
-      <div class="hero-scroll">
-        <div class="scroll-line"></div>
-        Scroll to explore
-      </div>
+      <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
     </section>
 
     <!-- IMPACT -->
     <div id="impact">
       <div class="impact-glass">
         <div class="impact-grid">
-          <div class="impact-item">
-            <div class="impact-icon">📊</div>
-            <div class="impact-number" data-value="1000000">
-              1M<span style="color: var(--accent)">+</span>
-            </div>
-            <div class="impact-label">Records Analyzed</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-icon">⚡</div>
-            <div class="impact-number" data-value="70" data-suffix="%">
-              70<span style="color: var(--accent)">%</span>
-            </div>
-            <div class="impact-label">Workflows Automated</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-icon">💰</div>
-            <div class="impact-number" data-value="4.5" data-suffix="L+">
-              4.5<span style="color: var(--accent)">L+</span>
-            </div>
-            <div class="impact-label">Revenue Saved</div>
-          </div>
-          <div class="impact-item">
-            <div class="impact-icon">🎯</div>
-            <div class="impact-number" data-value="6" data-suffix="+">
-              6<span style="color: var(--accent)">+</span>
-            </div>
-            <div class="impact-label">Live Dashboards Built</div>
-          </div>
+          <div class="impact-item"><div class="impact-icon">📊</div><div class="impact-number" data-value="1000000">1M<span style="color:var(--accent)">+</span></div><div class="impact-label">Records Analyzed</div></div>
+          <div class="impact-item"><div class="impact-icon">⚡</div><div class="impact-number" data-value="70" data-suffix="%">70<span style="color:var(--accent)">%</span></div><div class="impact-label">Workflows Automated</div></div>
+          <div class="impact-item"><div class="impact-icon">💰</div><div class="impact-number" data-value="4.5" data-suffix="L+">4.5<span style="color:var(--accent)">L+</span></div><div class="impact-label">Revenue Saved</div></div>
+          <div class="impact-item"><div class="impact-icon">🎯</div><div class="impact-number" data-value="6" data-suffix="+">6<span style="color:var(--accent)">+</span></div><div class="impact-label">Live Dashboards Built</div></div>
         </div>
       </div>
     </div>
@@ -2069,129 +440,43 @@
     <section id="projects">
       <div class="section-inner">
         <div class="section-tag reveal">Featured Projects</div>
-        <h2 class="section-h2 reveal reveal-delay-1">
-          Work That Speaks<br />in Business Impact
-        </h2>
-        <p class="section-desc reveal reveal-delay-2">
-          Each project is built around a real business problem — not just a
-          dataset exercise. Click any card to see the full case study.
-        </p>
+        <h2 class="section-h2 reveal reveal-delay-1">Work That Speaks<br />in Business Impact</h2>
+        <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
           <div class="project-card reveal" onclick="openModal('modal1')">
-            <div class="project-card-top">
-              <span class="project-num">01</span
-              ><span class="project-tag">Power BI · DAX</span>
-            </div>
-            <div class="project-viz">
-              <div class="project-viz-bar" data-width="90"></div>
-            </div>
-            <div class="project-title">
-              Telecalling Performance Intelligence
-            </div>
-            <p class="project-problem">
-              Call center had zero visibility into agent performance. Manual
-              tracking was slow, error-prone, and couldn't scale to 1M+ records.
-            </p>
-            <div class="project-metrics">
-              <div class="metric-pill">↓ 90% Reporting Time</div>
-              <div class="metric-pill">↑ 25% Follow-up Rate</div>
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span
-              ><span class="tool-tag">DAX</span
-              ><span class="tool-tag">MCUBE</span
-              ><span class="tool-tag">Meritto CRM</span
-              ><span class="tool-tag">Excel</span>
-            </div>
+            <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Power BI · DAX</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
+            <div class="project-title">Telecalling Performance Intelligence</div>
+            <p class="project-problem">Call center had zero visibility into agent performance. Manual tracking was slow, error-prone, and couldn't scale to 1M+ records.</p>
+            <div class="project-metrics"><div class="metric-pill">↓ 90% Reporting Time</div><div class="metric-pill">↑ 25% Follow-up Rate</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">MCUBE</span><span class="tool-tag">Meritto CRM</span><span class="tool-tag">Excel</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
-          <div
-            class="project-card reveal reveal-delay-1"
-            onclick="openModal('modal2')"
-          >
-            <div class="project-card-top">
-              <span class="project-num">02</span
-              ><span class="project-tag">Finance · BI</span>
-            </div>
-            <div class="project-viz">
-              <div class="project-viz-bar" data-width="75"></div>
-            </div>
+          <div class="project-card reveal reveal-delay-1" onclick="openModal('modal2')">
+            <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Finance · BI</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="75"></div></div>
             <div class="project-title">Financial Collections Dashboard</div>
-            <p class="project-problem">
-              Finance team relied on scattered Excel sheets to track ₹Cr+ in
-              receivables. Leadership had no real-time view of collection
-              health.
-            </p>
-            <div class="project-metrics">
-              <div class="metric-pill">Real-time Tracking</div>
-              <div class="metric-pill">Single Source of Truth</div>
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span
-              ><span class="tool-tag">DAX</span
-              ><span class="tool-tag">ERP (Juno)</span
-              ><span class="tool-tag">CRM</span
-              ><span class="tool-tag">Excel</span>
-            </div>
+            <p class="project-problem">Finance team relied on scattered Excel sheets to track ₹Cr+ in receivables. Leadership had no real-time view of collection health.</p>
+            <div class="project-metrics"><div class="metric-pill">Real-time Tracking</div><div class="metric-pill">Single Source of Truth</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">ERP (Juno)</span><span class="tool-tag">CRM</span><span class="tool-tag">Excel</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
-          <div
-            class="project-card reveal reveal-delay-2"
-            onclick="openModal('modal3')"
-          >
-            <div class="project-card-top">
-              <span class="project-num">03</span
-              ><span class="project-tag">Marketing Analytics</span>
-            </div>
-            <div class="project-viz">
-              <div class="project-viz-bar" data-width="85"></div>
-            </div>
+          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
+            <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
             <div class="project-title">Publisher Attribution Audit</div>
-            <p class="project-problem">
-              Marketing was paying publishers for conversions they didn't drive.
-              A 60% misattribution rate was silently bleeding the ad budget.
-            </p>
-            <div class="project-metrics">
-              <div class="metric-pill">₹4.5L+ Saved</div>
-              <div class="metric-pill">65+ Apps Recovered</div>
-              <div class="metric-pill">Attribution Fixed</div>
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span
-              ><span class="tool-tag">DAX</span
-              ><span class="tool-tag">Google Sheets</span
-              ><span class="tool-tag">CRM</span>
-            </div>
+            <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
+            <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
-          <div
-            class="project-card reveal reveal-delay-3"
-            onclick="openModal('modal4')"
-          >
-            <div class="project-card-top">
-              <span class="project-num">04</span
-              ><span class="project-tag">Applications Analytics</span>
-            </div>
-            <div class="project-viz">
-              <div class="project-viz-bar" data-width="80"></div>
-            </div>
+          <div class="project-card reveal reveal-delay-3" onclick="openModal('modal4')">
+            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Applications Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
             <div class="project-title">Applications Analytics Dashboard</div>
-            <p class="project-problem">
-              Application data split across 2025 &amp; 2026 datasets with no
-              centralized system. Leadership had no visibility into growth,
-              conversions, or YoY performance.
-            </p>
-            <div class="project-metrics">
-              <div class="metric-pill">YoY Growth Tracked</div>
-              <div class="metric-pill">Eliminated Excel Reporting</div>
-              <div class="metric-pill">UTD Logic</div>
-            </div>
-            <div class="project-tools">
-              <span class="tool-tag">Power BI</span
-              ><span class="tool-tag">DAX</span
-              ><span class="tool-tag">Power Query</span
-              ><span class="tool-tag">Data Modeling</span>
-            </div>
+            <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
+            <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
         </div>
@@ -2199,460 +484,75 @@
     </section>
 
     <!-- MODAL 01 -->
-    <div
-      class="modal-overlay"
-      id="modal1"
-      onclick="closeModalOutside(event,'modal1')"
-    >
+    <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
       <div class="modal">
         <button class="modal-close" onclick="closeModal('modal1')">✕</button>
-        <div class="section-tag" style="margin-bottom: 10px">
-          Case Study · 01
-        </div>
-        <h2 class="section-h2" style="margin-bottom: 8px; font-size: 1.5rem">
-          Telecalling Performance Intelligence
-        </h2>
-        <p
-          style="
-            color: var(--text3);
-            font-size: 0.8rem;
-            margin-bottom: 28px;
-            font-family: var(--mono);
-          "
-        >
-          Power BI · DAX · MCUBE · Meritto CRM · Excel
-        </p>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 01</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Telecalling Performance Intelligence</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · MCUBE · Meritto CRM · Excel</p>
         <div class="modal-kpi-grid">
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">1M+</div>
-            <div class="modal-kpi-label">Records Processed</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">90%</div>
-            <div class="modal-kpi-label">Reporting Reduction</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">25%</div>
-            <div class="modal-kpi-label">Follow-up Improvement</div>
-          </div>
+          <div class="modal-kpi"><div class="modal-kpi-val">1M+</div><div class="modal-kpi-label">Records Processed</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Reporting Reduction</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">25%</div><div class="modal-kpi-label">Follow-up Improvement</div></div>
         </div>
-        <div class="modal-step">
-          <div class="modal-step-num">01</div>
-          <div class="modal-step-content">
-            <h4>Problem</h4>
-            <p>
-              The call center generated over 1M+ records but had no unified
-              reporting layer. Managers spent 10+ hours/week manually compiling
-              Excel sheets, with no visibility into agent productivity, SLA
-              adherence, or campaign conversion rates.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">02</div>
-          <div class="modal-step-content">
-            <h4>Approach</h4>
-            <p>
-              Built an end-to-end Power BI solution by integrating telephony
-              data (MCUBE) with CRM leads and admission records using a
-              star-schema data model. Designed custom DAX measures for Answer
-              Rate, SLA, and Conversion Rate per agent and campaign.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">03</div>
-          <div class="modal-step-content">
-            <h4>Key KPIs Delivered</h4>
-            <div class="project-tools" style="margin: 0">
-              <span class="tool-tag">Answer Rate</span
-              ><span class="tool-tag">SLA Compliance</span
-              ><span class="tool-tag">First Call</span
-              ><span class="tool-tag">Unique Call</span
-              ><span class="tool-tag">Average Call Duration</span
-              ><span class="tool-tag">WoW &amp; MoM Performance</span
-              ><span class="tool-tag">Conversion Rate</span
-              ><span class="tool-tag">Follow-up Rate</span
-              ><span class="tool-tag">Calls per Agent</span
-              ><span class="tool-tag">Campaign Performance</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">04</div>
-          <div class="modal-step-content">
-            <h4>Dashboard Images</h4>
-            <div class="project-images">
-              <img src="Dashboard.png" alt="Dashboard overview" /><img
-                src="Calling per.png"
-                alt="Calling performance"
-              /><img src="Conversion.png" alt="Conversion rates" /><img
-                src="First Call.png"
-                alt="First call metrics"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">05</div>
-          <div class="modal-step-content">
-            <h4>Business Impact</h4>
-            <p>
-              Eliminated 10+ hours/week of manual reporting and enabled
-              drill-through analysis across agent, campaign, and campus levels.
-              Scaled visibility by sharing the dashboard across all teams,
-              allowing real-time tracking of individual and team productivity.
-              Empowered leadership to make faster, data-driven decisions on
-              staffing and campaign performance — shifting from end-of-week
-              reviews to real-time action.
-            </p>
-          </div>
-        </div>
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>The call center generated over 1M+ records but had no unified reporting layer. Managers spent 10+ hours/week manually compiling Excel sheets, with no visibility into agent productivity, SLA adherence, or campaign conversion rates.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Built an end-to-end Power BI solution by integrating telephony data (MCUBE) with CRM leads and admission records using a star-schema data model. Designed custom DAX measures for Answer Rate, SLA, and Conversion Rate per agent and campaign.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Answer Rate</span><span class="tool-tag">SLA Compliance</span><span class="tool-tag">First Call</span><span class="tool-tag">Unique Call</span><span class="tool-tag">Average Call Duration</span><span class="tool-tag">WoW &amp; MoM Performance</span><span class="tool-tag">Conversion Rate</span><span class="tool-tag">Follow-up Rate</span><span class="tool-tag">Calls per Agent</span><span class="tool-tag">Campaign Performance</span></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Images</h4><div class="project-images"><img src="Dashboard.png" alt="Dashboard overview"/><img src="Calling per.png" alt="Calling performance"/><img src="Conversion.png" alt="Conversion rates"/><img src="First Call.png" alt="First call metrics"/></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Eliminated 10+ hours/week of manual reporting and enabled drill-through analysis across agent, campaign, and campus levels. Scaled visibility by sharing the dashboard across all teams, allowing real-time tracking of individual and team productivity. Empowered leadership to make faster, data-driven decisions on staffing and campaign performance — shifting from end-of-week reviews to real-time action.</p></div></div>
       </div>
     </div>
 
     <!-- MODAL 02 -->
-    <div
-      class="modal-overlay"
-      id="modal2"
-      onclick="closeModalOutside(event,'modal2')"
-    >
+    <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
       <div class="modal">
         <button class="modal-close" onclick="closeModal('modal2')">✕</button>
-        <div class="section-tag" style="margin-bottom: 10px">
-          Case Study · 02
-        </div>
-        <h2 class="section-h2" style="margin-bottom: 8px; font-size: 1.5rem">
-          Financial Collections Dashboard
-        </h2>
-        <p
-          style="
-            color: var(--text3);
-            font-size: 0.8rem;
-            margin-bottom: 28px;
-            font-family: var(--mono);
-          "
-        >
-          Power BI · DAX · ERP (Juno) · CRM · Excel
-        </p>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 02</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Financial Collections Dashboard</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · ERP (Juno) · CRM · Excel</p>
         <div class="modal-kpi-grid">
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">Real-time</div>
-            <div class="modal-kpi-label">Financial Visibility</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">90%</div>
-            <div class="modal-kpi-label">Manual Reports Replaced</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">10+</div>
-            <div class="modal-kpi-label">Branches Tracked</div>
-          </div>
+          <div class="modal-kpi"><div class="modal-kpi-val">Real-time</div><div class="modal-kpi-label">Financial Visibility</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Manual Reports Replaced</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">10+</div><div class="modal-kpi-label">Branches Tracked</div></div>
         </div>
-        <div class="modal-step">
-          <div class="modal-step-num">01</div>
-          <div class="modal-step-content">
-            <h4>Problem</h4>
-            <p>
-              Finance and leadership had no unified view of revenue,
-              receivables, or outstanding balances across 10+ branches. Data
-              lived in disconnected ERP and CRM systems, updated manually each
-              week.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">02</div>
-          <div class="modal-step-content">
-            <h4>Approach</h4>
-            <p>
-              Integrated ERP billing data (Juno) with CRM customer records into
-              a structured Power BI model. Built custom DAX measures for
-              Collection %, Outstanding Amount, and program-wise financial
-              performance with drill-through by campus and branch.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">03</div>
-          <div class="modal-step-content">
-            <h4>Key KPIs Delivered</h4>
-            <div class="project-tools" style="margin: 0">
-              <span class="tool-tag">Total Revenue</span
-              ><span class="tool-tag">Collection %</span
-              ><span class="tool-tag">Receivables</span
-              ><span class="tool-tag">Outstanding Amount</span
-              ><span class="tool-tag">Paid vs Unpaid</span
-              ><span class="tool-tag">Program-wise P&amp;L</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">05</div>
-          <div class="modal-step-content">
-            <h4>Business Impact</h4>
-            <p>
-              Established a single source of truth for financial reporting.
-              Finance teams could now proactively follow up on outstanding
-              payments. Leadership had live financial health dashboards — no
-              more end-of-month Excel scrambles.
-            </p>
-          </div>
-        </div>
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Finance and leadership had no unified view of revenue, receivables, or outstanding balances across 10+ branches. Data lived in disconnected ERP and CRM systems, updated manually each week.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated ERP billing data (Juno) with CRM customer records into a structured Power BI model. Built custom DAX measures for Collection %, Outstanding Amount, and program-wise financial performance with drill-through by campus and branch.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Revenue</span><span class="tool-tag">Collection %</span><span class="tool-tag">Receivables</span><span class="tool-tag">Outstanding Amount</span><span class="tool-tag">Paid vs Unpaid</span><span class="tool-tag">Program-wise P&amp;L</span></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Established a single source of truth for financial reporting. Finance teams could now proactively follow up on outstanding payments. Leadership had live financial health dashboards — no more end-of-month Excel scrambles.</p></div></div>
       </div>
     </div>
 
     <!-- MODAL 03 -->
-    <div
-      class="modal-overlay"
-      id="modal3"
-      onclick="closeModalOutside(event,'modal3')"
-    >
+    <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
       <div class="modal">
         <button class="modal-close" onclick="closeModal('modal3')">✕</button>
-        <div class="section-tag" style="margin-bottom: 10px">
-          Case Study · 03
-        </div>
-        <h2 class="section-h2" style="margin-bottom: 8px; font-size: 1.5rem">
-          Publisher Attribution Audit
-        </h2>
-        <p
-          style="
-            color: var(--text3);
-            font-size: 0.8rem;
-            margin-bottom: 28px;
-            font-family: var(--mono);
-          "
-        >
-          Power BI · DAX · Google Sheets · CRM
-        </p>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 03</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Publisher Attribution Audit</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Google Sheets · CRM</p>
         <div class="modal-kpi-grid">
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">60%</div>
-            <div class="modal-kpi-label">Misattribution Corrected</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">₹4.5L+</div>
-            <div class="modal-kpi-label">Revenue Leakage Stopped</div>
-          </div>
-          <div class="modal-kpi">
-            <div class="modal-kpi-val">65+</div>
-            <div class="modal-kpi-label">Applications Recovered</div>
-          </div>
+          <div class="modal-kpi"><div class="modal-kpi-val">60%</div><div class="modal-kpi-label">Misattribution Corrected</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">₹4.5L+</div><div class="modal-kpi-label">Revenue Leakage Stopped</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">65+</div><div class="modal-kpi-label">Applications Recovered</div></div>
         </div>
-        <div class="modal-step">
-          <div class="modal-step-num">01</div>
-          <div class="modal-step-content">
-            <h4>Problem</h4>
-            <p>
-              Marketing paid publishers for Primary, Secondary, and Tertiary
-              campaign conversions — but attribution logic was broken. 60% of
-              conversions were credited to the wrong publisher, skewing ROI data
-              and leading to inflated payments to low-performing sources.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">02</div>
-          <div class="modal-step-content">
-            <h4>Approach</h4>
-            <p>
-              Integrated CRM, application, admission, and campaign datasets into
-              a unified Power BI model. Built DAX-based attribution logic to
-              trace the true conversion path across touchpoints. Identified and
-              flagged fraudulent/duplicate publisher credit records.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">03</div>
-          <div class="modal-step-content">
-            <h4>Attribution Logic (DAX)</h4>
-            <p style="font-size: 0.75rem; color: var(--text3); margin-top: 6px">
-              Custom DAX logic used to determine correct payment attribution
-              across campaign stages
-            </p>
-            <img
-              src="Publisher Logic.png"
-              alt="DAX logic"
-              style="
-                width: 100%;
-                border-radius: 12px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                margin-top: 10px;
-              "
-            />
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">05</div>
-          <div class="modal-step-content">
-            <h4>Business Impact</h4>
-            <p>
-              Corrected a 60% misattribution rate that was silently inflating
-              publisher payments. Recovered 65+ wrongly attributed applications
-              and stopped ₹4.5L+ in revenue leakage. Changed the payment
-              attribution model used by the marketing team going forward —
-              shifting budget toward publishers with verified, genuine
-              conversions.
-            </p>
-          </div>
-        </div>
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Marketing paid publishers for Primary, Secondary, and Tertiary campaign conversions — but attribution logic was broken. 60% of conversions were credited to the wrong publisher, skewing ROI data and leading to inflated payments to low-performing sources.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated CRM, application, admission, and campaign datasets into a unified Power BI model. Built DAX-based attribution logic to trace the true conversion path across touchpoints. Identified and flagged fraudulent/duplicate publisher credit records.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Attribution Logic (DAX)</h4><p style="font-size:0.75rem;color:var(--text3);margin-top:6px">Custom DAX logic used to determine correct payment attribution across campaign stages</p><img src="Publisher Logic.png" alt="DAX logic" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);margin-top:10px"/></div></div>
+        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Corrected a 60% misattribution rate that was silently inflating publisher payments. Recovered 65+ wrongly attributed applications and stopped ₹4.5L+ in revenue leakage. Changed the payment attribution model used by the marketing team going forward — shifting budget toward publishers with verified, genuine conversions.</p></div></div>
       </div>
     </div>
 
     <!-- MODAL 04 -->
-    <div
-      class="modal-overlay"
-      id="modal4"
-      onclick="closeModalOutside(event,'modal4')"
-    >
+    <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
       <div class="modal">
         <button class="modal-close" onclick="closeModal('modal4')">✕</button>
-        <div class="section-tag" style="margin-bottom: 10px">
-          Case Study · 04
-        </div>
-        <h2 class="section-h2" style="margin-bottom: 8px; font-size: 1.5rem">
-          Applications Analytics Dashboard
-        </h2>
-        <p
-          style="
-            color: var(--text3);
-            font-size: 0.8rem;
-            margin-bottom: 28px;
-            font-family: var(--mono);
-          "
-        >
-          Power BI · DAX · Power Query · Data Modeling
-        </p>
-        <div class="modal-step">
-          <div class="modal-step-num">01</div>
-          <div class="modal-step-content">
-            <h4>Problem</h4>
-            <p>
-              Application data was fragmented across separate 2025 and 2026
-              datasets with no centralized reporting. Leadership had no
-              real-time visibility into application volume, paid conversions, or
-              growth.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">02</div>
-          <div class="modal-step-content">
-            <h4>Approach</h4>
-            <p>
-              Appended multi-year datasets using Power Query and built DAX
-              measures for YoY and UTD comparisons.
-            </p>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">03</div>
-          <div class="modal-step-content">
-            <h4>Key KPIs Delivered</h4>
-            <div class="project-tools" style="margin: 0">
-              <span class="tool-tag">Total Applications</span
-              ><span class="tool-tag">Paid Applications</span
-              ><span class="tool-tag">Conversion Rate %</span
-              ><span class="tool-tag">UTD Growth %</span
-              ><span class="tool-tag">Month-wise Trends</span
-              ><span class="tool-tag">Program Performance</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">04</div>
-          <div class="modal-step-content">
-            <h4>Dashboard Screenshots</h4>
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-                margin-top: 8px;
-              "
-            >
-              <div>
-                <p
-                  style="
-                    font-size: 0.72rem;
-                    color: var(--text3);
-                    margin-bottom: 6px;
-                    font-family: var(--mono);
-                    letter-spacing: 0.06em;
-                  "
-                >
-                  OVERVIEW · KPI CARDS &amp; COURSE COMPARISON
-                </p>
-                <img
-                  src="Apps Home.png"
-                  alt="Overview"
-                  style="
-                    width: 100%;
-                    border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                  "
-                />
-              </div>
-              <div>
-                <p
-                  style="
-                    font-size: 0.72rem;
-                    color: var(--text3);
-                    margin-bottom: 6px;
-                    font-family: var(--mono);
-                    letter-spacing: 0.06em;
-                  "
-                >
-                  MONTH ON MONTH APPLICATIONS · 2025 VS 2026
-                </p>
-                <img
-                  src="Apps MOM.png"
-                  alt="Month on Month"
-                  style="
-                    width: 100%;
-                    border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                  "
-                />
-              </div>
-              <div>
-                <p
-                  style="
-                    font-size: 0.72rem;
-                    color: var(--text3);
-                    margin-bottom: 6px;
-                    font-family: var(--mono);
-                    letter-spacing: 0.06em;
-                  "
-                >
-                  YTD COMPARISON · COURSE-WISE UTD GROWTH
-                </p>
-                <img
-                  src="Apps YTD.png"
-                  alt="YTD Comparison"
-                  style="
-                    width: 100%;
-                    border-radius: 12px;
-                    border: 1px solid rgba(255, 255, 255, 0.1);
-                  "
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">05</div>
-          <div class="modal-step-content">
-            <h4>Business Impact</h4>
-            <p>
-              Replaced time-consuming manual Excel tracking with a live Power BI
-              dashboard — enabling real-time monitoring of application inflow
-              and paid conversion rates across programs and branches.
-            </p>
-          </div>
-        </div>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 04</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Applications Analytics Dashboard</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
+        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Application data was fragmented across separate 2025 and 2026 datasets with no centralized reporting. Leadership had no real-time visibility into application volume, paid conversions, or growth.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Appended multi-year datasets using Power Query and built DAX measures for YoY and UTD comparisons.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid Applications</span><span class="tool-tag">Conversion Rate %</span><span class="tool-tag">UTD Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Program Performance</span></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Screenshots</h4><div style="display:flex;flex-direction:column;gap:16px;margin-top:8px"><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p><img src="Apps Home.png" alt="Overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p><img src="Apps MOM.png" alt="Month on Month" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p><img src="Apps YTD.png" alt="YTD Comparison" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Replaced time-consuming manual Excel tracking with a live Power BI dashboard — enabling real-time monitoring of application inflow and paid conversion rates across programs and branches.</p></div></div>
       </div>
     </div>
 
@@ -2660,120 +560,34 @@
     <section id="skills">
       <div class="section-inner">
         <div class="section-tag reveal">Technical Arsenal</div>
-        <h2 class="section-h2 reveal reveal-delay-1">
-          Skills That Solve<br />Real Problems
-        </h2>
-        <p class="section-desc reveal reveal-delay-2">
-          Not a laundry list — each skill has been applied in production
-          environments with measurable outcomes.
-        </p>
+        <h2 class="section-h2 reveal reveal-delay-1">Skills That Solve<br />Real Problems</h2>
+        <p class="section-desc reveal reveal-delay-2">Not a laundry list — each skill has been applied in production environments with measurable outcomes.</p>
         <div class="skills-grid">
           <div class="skill-group reveal">
             <div class="skill-group-icon">🗄️</div>
             <div class="skill-group-title">Data Analysis & Querying</div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">SQL / MySQL</span
-                ><span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="88"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">Excel (Advanced)</span
-                ><span class="skill-level">Expert</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="92"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">Python</span
-                ><span class="skill-level">Fundamentals</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="55"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">Google Sheets</span
-                ><span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="85"></div>
-              </div>
-            </div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">SQL / MySQL</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">Excel (Advanced)</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">Python</span><span class="skill-level">Fundamentals</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="55"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">Google Sheets</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
           </div>
           <div class="skill-group reveal reveal-delay-1">
             <div class="skill-group-icon">📈</div>
             <div class="skill-group-title">Visualization & BI</div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">Power BI</span
-                ><span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="90"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">DAX</span
-                ><span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="85"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">Dashboard Design</span
-                ><span class="skill-level">Advanced</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="88"></div>
-              </div>
-            </div>
-            <div class="skill-item">
-              <div class="skill-row">
-                <span class="skill-name">KPI Design</span
-                ><span class="skill-level">Strong</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-bar-fill" data-width="82"></div>
-              </div>
-            </div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">DAX</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">Dashboard Design</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div>
+            <div class="skill-item"><div class="skill-row"><span class="skill-name">KPI Design</span><span class="skill-level">Strong</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div></div>
           </div>
           <div class="skill-group reveal reveal-delay-2">
             <div class="skill-group-icon">⚙️</div>
             <div class="skill-group-title">Automation & Tools</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Google Apps Script</span
-              ><span class="skill-tag">ETL Pipelines</span
-              ><span class="skill-tag">Data Cleaning</span>
-              <span class="skill-tag">CRM (Meritto)</span
-              ><span class="skill-tag">MCUBE</span
-              ><span class="skill-tag">STPL / Nettyfish</span
-              ><span class="skill-tag">Workflow Automation</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">Google Apps Script</span><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">CRM (Meritto)</span><span class="skill-tag">MCUBE</span><span class="skill-tag">STPL / Nettyfish</span><span class="skill-tag">Workflow Automation</span></div>
           </div>
           <div class="skill-group reveal reveal-delay-3">
             <div class="skill-group-icon">🧠</div>
             <div class="skill-group-title">Domain Expertise</div>
-            <div class="skill-tags">
-              <span class="skill-tag">Marketing Analytics</span
-              ><span class="skill-tag">CRM Analysis</span
-              ><span class="skill-tag">Funnel Analysis</span>
-              <span class="skill-tag">Attribution Modeling</span
-              ><span class="skill-tag">Financial Reporting</span
-              ><span class="skill-tag">Performance Mgmt</span>
-              <span class="skill-tag">Stakeholder Reporting</span
-              ><span class="skill-tag">Data Storytelling</span>
-            </div>
+            <div class="skill-tags"><span class="skill-tag">Marketing Analytics</span><span class="skill-tag">CRM Analysis</span><span class="skill-tag">Funnel Analysis</span><span class="skill-tag">Attribution Modeling</span><span class="skill-tag">Financial Reporting</span><span class="skill-tag">Performance Mgmt</span><span class="skill-tag">Stakeholder Reporting</span><span class="skill-tag">Data Storytelling</span></div>
           </div>
         </div>
       </div>
@@ -2783,73 +597,24 @@
     <section id="experience">
       <div class="section-inner">
         <div class="section-tag reveal">Experience</div>
-        <h2 class="section-h2 reveal reveal-delay-1">
-          Where I Created Business Impact
-        </h2>
-        <p class="section-desc reveal reveal-delay-2">
-          Real-world problems solved using data — focused on measurable
-          outcomes, not just reporting.
-        </p>
+        <h2 class="section-h2 reveal reveal-delay-1">Where I Created Business Impact</h2>
+        <p class="section-desc reveal reveal-delay-2">Real-world problems solved using data — focused on measurable outcomes, not just reporting.</p>
         <div class="exp-card reveal reveal-delay-3">
-          <div class="exp-role-row">
-            <h3>Data Analyst</h3>
-            <span class="exp-tenure">1 yr+ · Current</span>
-          </div>
-          <div class="exp-org-row">
-            <span class="exp-org">CMR University · Bangalore</span>
-            <span class="exp-date">Feb 2025 – Present</span>
-          </div>
-          <p class="exp-context">
-            Full-time analyst role embedded within the university's Admissions,
-            Marketing &amp; Finance operations — not academic staff.
-          </p>
-          <div class="exp-tool-row">
-            <span class="tool-tag">Power BI</span
-            ><span class="tool-tag">DAX</span><span class="tool-tag">SQL</span
-            ><span class="tool-tag">Excel</span>
-            <span class="tool-tag">Google Sheets</span
-            ><span class="tool-tag">Apps Script</span
-            ><span class="tool-tag">Meritto CRM</span
-            ><span class="tool-tag">MCUBE</span
-            ><span class="tool-tag">ERP (Juno)</span>
-          </div>
-          <div class="exp-metrics">
-            <span>₹4.5L+ Saved</span><span>70% Automated</span
-            ><span>1M+ Records</span><span>15% Productivity ↑</span
-            ><span>6+ Dashboards</span>
-          </div>
+          <div class="exp-role-row"><h3>Data Analyst</h3><span class="exp-tenure">1 yr+ · Current</span></div>
+          <div class="exp-org-row"><span class="exp-org">CMR University · Bangalore</span><span class="exp-date">Feb 2025 – Present</span></div>
+          <p class="exp-context">Full-time analyst role embedded within the university's Admissions, Marketing &amp; Finance operations — not academic staff.</p>
+          <div class="exp-tool-row"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">SQL</span><span class="tool-tag">Excel</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">Apps Script</span><span class="tool-tag">Meritto CRM</span><span class="tool-tag">MCUBE</span><span class="tool-tag">ERP (Juno)</span></div>
+          <div class="exp-metrics"><span>₹4.5L+ Saved</span><span>70% Automated</span><span>1M+ Records</span><span>15% Productivity ↑</span><span>6+ Dashboards</span></div>
           <div class="exp-blocks">
-            <div class="exp-block">
-              <h4>Problem</h4>
-              <p>
-                Finance, marketing, and operations teams lacked a unified data
-                view. Decisions were delayed by disconnected CRM, ERP, and
-                telecalling systems alongside fully manual reporting workflows.
-              </p>
-            </div>
-            <div class="exp-block">
-              <h4>Action</h4>
-              <p>
-                Built end-to-end Power BI dashboards integrating MCUBE, Meritto
-                CRM, and ERP data. Developed custom DAX measures and automated
-                weekly reporting pipelines using Google Apps Script.
-              </p>
-            </div>
-            <div class="exp-block">
-              <h4>Impact</h4>
-              <ul>
-                <li>
-                  Stopped ₹4.5L+ in revenue leakage via publisher fraud
-                  detection
-                </li>
-                <li>Automated 70% of manual workflows — saving 10+ hrs/week</li>
-                <li>Drove 15% productivity improvement across teams</li>
-                <li>Delivered weekly CEO-level insight reports</li>
-                <li>
-                  Migrated 1M+ CRM records into Meritto with &lt;1% error rate
-                </li>
-              </ul>
-            </div>
+            <div class="exp-block"><h4>Problem</h4><p>Finance, marketing, and operations teams lacked a unified data view. Decisions were delayed by disconnected CRM, ERP, and telecalling systems alongside fully manual reporting workflows.</p></div>
+            <div class="exp-block"><h4>Action</h4><p>Built end-to-end Power BI dashboards integrating MCUBE, Meritto CRM, and ERP data. Developed custom DAX measures and automated weekly reporting pipelines using Google Apps Script.</p></div>
+            <div class="exp-block"><h4>Impact</h4><ul>
+              <li>Stopped ₹4.5L+ in revenue leakage via publisher fraud detection</li>
+              <li>Automated 70% of manual workflows — saving 10+ hrs/week</li>
+              <li>Drove 15% productivity improvement across teams</li>
+              <li>Delivered weekly CEO-level insight reports</li>
+              <li>Migrated 1M+ CRM records into Meritto with &lt;1% error rate</li>
+            </ul></div>
           </div>
         </div>
       </div>
@@ -2864,16 +629,10 @@
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-date">2022 – 2025</div>
-            <div class="timeline-role">
-              Bachelor of Computer Applications (BCA)
-            </div>
-            <div class="timeline-org">
-              CMR University · First Class With Distinction
-            </div>
+            <div class="timeline-role">Bachelor of Computer Applications (BCA)</div>
+            <div class="timeline-org">CMR University · First Class With Distinction</div>
             <ul class="timeline-impacts">
-              <li>
-                Built foundation in data analysis, databases, and programming
-              </li>
+              <li>Built foundation in data analysis, databases, and programming</li>
               <li>Worked on projects using SQL, Excel, and basic Python</li>
               <li>Developed understanding of business data and reporting</li>
             </ul>
@@ -2888,65 +647,17 @@
         <div class="section-tag reveal">About Me</div>
         <div class="about-grid">
           <div class="about-text reveal">
-            <h2 class="section-h2" style="margin-bottom: 24px">
-              Think in Patterns,<br />Speak in Insights
-            </h2>
-            <p>
-              Data Analyst with 1+ year of experience turning messy, high-volume
-              datasets into decisions that move the business. I work across
-              <strong>Power BI</strong>, <strong>SQL</strong>,
-              <strong>Excel</strong>, and <strong>Google Sheets</strong> — not
-              to build reports, but to solve the problem behind the problem.
-            </p>
-            <p>
-              At CMR University, I didn't just analyze data — I
-              <strong>caught fraud</strong>, stopped
-              <strong>₹4.5L+ in revenue leakage</strong>,
-              <strong>automated 70% of manual workflows</strong>, and built
-              dashboards that gave leadership real-time visibility across
-              finance, marketing, and operations. I start with the business
-              question, not the dataset — and I don't stop until the insight is
-              actionable.
-            </p>
-            <div style="margin-top: 28px">
-              <a
-                href="mailto:lokesh2520031968@gmail.com"
-                class="btn-primary"
-                style="font-size: 0.84rem; padding: 12px 24px"
-                >Let's Talk →</a
-              >
-            </div>
+            <h2 class="section-h2" style="margin-bottom:24px">Think in Patterns,<br />Speak in Insights</h2>
+            <p>Data Analyst with 1+ year of experience turning messy, high-volume datasets into decisions that move the business. I work across <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Excel</strong>, and <strong>Google Sheets</strong> — not to build reports, but to solve the problem behind the problem.</p>
+            <p>At CMR University, I didn't just analyze data — I <strong>caught fraud</strong>, stopped <strong>₹4.5L+ in revenue leakage</strong>, <strong>automated 70% of manual workflows</strong>, and built dashboards that gave leadership real-time visibility across finance, marketing, and operations. I start with the business question, not the dataset — and I don't stop until the insight is actionable.</p>
+            <div style="margin-top:28px"><a href="mailto:lokesh2520031968@gmail.com" class="btn-primary" style="font-size:0.84rem;padding:12px 24px">Let's Talk →</a></div>
           </div>
           <div class="about-card reveal reveal-delay-2">
             <div class="about-card-title">Certifications</div>
-            <div class="cert-item">
-              <div class="cert-icon">🎓</div>
-              <div>
-                <div class="cert-name">SQL for Data Analysis</div>
-                <div class="cert-issuer">Udemy</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-icon">🎓</div>
-              <div>
-                <div class="cert-name">Data Analytics Essentials</div>
-                <div class="cert-issuer">Infosys Springboard</div>
-              </div>
-            </div>
-            <div class="cert-item">
-              <div class="cert-icon">🎓</div>
-              <div>
-                <div class="cert-name">Python for Data Science</div>
-                <div class="cert-issuer">Udemy</div>
-              </div>
-            </div>
-            <div class="cert-item" style="border-bottom: none">
-              <div class="cert-icon">🎓</div>
-              <div>
-                <div class="cert-name">Power BI Fundamentals</div>
-                <div class="cert-issuer">Microsoft / Coursework</div>
-              </div>
-            </div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">SQL for Data Analysis</div><div class="cert-issuer">Udemy</div></div></div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Data Analytics Essentials</div><div class="cert-issuer">Infosys Springboard</div></div></div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Python for Data Science</div><div class="cert-issuer">Udemy</div></div></div>
+            <div class="cert-item" style="border-bottom:none"><div class="cert-icon">🎓</div><div><div class="cert-name">Power BI Fundamentals</div><div class="cert-issuer">Microsoft / Coursework</div></div></div>
           </div>
         </div>
       </div>
@@ -2955,272 +666,96 @@
     <!-- CTA -->
     <section id="cta">
       <div class="cta-inner">
-        <div
-          class="section-tag reveal"
-          style="display: inline-flex; margin-bottom: 16px"
-        >
-          Open to Opportunities
-        </div>
-        <h2 class="cta-h2 reveal reveal-delay-1">
-          Ready to Put Your<br /><em>Data to Work</em>?
-        </h2>
-        <p class="cta-sub reveal reveal-delay-2">
-          If you're looking for someone who turns messy datasets into clear
-          business decisions — let's connect.
-        </p>
+        <div class="section-tag reveal" style="display:inline-flex;margin-bottom:16px">Open to Opportunities</div>
+        <h2 class="cta-h2 reveal reveal-delay-1">Ready to Put Your<br /><em>Data to Work</em>?</h2>
+        <p class="cta-sub reveal reveal-delay-2">If you're looking for someone who turns messy datasets into clear business decisions — let's connect.</p>
         <div class="cta-buttons reveal reveal-delay-3">
-          <a href="mailto:lokesh2520031968@gmail.com" class="btn-primary">
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Send me an email
-          </a>
-          <a
-            href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing"
-            target="_blank"
-            class="btn-secondary"
-          >
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-            >
-              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download Resume
-          </a>
+          <a href="mailto:lokesh2520031968@gmail.com" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Send me an email</a>
+          <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
         </div>
         <div class="contact-grid reveal reveal-delay-4">
-          <a
-            href="http://www.linkedin.com/in/lokesh252003"
-            target="_blank"
-            class="contact-link"
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
-              />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            linkedin.com/in/lokesh252003
-          </a>
-          <a href="tel:+919731992962" class="contact-link">
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
-              />
-            </svg>
-            +91 97319 92962
-          </a>
-          <a href="mailto:lokesh2520031968@gmail.com" class="contact-link">
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            lokesh2520031968@gmail.com
-          </a>
+          <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/lokesh252003</a>
+          <a href="tel:+919731992962" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+91 97319 92962</a>
+          <a href="mailto:lokesh2520031968@gmail.com" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>lokesh2520031968@gmail.com</a>
         </div>
       </div>
     </section>
 
     <footer>
-      <div class="footer-left">
-        Built by <span>Lokesh VR</span> · Data Analyst
-      </div>
+      <div class="footer-left">Built by <span>Lokesh VR</span> · Data Analyst</div>
       <div class="footer-right">lokesh · © 2026</div>
     </footer>
 
     <script>
-      // Scroll progress
-      window.addEventListener("scroll", () => {
-        const p =
-          (window.scrollY /
-            (document.documentElement.scrollHeight - window.innerHeight)) *
-          100;
-        document.getElementById("scrollProgress").style.width = p + "%";
+      window.addEventListener("scroll",()=>{
+        const p=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+        document.getElementById("scrollProgress").style.width=p+"%";
       });
-
-      // Mobile menu
-      function toggleMenu() {
-        document.getElementById("mobileMenu").classList.toggle("open");
-        document.getElementById("hamburger").classList.toggle("open");
-      }
-      function closeMenu() {
-        document.getElementById("mobileMenu").classList.remove("open");
-        document.getElementById("hamburger").classList.remove("open");
-      }
-      document.addEventListener("click", function (e) {
-        const m = document.getElementById("mobileMenu"),
-          b = document.getElementById("hamburger");
-        if (!m.contains(e.target) && !b.contains(e.target)) {
-          m.classList.remove("open");
-          b.classList.remove("open");
-        }
+      function toggleMenu(){document.getElementById("mobileMenu").classList.toggle("open");document.getElementById("hamburger").classList.toggle("open");}
+      function closeMenu(){document.getElementById("mobileMenu").classList.remove("open");document.getElementById("hamburger").classList.remove("open");}
+      document.addEventListener("click",function(e){
+        const m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger");
+        if(!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove("open");b.classList.remove("open");}
       });
-
-      // Card tilt + mouse glow
-      document.querySelectorAll(".project-card").forEach((card) => {
-        card.addEventListener("mousemove", (e) => {
-          const r = card.getBoundingClientRect();
-          const x = ((e.clientX - r.left) / r.width) * 100;
-          const y = ((e.clientY - r.top) / r.height) * 100;
-          card.style.setProperty("--x", x + "%");
-          card.style.setProperty("--y", y + "%");
-          card.style.transform = `rotateX(${
-            -(y / r.height - 0.5) * 5
-          }deg) rotateY(${(x / r.width - 0.5) * 5}deg) translateY(-6px)`;
+      document.querySelectorAll(".project-card").forEach(card=>{
+        card.addEventListener("mousemove",e=>{
+          const r=card.getBoundingClientRect();
+          const x=((e.clientX-r.left)/r.width)*100,y=((e.clientY-r.top)/r.height)*100;
+          card.style.setProperty("--x",x+"%");card.style.setProperty("--y",y+"%");
+          card.style.transform=`rotateX(${-(y/r.height-0.5)*5}deg) rotateY(${(x/r.width-0.5)*5}deg) translateY(-6px)`;
         });
-        card.addEventListener("mouseleave", () => {
-          card.style.transform = "";
-        });
+        card.addEventListener("mouseleave",()=>{card.style.transform="";});
       });
-
-      // Reveal observer
-      const ro = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.classList.add("visible");
-              e.target.querySelectorAll(".skill-bar-fill").forEach((b) => {
-                b.style.width = b.dataset.width + "%";
-              });
-              e.target.querySelectorAll(".project-viz-bar").forEach((b) => {
-                b.style.width = b.dataset.width + "%";
-              });
-            }
-          });
-        },
-        { threshold: 0.12 }
-      );
-      document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
-
-      // Project viz bars
-      document.querySelectorAll(".project-card").forEach((card) => {
-        const bo = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) {
-                e.target.querySelectorAll(".project-viz-bar").forEach((b) => {
-                  setTimeout(
-                    () => (b.style.width = b.dataset.width + "%"),
-                    200
-                  );
-                });
-              }
-            });
-          },
-          { threshold: 0.3 }
-        );
+      const ro=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.classList.add("visible");
+            e.target.querySelectorAll(".skill-bar-fill").forEach(b=>{b.style.width=b.dataset.width+"%";});
+            e.target.querySelectorAll(".project-viz-bar").forEach(b=>{b.style.width=b.dataset.width+"%";});
+          }
+        });
+      },{threshold:0.12});
+      document.querySelectorAll(".reveal").forEach(el=>ro.observe(el));
+      document.querySelectorAll(".project-card").forEach(card=>{
+        const bo=new IntersectionObserver(entries=>{
+          entries.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll(".project-viz-bar").forEach(b=>{setTimeout(()=>b.style.width=b.dataset.width+"%",200);});}});
+        },{threshold:0.3});
         bo.observe(card);
       });
-
-      // Impact counters
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry, i) => {
-            if (entry.isIntersecting) {
-              const el = entry.target;
-              setTimeout(() => el.classList.add("visible"), i * 120);
-              const n = el.querySelector(".impact-number");
-              const t = parseFloat(n.dataset.value),
-                s = n.dataset.suffix || "+";
-              let c = 0;
-              const u = () => {
-                c += t / 40;
-                if (c < t) {
-                  if (t >= 1000000)
-                    n.innerHTML =
-                      Math.floor(c / 100000) / 10 +
-                      'M<span style="color:var(--accent)">+</span>';
-                  else if (s === "%")
-                    n.innerHTML =
-                      Math.floor(c) +
-                      '<span style="color:var(--accent)">%</span>';
-                  else if (s.includes("L"))
-                    n.innerHTML =
-                      c.toFixed(1) +
-                      '<span style="color:var(--accent)">L+</span>';
-                  else
-                    n.innerHTML =
-                      Math.floor(c) +
-                      '<span style="color:var(--accent)">+</span>';
-                  requestAnimationFrame(u);
-                } else {
-                  if (t >= 1000000)
-                    n.innerHTML =
-                      '1M<span style="color:var(--accent)">+</span>';
-                  else if (s === "%")
-                    n.innerHTML =
-                      t + '<span style="color:var(--accent)">%</span>';
-                  else if (s.includes("L"))
-                    n.innerHTML =
-                      t + '<span style="color:var(--accent)">L+</span>';
-                  else
-                    n.innerHTML =
-                      t + '<span style="color:var(--accent)">+</span>';
-                }
-              };
-              u();
-            }
-          });
-        },
-        { threshold: 0.4 }
-      );
-      document
-        .querySelectorAll(".impact-item")
-        .forEach((item) => io.observe(item));
-
-      // Modals
-      function openModal(id) {
-        document.getElementById(id).classList.add("active");
-        document.body.style.overflow = "hidden";
-      }
-      function closeModal(id) {
-        document.getElementById(id).classList.remove("active");
-        document.body.style.overflow = "";
-      }
-      function closeModalOutside(e, id) {
-        if (e.target.classList.contains("modal-overlay")) closeModal(id);
-      }
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape")
-          document.querySelectorAll(".modal-overlay.active").forEach((m) => {
-            m.classList.remove("active");
-            document.body.style.overflow = "";
-          });
+      const io=new IntersectionObserver(entries=>{
+        entries.forEach((entry,i)=>{
+          if(entry.isIntersecting){
+            const el=entry.target;
+            setTimeout(()=>el.classList.add("visible"),i*120);
+            const n=el.querySelector(".impact-number");
+            const t=parseFloat(n.dataset.value),s=n.dataset.suffix||"+";
+            let c=0;
+            const u=()=>{
+              c+=t/40;
+              if(c<t){
+                if(t>=1000000) n.innerHTML=Math.floor(c/100000)/10+'M<span style="color:var(--accent)">+</span>';
+                else if(s==="%") n.innerHTML=Math.floor(c)+'<span style="color:var(--accent)">%</span>';
+                else if(s.includes("L")) n.innerHTML=c.toFixed(1)+'<span style="color:var(--accent)">L+</span>';
+                else n.innerHTML=Math.floor(c)+'<span style="color:var(--accent)">+</span>';
+                requestAnimationFrame(u);
+              } else {
+                if(t>=1000000) n.innerHTML='1M<span style="color:var(--accent)">+</span>';
+                else if(s==="%") n.innerHTML=t+'<span style="color:var(--accent)">%</span>';
+                else if(s.includes("L")) n.innerHTML=t+'<span style="color:var(--accent)">L+</span>';
+                else n.innerHTML=t+'<span style="color:var(--accent)">+</span>';
+              }
+            };
+            u();
+          }
+        });
+      },{threshold:0.4});
+      document.querySelectorAll(".impact-item").forEach(item=>io.observe(item));
+      function openModal(id){document.getElementById(id).classList.add("active");document.body.style.overflow="hidden";}
+      function closeModal(id){document.getElementById(id).classList.remove("active");document.body.style.overflow="";}
+      function closeModalOutside(e,id){if(e.target.classList.contains("modal-overlay"))closeModal(id);}
+      document.addEventListener("keydown",e=>{
+        if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>{m.classList.remove("active");document.body.style.overflow="";});
       });
     </script>
   </body>
 </html>
-
