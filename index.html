@@ -442,9 +442,9 @@
           <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
             <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
-            <div class="project-title">Admissions Intelligence — SQL Analytics</div>
+            <div class="project-title">SQL Analytics</div>
             <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — every insight required manual Excel work.</p>
-            <div class="project-metrics"><div class="metric-pill">Full Funnel Visibility</div><div class="metric-pill">Counsellor Scorecards</div><div class="metric-pill">Revenue Attribution</div></div>
+            <div class="project-metrics"><div class="metric-pill">Full Funnel Visibility</div><div class="metric-pill">Counsellor Scorecards</div><div class="metric-pill">Publisher Comparision</div></div>
             <div class="project-tools"><span class="tool-tag">MySQL</span><span class="tool-tag">CTEs</span><span class="tool-tag">JOINs</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">UNION ALL</span><span class="tool-tag">Subqueries</span></div>
             <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
           </div>
@@ -527,90 +527,125 @@
     </div>
 
     <!-- MODAL 05 — SQL PROJECT -->
-    <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
-      <div class="modal" style="--modal-accent:var(--accent2);">
-        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
-        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Admissions Intelligence — SQL Analytics</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · UNION ALL · Subqueries</p>
+   <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
+  <div class="modal" style="--modal-accent:var(--accent2);">
+    <button class="modal-close" onclick="closeModal('modal5')">✕</button>
 
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">4</div><div class="modal-kpi-label">Funnel Stages Tracked</div></div>
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">10+</div><div class="modal-kpi-label">KPIs per Counsellor</div></div>
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">1M+</div><div class="modal-kpi-label">Records Queried</div></div>
-        </div>
+    <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">
+      Case Study · 05
+    </div>
 
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
-          <div class="modal-step-content">
-            <h4>Problem</h4>
-            <p>The admissions operation ran across three disconnected systems — a CRM for leads, an application portal, and an ERP for enrolments. Leadership could not answer basic operational questions like "Which counsellor converted the most leads this month?" or "What is our Karnataka-to-paid conversion rate?" without waiting for manual Excel reports that were already outdated on arrival.</p>
-          </div>
-        </div>
+    <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">
+      SQL Analytics
+    </h2>
 
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
-          <div class="modal-step-content">
-            <h4>Approach</h4>
-            <p>Built a structured SQL analytics layer on the MySQL database across four business dimensions: the lead funnel, counsellor performance, revenue analysis, and geographic distribution. Used JOINs to bridge leads and applications via a shared lead_id, CTEs for multi-step readable logic, CASE WHEN aggregations to pivot status breakdowns into single-row scorecards, and UNION ALL to append grand totals to every grouped report.</p>
-          </div>
-        </div>
+    <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">
+      MySQL · CTEs · JOINs · CASE WHEN · UNION ALL · Subqueries
+    </p>
 
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
-          <div class="modal-step-content">
-            <h4>Key Analyses Delivered</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-              <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
-                <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">📊 Lead Funnel</div>
-                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Total leads → Verified → Applications → Paid → Enrolled, segmented by course, branch, publisher, and state.</div>
-              </div>
-              <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
-                <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">👤 Counsellor Scorecard</div>
-                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Per-counsellor: total leads, verified, applications, paid conversions, enrolments, and PA conversion % — all in a single query row using CASE WHEN.</div>
-              </div>
-              <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
-                <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">💰 Revenue Analysis</div>
-                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Campus-wise and course-wise total payment collection, average fee, and max payment — with grand totals via UNION ALL.</div>
-              </div>
-              <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
-                <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">🗺️ Geographic Distribution</div>
-                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">State and city-wise lead count, paid applications, and enrolments — used to identify high-converting geographies for marketing budget decisions.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
-          <div class="modal-step-content">
-            <h4>SQL Techniques Used</h4>
-            <div class="project-tools" style="margin-top:8px">
-              <span class="tool-tag">INNER JOIN / LEFT JOIN</span>
-              <span class="tool-tag">CTEs (WITH clause)</span>
-              <span class="tool-tag">CASE WHEN aggregation</span>
-              <span class="tool-tag">UNION ALL with grand totals</span>
-              <span class="tool-tag">Subqueries</span>
-              <span class="tool-tag">GROUP BY + HAVING</span>
-              <span class="tool-tag">TRIM / SUBSTRING_INDEX</span>
-              <span class="tool-tag">MONTHNAME / DATE_FORMAT</span>
-              <span class="tool-tag">NULLIF for safe division</span>
-              <span class="tool-tag">Duplicate detection</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
-          <div class="modal-step-content">
-            <h4>Business Impact</h4>
-            <p>Gave leadership an on-demand SQL layer that replaced ad-hoc Excel requests. The counsellor scorecard — computing leads, verifications, paid conversions, and conversion % in a single result set — became the standard weekly performance review tool. Geographic analysis shifted marketing spend toward Karnataka cities with verified high conversion rates. The publisher-wise funnel query directly supported the attribution audit that recovered ₹4.5L+ in revenue leakage, providing the data proof behind the Power BI dashboard findings.</p>
-          </div>
-        </div>
-
+    <div class="modal-kpi-grid">
+      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
+        <div class="modal-kpi-val" style="color:var(--accent2)">4</div>
+        <div class="modal-kpi-label">Funnel Stages Tracked</div>
+      </div>
+      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
+        <div class="modal-kpi-val" style="color:var(--accent2)">10+</div>
+        <div class="modal-kpi-label">KPIs per Counsellor</div>
+      </div>
+      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
+        <div class="modal-kpi-val" style="color:var(--accent2)">1M+</div>
+        <div class="modal-kpi-label">Records Queried</div>
       </div>
     </div>
 
+    <!-- Problem -->
+    <div class="modal-step">
+      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
+      <div class="modal-step-content">
+        <h4>Problem</h4>
+        <p>
+          The admissions operation ran across multiple systems with no single query layer. Basic insights required manual Excel work and were not available in real time.
+        </p>
+      </div>
+    </div>
+
+    <!-- Approach -->
+    <div class="modal-step">
+      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
+      <div class="modal-step-content">
+        <h4>Approach</h4>
+        <p>
+          Wrote and ran SQL queries using JOINs, CTEs, CASE WHEN, and subqueries to combine leads, applications, and enrolment data into a single dataset for analysis.
+        </p>
+      </div>
+    </div>
+
+    <!-- Key Analysis -->
+    <div class="modal-step">
+      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
+      <div class="modal-step-content">
+        <h4>Key Analyses Delivered</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+
+          <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
+            <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
+              📊 Lead Funnel
+            </div>
+            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
+              Leads → Verified → Applications → Paid → Enrolled.
+            </div>
+          </div>
+
+          <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
+            <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
+              👤 Counsellor Scorecard
+            </div>
+            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
+              Leads, applications, paid conversions, and enrolments per counsellor.
+            </div>
+          </div>
+
+          <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
+            <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
+              🗺️ Geographic Analysis
+            </div>
+            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
+              State and city-wise lead, application, and enrolment distribution.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- SQL Techniques -->
+    <div class="modal-step">
+      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
+      <div class="modal-step-content">
+        <h4>SQL Techniques Used</h4>
+        <div class="project-tools" style="margin-top:8px">
+          <span class="tool-tag">JOINs</span>
+          <span class="tool-tag">CTEs</span>
+          <span class="tool-tag">CASE WHEN</span>
+          <span class="tool-tag">Subqueries</span>
+          <span class="tool-tag">GROUP BY</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Business Impact -->
+    <div class="modal-step">
+      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
+      <div class="modal-step-content">
+        <h4>Business Impact</h4>
+        <p>
+          Used SQL queries to combine datasets and generate insights for leads, applications, and enrolments. Reduced manual reporting and enabled faster analysis.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-inner">
