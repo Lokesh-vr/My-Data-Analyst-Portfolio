@@ -37,7 +37,6 @@
       html { scroll-behavior:smooth;font-size:16px; }
       body { background:var(--bg);color:var(--text);font-family:var(--body);font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh; }
 
-      /* BG MESH */
       .bg-mesh { position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden; }
       .bg-orb { position:absolute;border-radius:50%;filter:blur(90px);animation:orbDrift 18s ease-in-out infinite;opacity:0.55; }
       .bg-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(94,234,212,0.22),transparent 65%);top:-200px;left:-150px;animation-duration:20s; }
@@ -48,14 +47,11 @@
       body::before { content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.5; }
       body::after { content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:1;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 30%,transparent 100%); }
 
-      /* GLASS */
       .glass { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius); }
       .glass-sm { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius-sm); }
 
-      /* SCROLL PROGRESS */
       .scroll-progress { position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));z-index:999;transition:width 0.1s linear;box-shadow:0 0 12px var(--accent-glow); }
 
-      /* NAV */
       nav { position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;width:min(1060px,calc(100% - 32px));background:rgba(10,15,35,0.6);backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);border:1px solid var(--glass-border);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);transition:all 0.4s; }
       .nav-logo { font-family:var(--heading);font-size:1.05rem;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.02em; }
       .nav-logo span { color:var(--accent); }
@@ -83,7 +79,6 @@
       .nav-mobile-menu a:last-child { border-bottom:none;color:var(--accent);font-weight:600; }
       .nav-mobile-menu a:hover { color:var(--text);background:var(--glass); }
 
-      /* HERO */
       #hero { min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 40px 80px;position:relative;z-index:2;max-width:1200px;margin:0 auto; }
       .hero-h1 span { color:#5eead4; }
       .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.2);border-radius:100px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content;margin-bottom:28px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;font-family:var(--mono);backdrop-filter:var(--blur); }
@@ -103,7 +98,6 @@
       .scroll-line { width:36px;height:1px;background:linear-gradient(90deg,var(--text3),transparent); }
       @keyframes fadeUp { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
 
-      /* IMPACT */
       #impact { position:relative;z-index:2;padding:0 40px;max-width:1200px;margin:0 auto; }
       .impact-glass { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:24px;padding:36px 48px;box-shadow:0 8px 40px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08); }
       .impact-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:0; }
@@ -116,7 +110,6 @@
       .impact-number { font-family:var(--heading);font-size:2rem;font-weight:900;color:transparent;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 100%);-webkit-background-clip:text;background-clip:text;letter-spacing:-0.03em;line-height:1; }
       .impact-label { font-size:0.74rem;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;margin-top:3px; }
 
-      /* SECTIONS */
       section { position:relative;z-index:2; }
       .section-inner { max-width:1200px;margin:0 auto;padding:100px 40px; }
       .section-tag { display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;width:fit-content; }
@@ -124,9 +117,7 @@
       .section-h2 { font-family:var(--heading);font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;background-clip:text;color:transparent; }
       .section-desc { font-size:0.98rem;color:var(--text2);max-width:520px;line-height:1.7;margin-bottom:52px; }
 
-      /* PROJECT CARDS */
       .project-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-      .project-card:nth-child(4) { grid-column:2/3; }
       .project-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;display:block;color:inherit;box-shadow:0 4px 24px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
       .project-card::before { content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(94,234,212,0.12),transparent 55%);opacity:0;transition:opacity 0.4s;pointer-events:none;border-radius:inherit; }
       .project-card::after { content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(94,234,212,0.5),rgba(129,140,248,0.5),transparent);opacity:0;transition:opacity 0.4s; }
@@ -148,7 +139,13 @@
       .project-viz { height:4px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;margin-bottom:22px; }
       .project-viz-bar { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width 1.4s cubic-bezier(0.16,1,0.3,1);width:0;box-shadow:0 0 8px var(--accent-glow); }
 
-      /* MODAL */
+      /* SQL project card gets a slightly different accent to stand out */
+      .project-card.sql-card::before { background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(129,140,248,0.14),transparent 55%); }
+      .project-card.sql-card .project-viz-bar { background:linear-gradient(90deg,var(--accent2),var(--accent)); }
+      .project-card.sql-card .metric-pill { background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.18);color:var(--accent2); }
+      .project-card.sql-card .project-num { color:var(--accent2); }
+      .project-card.sql-card .project-arrow { color:var(--accent2); }
+
       .modal-overlay { position:fixed;inset:0;z-index:200;background:rgba(4,8,22,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s; }
       .modal-overlay.active { opacity:1;pointer-events:all; }
       .modal { background:rgba(12,18,42,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:44px;transform:translateY(30px) scale(0.97);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06),inset 0 1px 0 rgba(255,255,255,0.1);position:relative; }
@@ -168,7 +165,6 @@
       .project-images { display:grid;grid-template-columns:repeat(2,1fr);gap:10px; }
       .project-images img { width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1); }
 
-      /* SKILLS */
       .skills-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px; }
       .skill-group { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:28px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);position:relative;overflow:hidden; }
       .skill-group::before { content:"";position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(180deg,rgba(94,234,212,0.04),transparent);pointer-events:none; }
@@ -185,7 +181,6 @@
       .skill-tag { padding:4px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:8px;font-size:0.72rem;color:var(--text2);font-family:var(--mono);transition:all 0.2s;backdrop-filter:blur(6px); }
       .skill-tag:hover { background:rgba(94,234,212,0.08);border-color:rgba(94,234,212,0.25);color:var(--accent); }
 
-      /* EXPERIENCE */
       .exp-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;transition:all 0.35s;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08);position:relative;overflow:hidden; }
       .exp-card::before { content:"";position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none; }
       .exp-card:hover { border-color:rgba(94,234,212,0.22);box-shadow:0 20px 60px rgba(0,0,0,0.35),0 0 0 1px rgba(94,234,212,0.08),inset 0 1px 0 rgba(255,255,255,0.1); }
@@ -208,7 +203,6 @@
       .exp-block ul li:hover { background:rgba(94,234,212,0.05);border-left-color:var(--accent);border-color:rgba(94,234,212,0.15); }
       .exp-block ul li::before { content:"→";color:var(--accent);font-size:0.72rem;flex-shrink:0;margin-top:2px; }
 
-      /* TIMELINE */
       .timeline { position:relative;padding-left:32px; }
       .timeline::before { content:"";position:absolute;left:0;top:8px;bottom:8px;width:1px;background:linear-gradient(to bottom,var(--accent),rgba(94,234,212,0.05)); }
       .timeline-item { position:relative;padding-bottom:48px; }
@@ -223,7 +217,6 @@
       .timeline-impacts li::before { content:"→";color:var(--accent);font-size:0.75rem;margin-top:2px;flex-shrink:0; }
       strong { color:var(--text);font-weight:600; }
 
-      /* ABOUT */
       .about-grid { display:grid;grid-template-columns:1.8fr 1fr;gap:56px;align-items:start; }
       .about-text p { font-size:1.02rem;text-align:justify;color:var(--text2);line-height:1.78;margin-bottom:18px; }
       .about-text p strong { color:var(--accent);font-weight:600; }
@@ -237,7 +230,6 @@
       .cert-name { font-size:0.83rem;color:var(--text);font-weight:500;line-height:1.4; }
       .cert-issuer { font-size:0.73rem;color:var(--text3);margin-top:2px; }
 
-      /* CTA */
       #cta { border-top:1px solid rgba(255,255,255,0.06); }
       .cta-inner { max-width:900px;margin:0 auto;padding:100px 40px;text-align:center; }
       .cta-h2 { font-family:var(--heading);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,rgba(255,255,255,0.75) 100%);-webkit-background-clip:text;background-clip:text;color:transparent; }
@@ -248,13 +240,11 @@
       .contact-link { display:flex;align-items:center;gap:7px;padding:9px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.25s;backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07); }
       .contact-link:hover { background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12); }
 
-      /* FOOTER */
       footer { border-top:1px solid rgba(255,255,255,0.06);padding:24px 80px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;background:rgba(6,8,24,0.5);backdrop-filter:blur(10px); }
       .footer-left { font-size:0.78rem;color:var(--text3); }
       .footer-left span { color:var(--accent);font-weight:600; }
       .footer-right { font-size:0.73rem;color:var(--text3);font-family:var(--mono); }
 
-      /* REVEAL */
       .reveal { opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease; }
       .reveal.visible { opacity:1;transform:translateY(0); }
       .reveal-delay-1 { transition-delay:0.1s; }
@@ -262,37 +252,22 @@
       .reveal-delay-3 { transition-delay:0.3s; }
       .reveal-delay-4 { transition-delay:0.4s; }
 
-      /* ═══════════════════════════════════════════
-         RESPONSIVE — TABLET (max 1200px)
-      ═══════════════════════════════════════════ */
       @media (max-width:1200px) {
         .project-grid { grid-template-columns:repeat(2,1fr); }
-        .project-card:nth-child(4) { grid-column:auto; }
       }
 
-      /* ═══════════════════════════════════════════
-         RESPONSIVE — MOBILE (max 768px)
-         Fixed: nav, hero, impact, cards, modals,
-         skills, exp, about, footer
-      ═══════════════════════════════════════════ */
       @media (max-width:768px) {
-        /* NAV */
         nav { top:10px;padding:0 16px;height:52px; }
         .nav-badge { display:none; }
         .nav-links { display:none; }
         .nav-hamburger { display:flex; }
-
-        /* HERO */
         #hero { padding:88px 20px 80px;min-height:100svh; }
         .hero-h1 { font-size:clamp(2rem,9vw,3rem);margin-bottom:20px; }
         .hero-sub { font-size:0.92rem;margin-bottom:22px; }
         .hero-metric { font-size:0.78rem;padding:10px 14px;margin-bottom:28px;gap:8px; }
-        .hero-metric svg { flex-shrink:0; }
         .hero-ctas { gap:10px; }
         .btn-primary,.btn-secondary { padding:12px 20px;font-size:0.82rem;width:100%;justify-content:center; }
         .hero-scroll { left:20px;bottom:24px; }
-
-        /* IMPACT */
         #impact { padding:0 16px; }
         .impact-glass { padding:24px 16px;border-radius:18px; }
         .impact-grid { grid-template-columns:repeat(2,1fr);gap:0; }
@@ -302,59 +277,37 @@
         .impact-number { font-size:1.6rem; }
         .impact-label { font-size:0.65rem; }
         .impact-icon { width:34px;height:34px;font-size:0.9rem;margin-bottom:8px; }
-
-        /* SECTIONS */
         .section-inner { padding:56px 20px; }
         .section-desc { margin-bottom:32px;font-size:0.92rem; }
-
-        /* PROJECTS */
         .project-grid { grid-template-columns:1fr;gap:16px; }
-        .project-card:nth-child(4) { grid-column:auto; }
         .project-card { padding:20px; }
         .project-title { font-size:1.05rem; }
-
-        /* MODAL */
         .modal-overlay { padding:12px; }
         .modal { padding:20px 16px;border-radius:18px;max-height:90vh; }
         .modal-kpi-grid { grid-template-columns:repeat(2,1fr);gap:8px; }
         .modal-kpi-val { font-size:1.3rem; }
         .modal-kpi { padding:14px 10px; }
         .project-images { grid-template-columns:1fr; }
-
-        /* SKILLS */
         .skills-grid { grid-template-columns:1fr;gap:14px; }
         .skill-group { padding:22px; }
-
-        /* EXPERIENCE */
         .exp-card { padding:20px; }
         .exp-role-row h3 { font-size:1.15rem; }
         .exp-blocks { grid-template-columns:1fr;gap:18px; }
         .exp-metrics { gap:6px; }
         .exp-metrics span { font-size:0.7rem;padding:4px 10px; }
-
-        /* TIMELINE */
         .timeline { padding-left:24px; }
         .timeline-dot { left:-30px; }
         .timeline-role { font-size:1rem; }
-
-        /* ABOUT */
         .about-grid { grid-template-columns:1fr;gap:24px; }
         .about-text p { font-size:0.94rem;text-align:left; }
-
-        /* CTA */
         .cta-inner { padding:56px 20px; }
         .cta-buttons { flex-direction:column;align-items:stretch; }
         .cta-buttons a { width:100%;justify-content:center; }
         .contact-grid { flex-direction:column;align-items:stretch; }
         .contact-link { justify-content:center; }
-
-        /* FOOTER */
         footer { padding:20px;flex-direction:column;gap:8px;text-align:center; }
       }
 
-      /* ═══════════════════════════════════════════
-         RESPONSIVE — SMALL PHONES (max 390px)
-      ═══════════════════════════════════════════ */
       @media (max-width:390px) {
         .hero-h1 { font-size:1.9rem; }
         .hero-eyebrow { font-size:0.62rem;padding:6px 12px; }
@@ -376,7 +329,6 @@
 
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- NAV -->
     <nav>
       <div class="nav-left">
         <a href="#hero" class="nav-logo">Lokesh<span>.VR</span></a>
@@ -388,7 +340,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="https://drive.google.com/file/d/1Fs7ml570pNzkWRC9AN9dN17oYdLIZG0q/view?usp=sharing" target="_blank" class="nav-resume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resume</a></li>
+        <li><a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="nav-resume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resume</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -401,10 +353,9 @@
       <a href="#skills" onclick="closeMenu()">Skills</a>
       <a href="#experience" onclick="closeMenu()">Experience</a>
       <a href="#education" onclick="closeMenu()">Education</a>
-      <a href="https://drive.google.com/file/d/1Fs7ml570pNzkWRC9AN9dN17oYdLIZG0q/view?usp=sharing" target="_blank" onclick="closeMenu()">↓ Resume</a>
+      <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" onclick="closeMenu()">↓ Resume</a>
     </div>
 
-    <!-- HERO -->
     <section id="hero">
       <div class="hero-eyebrow">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
@@ -418,13 +369,12 @@
       </div>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Projects</a>
-        <a href="https://drive.google.com/file/d/1Fs7ml570pNzkWRC9AN9dN17oYdLIZG0q/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
+        <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
         <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
       </div>
       <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
     </section>
 
-    <!-- IMPACT -->
     <div id="impact">
       <div class="impact-glass">
         <div class="impact-grid">
@@ -443,6 +393,8 @@
         <h2 class="section-h2 reveal reveal-delay-1">Work That Speaks<br />in Business Impact</h2>
         <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
+
+          <!-- Card 01 -->
           <div class="project-card reveal" onclick="openModal('modal1')">
             <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Power BI · DAX</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
@@ -452,6 +404,8 @@
             <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">MCUBE</span><span class="tool-tag">Meritto CRM</span><span class="tool-tag">Excel</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
+
+          <!-- Card 02 -->
           <div class="project-card reveal reveal-delay-1" onclick="openModal('modal2')">
             <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Finance · BI</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="75"></div></div>
@@ -461,6 +415,8 @@
             <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">ERP (Juno)</span><span class="tool-tag">CRM</span><span class="tool-tag">Excel</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
+
+          <!-- Card 03 -->
           <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
             <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
@@ -470,6 +426,8 @@
             <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
+
+          <!-- Card 04 -->
           <div class="project-card reveal reveal-delay-3" onclick="openModal('modal4')">
             <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Applications Analytics</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
@@ -479,6 +437,18 @@
             <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
             <span class="project-arrow">View Case Study →</span>
           </div>
+
+          <!-- Card 05 — NEW SQL PROJECT -->
+          <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
+            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
+            <div class="project-title">Admissions Intelligence — SQL Analytics</div>
+            <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — every insight required manual Excel work.</p>
+            <div class="project-metrics"><div class="metric-pill">Full Funnel Visibility</div><div class="metric-pill">Counsellor Scorecards</div><div class="metric-pill">Revenue Attribution</div></div>
+            <div class="project-tools"><span class="tool-tag">MySQL</span><span class="tool-tag">CTEs</span><span class="tool-tag">JOINs</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">UNION ALL</span><span class="tool-tag">Subqueries</span></div>
+            <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
+          </div>
+
         </div>
       </div>
     </section>
@@ -553,6 +523,92 @@
         <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid Applications</span><span class="tool-tag">Conversion Rate %</span><span class="tool-tag">UTD Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Program Performance</span></div></div></div>
         <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Screenshots</h4><div style="display:flex;flex-direction:column;gap:16px;margin-top:8px"><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p><img src="Apps Home.png" alt="Overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p><img src="Apps MOM.png" alt="Month on Month" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p><img src="Apps YTD.png" alt="YTD Comparison" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div></div></div></div>
         <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Replaced time-consuming manual Excel tracking with a live Power BI dashboard — enabling real-time monitoring of application inflow and paid conversion rates across programs and branches.</p></div></div>
+      </div>
+    </div>
+
+    <!-- MODAL 05 — SQL PROJECT -->
+    <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
+      <div class="modal" style="--modal-accent:var(--accent2);">
+        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Admissions Intelligence — SQL Analytics</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · UNION ALL · Subqueries</p>
+
+        <div class="modal-kpi-grid">
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">4</div><div class="modal-kpi-label">Funnel Stages Tracked</div></div>
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">10+</div><div class="modal-kpi-label">KPIs per Counsellor</div></div>
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">1M+</div><div class="modal-kpi-label">Records Queried</div></div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
+          <div class="modal-step-content">
+            <h4>Problem</h4>
+            <p>The admissions operation ran across three disconnected systems — a CRM for leads, an application portal, and an ERP for enrolments. Leadership could not answer basic operational questions like "Which counsellor converted the most leads this month?" or "What is our Karnataka-to-paid conversion rate?" without waiting for manual Excel reports that were already outdated on arrival.</p>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
+          <div class="modal-step-content">
+            <h4>Approach</h4>
+            <p>Built a structured SQL analytics layer on the MySQL database across four business dimensions: the lead funnel, counsellor performance, revenue analysis, and geographic distribution. Used JOINs to bridge leads and applications via a shared lead_id, CTEs for multi-step readable logic, CASE WHEN aggregations to pivot status breakdowns into single-row scorecards, and UNION ALL to append grand totals to every grouped report.</p>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
+          <div class="modal-step-content">
+            <h4>Key Analyses Delivered</h4>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
+              <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
+                <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">📊 Lead Funnel</div>
+                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Total leads → Verified → Applications → Paid → Enrolled, segmented by course, branch, publisher, and state.</div>
+              </div>
+              <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
+                <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">👤 Counsellor Scorecard</div>
+                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Per-counsellor: total leads, verified, applications, paid conversions, enrolments, and PA conversion % — all in a single query row using CASE WHEN.</div>
+              </div>
+              <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
+                <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">💰 Revenue Analysis</div>
+                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">Campus-wise and course-wise total payment collection, average fee, and max payment — with grand totals via UNION ALL.</div>
+              </div>
+              <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
+                <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">🗺️ Geographic Distribution</div>
+                <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">State and city-wise lead count, paid applications, and enrolments — used to identify high-converting geographies for marketing budget decisions.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
+          <div class="modal-step-content">
+            <h4>SQL Techniques Used</h4>
+            <div class="project-tools" style="margin-top:8px">
+              <span class="tool-tag">INNER JOIN / LEFT JOIN</span>
+              <span class="tool-tag">CTEs (WITH clause)</span>
+              <span class="tool-tag">CASE WHEN aggregation</span>
+              <span class="tool-tag">UNION ALL with grand totals</span>
+              <span class="tool-tag">Subqueries</span>
+              <span class="tool-tag">GROUP BY + HAVING</span>
+              <span class="tool-tag">TRIM / SUBSTRING_INDEX</span>
+              <span class="tool-tag">MONTHNAME / DATE_FORMAT</span>
+              <span class="tool-tag">NULLIF for safe division</span>
+              <span class="tool-tag">Duplicate detection</span>
+              <span class="tool-tag">WITH ROLLUP</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <p>Gave leadership an on-demand SQL layer that replaced ad-hoc Excel requests. The counsellor scorecard — computing leads, verifications, paid conversions, and conversion % in a single result set — became the standard weekly performance review tool. Geographic analysis shifted marketing spend toward Karnataka cities with verified high conversion rates. The publisher-wise funnel query directly supported the attribution audit that recovered ₹4.5L+ in revenue leakage, providing the data proof behind the Power BI dashboard findings.</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -671,7 +727,7 @@
         <p class="cta-sub reveal reveal-delay-2">If you're looking for someone who turns messy datasets into clear business decisions — let's connect.</p>
         <div class="cta-buttons reveal reveal-delay-3">
           <a href="mailto:lokesh2520031968@gmail.com" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Send me an email</a>
-          <a href="https://drive.google.com/file/d/1Fs7ml570pNzkWRC9AN9dN17oYdLIZG0q/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
+          <a href="https://drive.google.com/file/d/11ZNX7OGnXCqnY8qZtG04RMdiaUhaiMDU/view?usp=sharing" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
         </div>
         <div class="contact-grid reveal reveal-delay-4">
           <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/lokesh252003</a>
