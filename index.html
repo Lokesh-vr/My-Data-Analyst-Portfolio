@@ -139,7 +139,6 @@
       .project-viz { height:4px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;margin-bottom:22px; }
       .project-viz-bar { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;transition:width 1.4s cubic-bezier(0.16,1,0.3,1);width:0;box-shadow:0 0 8px var(--accent-glow); }
 
-      /* SQL project card gets a slightly different accent to stand out */
       .project-card.sql-card::before { background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(129,140,248,0.14),transparent 55%); }
       .project-card.sql-card .project-viz-bar { background:linear-gradient(90deg,var(--accent2),var(--accent)); }
       .project-card.sql-card .metric-pill { background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.18);color:var(--accent2); }
@@ -164,6 +163,33 @@
       .modal-kpi-label { font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-weight:500; }
       .project-images { display:grid;grid-template-columns:repeat(2,1fr);gap:10px; }
       .project-images img { width:100%;border-radius:10px;border:1px solid rgba(255,255,255,0.1); }
+
+      /* ── SQL Code Viewer ── */
+      .sql-tab-row { display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap; }
+      .sql-tab { padding:7px 16px;border-radius:100px;font-family:var(--mono);font-size:0.72rem;font-weight:600;cursor:pointer;border:1px solid rgba(129,140,248,0.25);background:rgba(129,140,248,0.06);color:var(--text2);transition:all 0.2s;letter-spacing:0.04em; }
+      .sql-tab.active { background:rgba(129,140,248,0.18);border-color:rgba(129,140,248,0.5);color:var(--accent2); }
+      .sql-tab:hover:not(.active) { background:rgba(129,140,248,0.1);color:var(--text); }
+      .sql-pane { display:none; }
+      .sql-pane.active { display:block; }
+      .code-box { background:rgba(6,8,24,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:14px;overflow:hidden;position:relative; }
+      .code-topbar { display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.07); }
+      .code-dots { display:flex;gap:5px; }
+      .dot { width:10px;height:10px;border-radius:50%; }
+      .d1{background:#E24B4A}.d2{background:#EF9F27}.d3{background:#639922}
+      .code-filename { font-family:var(--mono);font-size:0.68rem;color:var(--text3);letter-spacing:0.06em; }
+      .copy-sql-btn { font-family:var(--mono);font-size:0.68rem;padding:4px 12px;border:1px solid rgba(129,140,248,0.3);border-radius:6px;background:rgba(129,140,248,0.08);color:var(--accent2);cursor:pointer;transition:all 0.2s; }
+      .copy-sql-btn:hover { background:rgba(129,140,248,0.2); }
+      .code-scroll { overflow-x:auto;padding:18px 20px; }
+      pre.sql-code { margin:0;font-family:var(--mono);font-size:12px;line-height:1.85;color:#c8d3e6;white-space:pre; }
+      .kw  { color:#818cf8; }
+      .fn  { color:#5eead4; }
+      .str { color:#fbbf24; }
+      .cmt { color:#475569;font-style:italic; }
+      .col { color:#f1f5f9; }
+      .tbl { color:#fb923c; }
+      .sql-what-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px; }
+      .sql-what-item { display:flex;gap:10px;align-items:flex-start;padding:10px 13px;background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.12);border-radius:10px;border-left:2px solid rgba(129,140,248,0.4); }
+      .sql-what-item p { font-size:0.82rem;color:var(--text2);line-height:1.5;margin:0; }
 
       .skills-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px; }
       .skill-group { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:28px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);position:relative;overflow:hidden; }
@@ -252,10 +278,7 @@
       .reveal-delay-3 { transition-delay:0.3s; }
       .reveal-delay-4 { transition-delay:0.4s; }
 
-      @media (max-width:1200px) {
-        .project-grid { grid-template-columns:repeat(2,1fr); }
-      }
-
+      @media (max-width:1200px) { .project-grid { grid-template-columns:repeat(2,1fr); } }
       @media (max-width:768px) {
         nav { top:10px;padding:0 16px;height:52px; }
         .nav-badge { display:none; }
@@ -306,8 +329,8 @@
         .contact-grid { flex-direction:column;align-items:stretch; }
         .contact-link { justify-content:center; }
         footer { padding:20px;flex-direction:column;gap:8px;text-align:center; }
+        .sql-what-grid { grid-template-columns:1fr; }
       }
-
       @media (max-width:390px) {
         .hero-h1 { font-size:1.9rem; }
         .hero-eyebrow { font-size:0.62rem;padding:6px 12px; }
@@ -394,7 +417,6 @@
         <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
 
-          <!-- Card 01 -->
           <div class="project-card reveal" onclick="openModal('modal1')">
             <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Power BI · DAX</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
@@ -405,7 +427,6 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <!-- Card 02 -->
           <div class="project-card reveal reveal-delay-1" onclick="openModal('modal2')">
             <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Finance · BI</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="75"></div></div>
@@ -416,7 +437,6 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <!-- Card 03 -->
           <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
             <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
@@ -427,7 +447,6 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <!-- Card 04 -->
           <div class="project-card reveal reveal-delay-3" onclick="openModal('modal4')">
             <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Applications Analytics</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
@@ -438,39 +457,19 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <!-- Card 05 — NEW SQL PROJECT -->
-      <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
-  <div class="project-card-top">
-    <span class="project-num">05</span>
-    <span class="project-tag">SQL · Business Analysis</span>
-  </div>
-
-  <div class="project-viz">
-    <div class="project-viz-bar" data-width="88"></div>
-  </div>
-
-  <div class="project-title">SQL Analytics</div>
-
-  <p class="project-problem">
-    Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — requiring manual Excel work for every insight.
-  </p>
-
-  <div class="project-metrics">
-    <div class="metric-pill">Full Funnel Visibility</div>
-    <div class="metric-pill">Counsellor Scorecards</div>
-    <div class="metric-pill">Faster Analysis</div>
-  </div>
-
-  <div class="project-tools">
-    <span class="tool-tag">MySQL</span>
-    <span class="tool-tag">CTEs</span>
-    <span class="tool-tag">JOINs</span>
-    <span class="tool-tag">CASE WHEN</span>
-    <span class="tool-tag">Subqueries</span>
-  </div>
-
-  <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
-</div>
+          <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
+            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
+            <div class="project-title">SQL Analytics</div>
+            <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — requiring manual Excel work for every insight.</p>
+            <div class="project-metrics">
+              <div class="metric-pill">Full Funnel Visibility</div>
+              <div class="metric-pill">Counsellor Scorecards</div>
+              <div class="metric-pill">Faster Analysis</div>
+            </div>
+            <div class="project-tools"><span class="tool-tag">MySQL</span><span class="tool-tag">CTEs</span><span class="tool-tag">JOINs</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">Subqueries</span></div>
+            <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
+          </div>
 
         </div>
       </div>
@@ -549,126 +548,186 @@
       </div>
     </div>
 
-    <!-- MODAL 05 — SQL PROJECT -->
-   <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
-  <div class="modal" style="--modal-accent:var(--accent2);">
-    <button class="modal-close" onclick="closeModal('modal5')">✕</button>
+    <!-- MODAL 05 — SQL PROJECT WITH CODE VIEWER -->
+    <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
+      <div class="modal" style="max-width:820px">
+        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
 
-    <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">
-      Case Study · 05
-    </div>
+        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">SQL Analytics</h2>
+        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · SUBSTRING_INDEX · Subqueries</p>
 
-    <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">
-      SQL Analytics
-    </h2>
-
-    <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">
-      MySQL · CTEs · JOINs · CASE WHEN · UNION ALL · Subqueries
-    </p>
-
-    <div class="modal-kpi-grid">
-      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
-        <div class="modal-kpi-val" style="color:var(--accent2)">4</div>
-        <div class="modal-kpi-label">Funnel Stages Tracked</div>
-      </div>
-      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
-        <div class="modal-kpi-val" style="color:var(--accent2)">10+</div>
-        <div class="modal-kpi-label">KPIs per Counsellor</div>
-      </div>
-      <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)">
-        <div class="modal-kpi-val" style="color:var(--accent2)">1M+</div>
-        <div class="modal-kpi-label">Records Queried</div>
-      </div>
-    </div>
-
-    <!-- Problem -->
-    <div class="modal-step">
-      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
-      <div class="modal-step-content">
-        <h4>Problem</h4>
-        <p>
-          The admissions operation ran across multiple systems with no single query layer. Basic insights required manual Excel work and were not available in real time.
-        </p>
-      </div>
-    </div>
-
-    <!-- Approach -->
-    <div class="modal-step">
-      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
-      <div class="modal-step-content">
-        <h4>Approach</h4>
-        <p>
-          Wrote and ran SQL queries using JOINs, CTEs, CASE WHEN, and subqueries to combine leads, applications, and enrolment data into a single dataset for analysis.
-        </p>
-      </div>
-    </div>
-
-    <!-- Key Analysis -->
-    <div class="modal-step">
-      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
-      <div class="modal-step-content">
-        <h4>Key Analyses Delivered</h4>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-
-          <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
-            <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
-              📊 Lead Funnel
-            </div>
-            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
-              Leads → Verified → Applications → Paid → Enrolled.
-            </div>
-          </div>
-
-          <div style="background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.15);border-radius:12px;padding:16px">
-            <div style="font-size:0.67rem;color:var(--accent2);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
-              👤 Counsellor Scorecard
-            </div>
-            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
-              Leads, applications, paid conversions, and enrolments per counsellor.
-            </div>
-          </div>
-
-          <div style="background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.15);border-radius:12px;padding:16px">
-            <div style="font-size:0.67rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px">
-              🗺️ Geographic Analysis
-            </div>
-            <div style="font-size:0.83rem;color:var(--text2);line-height:1.6">
-              State and city-wise lead, application, and enrolment distribution.
-            </div>
-          </div>
-
+        <div class="modal-kpi-grid">
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">4</div><div class="modal-kpi-label">Funnel Stages Tracked</div></div>
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">10+</div><div class="modal-kpi-label">KPIs per Counsellor</div></div>
+          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">1M+</div><div class="modal-kpi-label">Records Queried</div></div>
         </div>
-      </div>
-    </div>
 
-    <!-- SQL Techniques -->
-    <div class="modal-step">
-      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
-      <div class="modal-step-content">
-        <h4>SQL Techniques Used</h4>
-        <div class="project-tools" style="margin-top:8px">
-          <span class="tool-tag">JOINs</span>
-          <span class="tool-tag">CTEs</span>
-          <span class="tool-tag">CASE WHEN</span>
-          <span class="tool-tag">Subqueries</span>
-          <span class="tool-tag">GROUP BY</span>
+        <!-- Step 01 -->
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
+          <div class="modal-step-content">
+            <h4>Problem</h4>
+            <p>The admissions operation ran across multiple systems with no single query layer. Basic insights — counsellor performance, publisher ROI, funnel drop-off — required manual Excel work and were not available in real time.</p>
+          </div>
         </div>
+
+        <!-- Step 02 -->
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
+          <div class="modal-step-content">
+            <h4>Approach</h4>
+            <p>Wrote production SQL queries using LEFT JOINs, CASE WHEN aggregations, NULLIF for safe division, and SUBSTRING_INDEX to clean messy lead-owner name strings — joining leads, applications, and enrolment tables into unified insight layers.</p>
+          </div>
+        </div>
+
+        <!-- Step 03 — CODE VIEWER -->
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
+          <div class="modal-step-content">
+            <h4>Sample Queries</h4>
+
+            <!-- Tab switcher -->
+            <div class="sql-tab-row" style="margin-top:14px">
+              <button class="sql-tab active" onclick="switchTab('q1')">Counsellor Scorecard</button>
+              <button class="sql-tab" onclick="switchTab('q2')">Publisher Funnel</button>
+            </div>
+
+            <!-- Query 1: Counsellor Scorecard -->
+            <div class="sql-pane active" id="pane-q1">
+              <div class="code-box">
+                <div class="code-topbar">
+                  <div class="code-dots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
+                  <span class="code-filename">counsellor_scorecard.sql</span>
+                  <button class="copy-sql-btn" onclick="copySql('q1',this)">Copy</button>
+                </div>
+                <div class="code-scroll">
+<pre class="sql-code" id="raw-q1"><span class="kw">SELECT</span>
+    <span class="fn">TRIM</span>(<span class="fn">SUBSTRING_INDEX</span>(<span class="tbl">leads</span>.<span class="col">lead_owner</span>, <span class="str">'('</span>, 1)) <span class="kw">AS</span> <span class="col">lead_owner</span>,
+
+    <span class="cmt">-- Lead volume</span>
+    <span class="fn">COUNT</span>(*) <span class="kw">AS</span> <span class="col">total_leads</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">leads</span>.<span class="col">lead_status</span> = <span class="str">'VERIFIED LEADS'</span>   <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">vl_leads</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">leads</span>.<span class="col">lead_status</span> = <span class="str">'UNVERIFIED LEADS'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">ul_leads</span>,
+
+    <span class="cmt">-- Application funnel</span>
+    <span class="fn">COUNT</span>(<span class="tbl">applications</span>.<span class="col">registered_name</span>)                                          <span class="kw">AS</span> <span class="col">total_apps</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT PENDING'</span>  <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">total_npa</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT APPROVED'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">total_pa</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">enrolment_status</span> = <span class="str">'YES'</span>             <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">total_adms</span>,
+
+    <span class="cmt">-- Conversion rate (leads → paid applications)</span>
+    <span class="fn">ROUND</span>(
+        <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT APPROVED'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) * 100.0
+        / <span class="fn">NULLIF</span>(<span class="fn">COUNT</span>(*), 0),
+    2) <span class="kw">AS</span> <span class="col">pa_conversion_percent</span>
+
+<span class="kw">FROM</span> <span class="tbl">leads</span>
+<span class="kw">LEFT JOIN</span> <span class="tbl">applications</span>
+    <span class="kw">ON</span> <span class="tbl">leads</span>.<span class="col">lead_id</span> = <span class="tbl">applications</span>.<span class="col">lead_id</span>
+
+<span class="kw">GROUP BY</span>
+    <span class="fn">TRIM</span>(<span class="fn">SUBSTRING_INDEX</span>(<span class="tbl">leads</span>.<span class="col">lead_owner</span>, <span class="str">'('</span>, 1))
+<span class="kw">ORDER BY</span>
+    <span class="col">total_pa</span> <span class="kw">DESC</span>;</pre>
+                </div>
+              </div>
+              <div class="sql-what-grid">
+                <div class="sql-what-item"><p>Cleans messy lead-owner strings like <code style="font-size:0.78rem;color:var(--accent2)">"Ravi Kumar (BLR)"</code> → <code style="font-size:0.78rem;color:var(--accent2)">"Ravi Kumar"</code> using <code style="font-size:0.78rem;color:var(--accent2)">TRIM + SUBSTRING_INDEX</code></p></div>
+                <div class="sql-what-item"><p>Tracks each counsellor's full funnel — total leads, verified leads, apps, pending, paid, and enrollments</p></div>
+                <div class="sql-what-item"><p>Calculates lead-to-paid conversion % with <code style="font-size:0.78rem;color:var(--accent2)">NULLIF</code> to safely handle zero-lead counsellors</p></div>
+                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--accent2)">lead_id</code> and ranks output by paid applications to surface top performers</p></div>
+              </div>
+            </div>
+
+            <!-- Query 2: Publisher Funnel -->
+            <div class="sql-pane" id="pane-q2">
+              <div class="code-box">
+                <div class="code-topbar">
+                  <div class="code-dots"><div class="dot d1"></div><div class="dot d2"></div><div class="dot d3"></div></div>
+                  <span class="code-filename">publisher_funnel.sql</span>
+                  <button class="copy-sql-btn" onclick="copySql('q2',this)">Copy</button>
+                </div>
+                <div class="code-scroll">
+<pre class="sql-code" id="raw-q2"><span class="kw">SELECT</span>
+    <span class="tbl">leads</span>.<span class="col">publisher_name</span>,
+
+    <span class="cmt">-- Lead volume</span>
+    <span class="fn">COUNT</span>(*) <span class="kw">AS</span> <span class="col">total_leads</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">leads</span>.<span class="col">lead_status</span> = <span class="str">'VERIFIED LEADS'</span>   <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">vl_leads</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">leads</span>.<span class="col">lead_status</span> = <span class="str">'UNVERIFIED LEADS'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">unvl_leads</span>,
+
+    <span class="cmt">-- Application funnel</span>
+    <span class="fn">COUNT</span>(<span class="tbl">applications</span>.<span class="col">registered_name</span>)                                              <span class="kw">AS</span> <span class="col">total_apps</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT PENDING'</span>  <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">pending_apps</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT APPROVED'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">paid_apps</span>,
+    <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">enrolment_status</span> = <span class="str">'YES'</span>             <span class="kw">THEN</span> 1 <span class="kw">END</span>) <span class="kw">AS</span> <span class="col">adms</span>,
+
+    <span class="cmt">-- Conversion rates</span>
+    <span class="fn">ROUND</span>(
+        <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT APPROVED'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) * 100.0
+        / <span class="fn">NULLIF</span>(<span class="fn">COUNT</span>(<span class="tbl">applications</span>.<span class="col">registered_name</span>), 0),
+    1) <span class="kw">AS</span> <span class="col">app_to_paid_pct</span>,
+
+    <span class="fn">ROUND</span>(
+        <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">leads</span>.<span class="col">lead_status</span> = <span class="str">'VERIFIED LEADS'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) * 100.0
+        / <span class="fn">NULLIF</span>(<span class="fn">COUNT</span>(<span class="tbl">leads</span>.<span class="col">registered_name</span>), 0),
+    1) <span class="kw">AS</span> <span class="col">lead_verify_pct</span>,
+
+    <span class="fn">ROUND</span>(
+        <span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">enrolment_status</span> = <span class="str">'YES'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>) * 100.0
+        / <span class="fn">NULLIF</span>(<span class="fn">COUNT</span>(<span class="kw">CASE WHEN</span> <span class="tbl">applications</span>.<span class="col">payment_status</span> = <span class="str">'PAYMENT APPROVED'</span> <span class="kw">THEN</span> 1 <span class="kw">END</span>), 0),
+    1) <span class="kw">AS</span> <span class="col">paid_to_enrolled_pct</span>
+
+<span class="kw">FROM</span> <span class="tbl">leads</span>
+<span class="kw">LEFT JOIN</span> <span class="tbl">applications</span>
+    <span class="kw">ON</span> <span class="tbl">leads</span>.<span class="col">user_id</span> = <span class="tbl">applications</span>.<span class="col">user_id</span>
+
+<span class="kw">GROUP BY</span> <span class="tbl">leads</span>.<span class="col">publisher_name</span>
+<span class="kw">ORDER BY</span> <span class="col">paid_apps</span> <span class="kw">DESC</span>;</pre>
+                </div>
+              </div>
+              <div class="sql-what-grid">
+                <div class="sql-what-item"><p>Groups the entire lead-to-enrollment funnel by publisher — showing which channels actually convert vs. just generate volume</p></div>
+                <div class="sql-what-item"><p>Calculates 3 independent conversion rates: app→paid, lead→verified, and paid→enrolled per publisher</p></div>
+                <div class="sql-what-item"><p>Uses <code style="font-size:0.78rem;color:var(--accent2)">NULLIF</code> on all denominators to prevent division-by-zero errors in production</p></div>
+                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--accent2)">user_id</code> (vs. <code style="font-size:0.78rem;color:var(--accent2)">lead_id</code> in counsellor query) — exposing cross-table relationships</p></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
+          <div class="modal-step-content">
+            <h4>SQL Techniques Used</h4>
+            <div class="project-tools" style="margin-top:8px">
+              <span class="tool-tag">LEFT JOIN</span>
+              <span class="tool-tag">CASE WHEN</span>
+              <span class="tool-tag">NULLIF</span>
+              <span class="tool-tag">SUBSTRING_INDEX</span>
+              <span class="tool-tag">TRIM</span>
+              <span class="tool-tag">GROUP BY</span>
+              <span class="tool-tag">ORDER BY</span>
+              <span class="tool-tag">Aggregate Functions</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 05 -->
+        <div class="modal-step">
+          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <p>Eliminated manual Excel reporting for counsellor performance and publisher ROI tracking. Leadership could query live data at any time — reducing turnaround from days to seconds and enabling faster decisions on counsellor coaching and marketing spend reallocation.</p>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <!-- Business Impact -->
-    <div class="modal-step">
-      <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
-      <div class="modal-step-content">
-        <h4>Business Impact</h4>
-        <p>
-          Used SQL queries to combine datasets and generate insights for leads, applications, and enrolments. Reduced manual reporting and enabled faster analysis.
-        </p>
-      </div>
-    </div>
-
-  </div>
-</div>
     <!-- SKILLS -->
     <section id="skills">
       <div class="section-inner">
@@ -869,6 +928,70 @@
       document.addEventListener("keydown",e=>{
         if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>{m.classList.remove("active");document.body.style.overflow="";});
       });
+
+      /* SQL tab switcher */
+      function switchTab(id) {
+        document.querySelectorAll('.sql-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.sql-pane').forEach(p => p.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        document.getElementById('pane-' + id).classList.add('active');
+      }
+
+      /* Copy SQL */
+      function copySql(queryId, btn) {
+        const rawMap = {
+          q1: `SELECT
+    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1)) AS lead_owner,
+    COUNT(*) AS total_leads,
+    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,
+    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS ul_leads,
+    COUNT(applications.registered_name) AS total_apps,
+    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS total_npa,
+    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS total_pa,
+    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS total_adms,
+    ROUND(
+        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0
+        / NULLIF(COUNT(*), 0),
+    2) AS pa_conversion_percent
+FROM leads
+LEFT JOIN applications
+    ON leads.lead_id = applications.lead_id
+GROUP BY
+    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1))
+ORDER BY
+    total_pa DESC;`,
+          q2: `SELECT
+    leads.publisher_name,
+    COUNT(*) AS total_leads,
+    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,
+    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS unvl_leads,
+    COUNT(applications.registered_name) AS total_apps,
+    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS pending_apps,
+    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS paid_apps,
+    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS adms,
+    ROUND(
+        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0
+        / NULLIF(COUNT(applications.registered_name), 0),
+    1) AS app_to_paid_pct,
+    ROUND(
+        COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS' THEN 1 END) * 100.0
+        / NULLIF(COUNT(leads.registered_name), 0),
+    1) AS lead_verify_pct,
+    ROUND(
+        COUNT(CASE WHEN applications.enrolment_status = 'YES' THEN 1 END) * 100.0
+        / NULLIF(COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END), 0),
+    1) AS paid_to_enrolled_pct
+FROM leads
+LEFT JOIN applications
+    ON leads.user_id = applications.user_id
+GROUP BY leads.publisher_name
+ORDER BY paid_apps DESC;`
+        };
+        navigator.clipboard.writeText(rawMap[queryId]).then(() => {
+          btn.textContent = 'Copied!';
+          setTimeout(() => btn.textContent = 'Copy', 2000);
+        });
+      }
     </script>
   </body>
 </html>
