@@ -443,6 +443,21 @@
         <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
 
+
+              <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
+            <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Admissions · BI</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
+            <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
+            <p class="project-problem">No end-to-end view of the student admission lifecycle — from lead to enrollment. YoY comparisons, UTD tracking, and funnel drop-off analysis all required manual work.</p>
+            <div class="project-metrics">
+              <div class="metric-pill">4-Stage Funnel Tracked</div>
+              <div class="metric-pill">YoY &amp; UTD Analysis</div>
+              <div class="metric-pill">Real-time Enrollment View</div>
+            </div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span><span class="tool-tag">Time Intelligence</span></div>
+            <span class="project-arrow" style="color:var(--accent3)">View Case Study →</span>
+          </div>
+
           <div class="project-card reveal" onclick="openModal('modal2')">
             <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Power BI · DAX</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
@@ -463,28 +478,8 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal4')">
-            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Marketing Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
-            <div class="project-title">Publisher Attribution Audit</div>
-            <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
-            <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
-            <span class="project-arrow">View Case Study →</span>
-          </div>
-
-          <div class="project-card reveal reveal-delay-3" onclick="openModal('modal5')">
-            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">Applications Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
-            <div class="project-title">Applications Analytics Dashboard</div>
-            <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
-            <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
-            <span class="project-arrow">View Case Study →</span>
-          </div>
-
-          <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal6')">
-            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">SQL · Business Analysis</span></div>
+               <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal4')">
+            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">SQL · Business Analysis</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
             <div class="project-title">SQL Analytics</div>
             <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — requiring manual Excel work for every insight.</p>
@@ -497,19 +492,29 @@
             <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
           </div>
 
-          <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
-            <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Admissions · BI</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
-            <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
-            <p class="project-problem">No end-to-end view of the student admission lifecycle — from lead to enrollment. YoY comparisons, UTD tracking, and funnel drop-off analysis all required manual work.</p>
-            <div class="project-metrics">
-              <div class="metric-pill">4-Stage Funnel Tracked</div>
-              <div class="metric-pill">YoY &amp; UTD Analysis</div>
-              <div class="metric-pill">Real-time Enrollment View</div>
-            </div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span><span class="tool-tag">Time Intelligence</span></div>
-            <span class="project-arrow" style="color:var(--accent3)">View Case Study →</span>
+          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal5')">
+            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">Marketing Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
+            <div class="project-title">Publisher Attribution Audit</div>
+            <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
+            <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
+            <span class="project-arrow">View Case Study →</span>
           </div>
+
+          <div class="project-card reveal reveal-delay-3" onclick="openModal('modal6')">
+            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">Applications Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
+            <div class="project-title">Applications Analytics Dashboard</div>
+            <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
+            <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
+            <span class="project-arrow">View Case Study →</span>
+          </div>
+
+     
+
+      
 
           <!-- ── ADDITIONAL PROJECTS STRIP ── -->
           <div class="reveal" style="grid-column:1/-1;margin-top:8px">
