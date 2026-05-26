@@ -12,11 +12,11 @@
       :root {
         --bg: #060818;
         --bg2: #080d20;
-        --glass: rgba(255,255,255,0.05);
-        --glass-hover: rgba(255,255,255,0.09);
+        --glass: rgb(10,15,38);
+        --glass-hover: rgb(14,20,44);
         --glass-border: rgba(255,255,255,0.12);
         --glass-border-hover: rgba(255,255,255,0.22);
-        --glass-strong: rgba(255,255,255,0.08);
+        --glass-strong: rgb(12,18,42);
         --accent: #5eead4;
         --accent2: #818cf8;
         --accent3: #fb7185;
@@ -28,8 +28,6 @@
         --heading: "Outfit",sans-serif;
         --body: "Space Grotesk",sans-serif;
         --mono: "JetBrains Mono",monospace;
-        --blur: blur(20px);
-        --blur-heavy: blur(40px);
         --radius: 20px;
         --radius-sm: 12px;
       }
@@ -38,21 +36,17 @@
       body { background:var(--bg);color:var(--text);font-family:var(--body);font-weight:400;line-height:1.7;overflow-x:hidden;min-height:100vh; }
 
       .bg-mesh { position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden; }
-      .bg-orb { position:absolute;border-radius:50%;filter:blur(90px);animation:orbDrift 18s ease-in-out infinite;opacity:0.55; }
+      .bg-orb { position:absolute;border-radius:50%;filter:blur(55px);animation:orbDrift 18s ease-in-out infinite;opacity:0.28;will-change:transform; }
       .bg-orb-1 { width:700px;height:700px;background:radial-gradient(circle,rgba(94,234,212,0.22),transparent 65%);top:-200px;left:-150px;animation-duration:20s; }
       .bg-orb-2 { width:600px;height:600px;background:radial-gradient(circle,rgba(129,140,248,0.18),transparent 65%);top:200px;right:-180px;animation-duration:25s;animation-delay:-8s; }
       .bg-orb-3 { width:500px;height:500px;background:radial-gradient(circle,rgba(251,113,133,0.12),transparent 65%);bottom:10%;left:30%;animation-duration:22s;animation-delay:-12s; }
       .bg-orb-4 { width:400px;height:400px;background:radial-gradient(circle,rgba(94,234,212,0.15),transparent 65%);bottom:-100px;right:10%;animation-duration:28s;animation-delay:-5s; }
       @keyframes orbDrift { 0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-60px) scale(1.08)}66%{transform:translate(-30px,40px) scale(0.95)} }
-      body::before { content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:0.5; }
       body::after { content:"";position:fixed;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:72px 72px;pointer-events:none;z-index:1;mask-image:radial-gradient(ellipse 90% 90% at 50% 50%,black 30%,transparent 100%); }
-
-      .glass { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius); }
-      .glass-sm { background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:var(--radius-sm); }
 
       .scroll-progress { position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2),var(--accent3));z-index:999;transition:width 0.1s linear;box-shadow:0 0 12px var(--accent-glow); }
 
-      nav { position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;width:min(1060px,calc(100% - 32px));background:rgba(10,15,35,0.6);backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);border:1px solid var(--glass-border);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);transition:all 0.4s; }
+      nav { position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 28px;height:58px;width:min(1060px,calc(100% - 32px));background:#080c1e;border:1px solid var(--glass-border);border-radius:100px;box-shadow:0 8px 40px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.08);transition:all 0.4s; }
       .nav-logo { font-family:var(--heading);font-size:1.05rem;font-weight:800;color:var(--text);text-decoration:none;letter-spacing:-0.02em; }
       .nav-logo span { color:var(--accent); }
       .nav-links { display:flex;align-items:center;gap:28px;list-style:none; }
@@ -60,31 +54,31 @@
       .nav-links a::after { content:"";position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s ease; }
       .nav-links a:hover { color:var(--text); }
       .nav-links a:hover::after { width:100%; }
-      .nav-badge { display:flex;align-items:center;gap:7px;padding:5px 14px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.28);border-radius:100px;font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);font-weight:600;white-space:nowrap; }
+      .nav-badge { display:flex;align-items:center;gap:7px;padding:5px 14px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.28);border-radius:100px;font-size:0.67rem;letter-spacing:0.07em;text-transform:uppercase;color:var(--accent);font-weight:600;white-space:nowrap; }
       .nav-badge::before { content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:blink 2s ease-in-out infinite;flex-shrink:0; }
       @keyframes blink { 0%,100%{opacity:1}50%{opacity:0.3} }
       .nav-resume { display:flex;align-items:center;gap:6px;padding:7px 16px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.35)!important;border-radius:100px;color:var(--accent)!important;font-size:0.78rem!important;font-weight:600!important;transition:all 0.25s!important; }
       .nav-resume:hover { background:var(--accent)!important;color:var(--bg)!important;box-shadow:0 4px 20px var(--accent-glow)!important; }
       .nav-resume::after { display:none!important; }
       .nav-left { display:flex;align-items:center;gap:14px; }
-      .nav-hamburger { display:none;flex-direction:column;gap:5px;background:var(--glass);backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:10px;cursor:pointer;padding:8px;transition:all 0.2s; }
+      .nav-hamburger { display:none;flex-direction:column;gap:5px;background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;cursor:pointer;padding:8px;transition:all 0.2s; }
       .nav-hamburger:hover { border-color:var(--accent); }
       .nav-hamburger span { display:block;width:18px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s; }
       .nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
       .nav-hamburger.open span:nth-child(2) { opacity:0; }
       .nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-      .nav-mobile-menu { display:none;position:fixed;top:86px;left:16px;right:16px;background:rgba(8,13,32,0.95);backdrop-filter:var(--blur-heavy);-webkit-backdrop-filter:var(--blur-heavy);border:1px solid var(--glass-border);border-radius:20px;flex-direction:column;z-index:99;padding:8px 0 12px;transform:translateY(-10px);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;box-shadow:0 20px 60px rgba(0,0,0,0.5); }
+      .nav-mobile-menu { display:none;position:fixed;top:86px;left:16px;right:16px;background:#08101e;border:1px solid var(--glass-border);border-radius:20px;flex-direction:column;z-index:99;padding:8px 0 12px;transform:translateY(-10px);opacity:0;transition:transform 0.3s ease,opacity 0.3s ease;pointer-events:none;box-shadow:0 20px 60px rgba(0,0,0,0.5); }
       .nav-mobile-menu.open { display:flex;transform:translateY(0);opacity:1;pointer-events:all; }
       .nav-mobile-menu a { color:var(--text2);text-decoration:none;font-size:0.9rem;padding:13px 22px;border-bottom:1px solid var(--glass-border);transition:color 0.2s,background 0.2s; }
       .nav-mobile-menu a:last-child { border-bottom:none;color:var(--accent);font-weight:600; }
-      .nav-mobile-menu a:hover { color:var(--text);background:var(--glass); }
+      .nav-mobile-menu a:hover { color:var(--text);background:rgba(255,255,255,0.04); }
 
       #hero { min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:120px 40px 80px;position:relative;z-index:2;max-width:1200px;margin:0 auto; }
       .hero-h1 span { color:#5eead4; }
-      .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.2);border-radius:100px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content;margin-bottom:28px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;font-family:var(--mono);backdrop-filter:var(--blur); }
+      .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(94,234,212,0.09);border:1px solid rgba(94,234,212,0.2);border-radius:100px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content;margin-bottom:28px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;font-family:var(--mono); }
       .hero-h1 { font-family:var(--heading);font-size:clamp(2.4rem,7vw,6.4rem);font-weight:900;line-height:1.02;letter-spacing:-0.04em;color:transparent;background:linear-gradient(150deg,#fff 0%,rgba(255,255,255,0.85) 40%,rgba(94,234,212,0.9) 70%,rgba(129,140,248,0.85) 100%);-webkit-background-clip:text;background-clip:text;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.25s ease forwards; }
       .hero-sub { font-size:1rem;color:var(--text2);max-width:560px;line-height:1.65;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.4s ease forwards;font-weight:400; }
-      .hero-metric { display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:14px;width:fit-content;font-size:0.85rem;color:var(--text);margin-bottom:40px;position:relative;overflow:hidden;backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);opacity:0;animation:fadeUp 0.7s 0.55s ease forwards;transition:all 0.3s;flex-wrap:wrap; }
+      .hero-metric { display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;width:fit-content;font-size:0.85rem;color:var(--text);margin-bottom:40px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);opacity:0;animation:fadeUp 0.7s 0.55s ease forwards;transition:all 0.3s;flex-wrap:wrap; }
       .hero-metric:hover { border-color:rgba(94,234,212,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(94,234,212,0.15),inset 0 1px 0 rgba(255,255,255,0.12);transform:translateY(-2px); }
       .hero-metric::before { content:"";position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(94,234,212,0.15),transparent);animation:shimmer 4s ease-in-out infinite; }
       @keyframes shimmer { 0%{left:-100%}100%{left:120%} }
@@ -92,36 +86,36 @@
       .hero-ctas { display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s 0.7s ease forwards; }
       .btn-primary { display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,rgba(94,234,212,0.9),rgba(129,140,248,0.9));color:#060818;border:none;border-radius:100px;font-family:var(--body);font-size:0.88rem;font-weight:700;cursor:pointer;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 20px rgba(94,234,212,0.3);letter-spacing:0.02em; }
       .btn-primary:hover { transform:translateY(-2px);box-shadow:0 8px 32px rgba(94,234,212,0.4);filter:brightness(1.1); }
-      .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:rgba(255,255,255,0.05);color:var(--text);border:1px solid rgba(255,255,255,0.15);border-radius:100px;font-family:var(--body);font-size:0.88rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.25s;backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1); }
-      .btn-secondary:hover { background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.15); }
+      .btn-secondary { display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:rgba(255,255,255,0.08);color:var(--text);border:1px solid rgba(255,255,255,0.15);border-radius:100px;font-family:var(--body);font-size:0.88rem;font-weight:500;cursor:pointer;text-decoration:none;transition:all 0.25s;box-shadow:inset 0 1px 0 rgba(255,255,255,0.1); }
+      .btn-secondary:hover { background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.15); }
       .hero-scroll { position:absolute;bottom:36px;left:40px;z-index:1;display:flex;align-items:center;gap:10px;color:var(--text3);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;opacity:0;animation:fadeUp 1s 1.2s ease forwards;font-family:var(--mono); }
       .scroll-line { width:36px;height:1px;background:linear-gradient(90deg,var(--text3),transparent); }
       @keyframes fadeUp { from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)} }
 
       #impact { position:relative;z-index:2;padding:0 40px;max-width:1200px;margin:0 auto; }
-      .impact-glass { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--glass-border);border-radius:24px;padding:36px 48px;box-shadow:0 8px 40px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .impact-glass { background:#0b1228;border:1px solid var(--glass-border);border-radius:24px;padding:36px 48px;box-shadow:0 8px 40px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.08); }
       .impact-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:0; }
       .impact-item { display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 20px;border-right:1px solid rgba(255,255,255,0.07);gap:4px;opacity:0;transform:translateY(20px);transition:all 0.5s ease; }
       .impact-item:last-child { border-right:none; }
       .impact-item.visible { opacity:1;transform:translateY(0); }
       .impact-item:hover { transform:translateY(-4px); }
-      .impact-icon { width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:12px;margin-bottom:10px;font-size:1.1rem;transition:transform 0.3s; }
+      .impact-icon { width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.15);border-radius:12px;margin-bottom:10px;font-size:1.1rem;transition:transform 0.3s; }
       .impact-item:hover .impact-icon { transform:scale(1.15) rotate(-5deg); }
       .impact-number { font-family:var(--heading);font-size:2rem;font-weight:900;color:transparent;background:linear-gradient(135deg,var(--text) 0%,var(--accent) 100%);-webkit-background-clip:text;background-clip:text;letter-spacing:-0.03em;line-height:1; }
       .impact-label { font-size:0.74rem;color:var(--text3);letter-spacing:0.06em;text-transform:uppercase;font-weight:500;margin-top:3px; }
 
       section { position:relative;z-index:2; }
       .section-inner { max-width:1200px;margin:0 auto;padding:100px 40px; }
-      .section-tag { display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;width:fit-content; }
+      .section-tag { display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:0.7rem;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:16px;padding:4px 12px;background:rgba(94,234,212,0.09);border:1px solid rgba(94,234,212,0.18);border-radius:100px;width:fit-content; }
       .section-tag::before { content:"◈";font-size:0.6rem;opacity:0.7; }
       .section-h2 { font-family:var(--heading);font-size:clamp(1.7rem,3.5vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,0.7) 100%);-webkit-background-clip:text;background-clip:text;color:transparent; }
       .section-desc { font-size:0.98rem;color:var(--text2);max-width:520px;line-height:1.7;margin-bottom:52px; }
 
       .project-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px; }
-      .project-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;display:block;color:inherit;box-shadow:0 4px 24px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .project-card { background:#0a0f22;border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:30px;position:relative;overflow:hidden;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);text-decoration:none;display:block;color:inherit;box-shadow:0 4px 24px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
       .project-card::before { content:"";position:absolute;inset:0;background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(94,234,212,0.12),transparent 55%);opacity:0;transition:opacity 0.4s;pointer-events:none;border-radius:inherit; }
       .project-card::after { content:"";position:absolute;top:0;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(94,234,212,0.5),rgba(129,140,248,0.5),transparent);opacity:0;transition:opacity 0.4s; }
-      .project-card:hover { border-color:rgba(94,234,212,0.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(94,234,212,0.12),inset 0 1px 0 rgba(255,255,255,0.12);background:rgba(255,255,255,0.07); }
+      .project-card:hover { border-color:rgba(94,234,212,0.3);transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(94,234,212,0.12),inset 0 1px 0 rgba(255,255,255,0.12);background:#0d1429; }
       .project-card:hover::before { opacity:1; }
       .project-card:hover::after { opacity:1; }
       .project-card-top { display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px; }
@@ -130,9 +124,9 @@
       .project-title { font-family:var(--heading);font-size:1.18rem;font-weight:700;letter-spacing:-0.025em;color:var(--text);margin-bottom:10px;line-height:1.25; }
       .project-problem { font-size:0.86rem;color:var(--text2);line-height:1.6;margin-bottom:20px; }
       .project-metrics { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px; }
-      .metric-pill { display:flex;align-items:center;gap:5px;padding:5px 12px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.18);border-radius:100px;font-family:var(--mono);font-size:0.72rem;color:var(--accent);font-weight:500;backdrop-filter:blur(8px); }
+      .metric-pill { display:flex;align-items:center;gap:5px;padding:5px 12px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.18);border-radius:100px;font-family:var(--mono);font-size:0.72rem;color:var(--accent);font-weight:500; }
       .project-tools { display:flex;gap:5px;flex-wrap:wrap;margin-bottom:20px; }
-      .tool-tag { font-size:0.68rem;padding:3px 8px;background:rgba(255,255,255,0.05);border-radius:6px;color:var(--text3);border:1px solid rgba(255,255,255,0.08);font-family:var(--mono);transition:all 0.2s; }
+      .tool-tag { font-size:0.68rem;padding:3px 8px;background:rgba(255,255,255,0.06);border-radius:6px;color:var(--text3);border:1px solid rgba(255,255,255,0.08);font-family:var(--mono);transition:all 0.2s; }
       .tool-tag:hover { color:var(--text2);border-color:rgba(255,255,255,0.15); }
       .project-arrow { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--accent);font-weight:600;transition:gap 0.2s;letter-spacing:0.02em; }
       .project-card:hover .project-arrow { gap:10px; }
@@ -141,7 +135,7 @@
 
       .project-card.sql-card::before { background:radial-gradient(circle at var(--x,50%) var(--y,50%),rgba(129,140,248,0.14),transparent 55%); }
       .project-card.sql-card .project-viz-bar { background:linear-gradient(90deg,var(--accent2),var(--accent)); }
-      .project-card.sql-card .metric-pill { background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.18);color:var(--accent2); }
+      .project-card.sql-card .metric-pill { background:rgba(129,140,248,0.1);border-color:rgba(129,140,248,0.18);color:var(--accent2); }
       .project-card.sql-card .project-num { color:var(--accent2); }
       .project-card.sql-card .project-arrow { color:var(--accent2); }
 
@@ -149,29 +143,28 @@
       .project-card.funnel-card::after { background:linear-gradient(90deg,transparent,rgba(251,113,133,0.4),rgba(94,234,212,0.4),transparent); }
       .project-card.funnel-card:hover { border-color:rgba(251,113,133,0.3);box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(251,113,133,0.1),inset 0 1px 0 rgba(255,255,255,0.12); }
       .project-card.funnel-card .project-viz-bar { background:linear-gradient(90deg,var(--accent3),var(--accent)); }
-      .project-card.funnel-card .metric-pill { background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.2);color:var(--accent3); }
+      .project-card.funnel-card .metric-pill { background:rgba(251,113,133,0.1);border-color:rgba(251,113,133,0.2);color:var(--accent3); }
       .project-card.funnel-card .project-num { color:var(--accent3); }
       .project-card.funnel-card .project-arrow { color:var(--accent3); }
       .project-card.funnel-card .project-tag { background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.2);color:var(--accent3); }
 
-      /* ── Additional Projects mini cards ── */
       .add-proj-card:hover { border-color:rgba(255,255,255,0.18)!important;transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.35)!important; }
       @media (max-width:768px) { .additional-projects-grid { grid-template-columns:1fr!important; } }
       @media (max-width:1200px) and (min-width:769px) { .additional-projects-grid { grid-template-columns:1fr 1fr!important; } }
 
-      .modal-overlay { position:fixed;inset:0;z-index:200;background:rgba(4,8,22,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s; }
+      .modal-overlay { position:fixed;inset:0;z-index:200;background:rgba(4,8,22,0.93);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s; }
       .modal-overlay.active { opacity:1;pointer-events:all; }
-      .modal { background:rgba(12,18,42,0.92);border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:44px;transform:translateY(30px) scale(0.97);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06),inset 0 1px 0 rgba(255,255,255,0.1);position:relative; }
+      .modal { background:#0c1228;border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:44px;transform:translateY(30px) scale(0.97);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.1) transparent;box-shadow:0 40px 80px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.06),inset 0 1px 0 rgba(255,255,255,0.1);position:relative; }
       .modal::before { content:"";position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(180deg,rgba(94,234,212,0.06),transparent);pointer-events:none;border-radius:24px 24px 0 0; }
       .modal-overlay.active .modal { transform:translateY(0) scale(1); }
-      .modal-close { position:sticky;top:0;float:right;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;z-index:10;backdrop-filter:blur(10px); }
+      .modal-close { position:sticky;top:0;float:right;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;z-index:10; }
       .modal-close:hover { color:var(--text);background:rgba(255,255,255,0.12); }
       .modal-step { display:flex;flex-direction:column;gap:12px;margin-bottom:28px; }
-      .modal-step-num { min-width:28px;height:28px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;align-self:flex-start;backdrop-filter:blur(8px); }
+      .modal-step-num { min-width:28px;height:28px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;align-self:flex-start; }
       .modal-step-content h4 { font-family:var(--heading);font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:8px; }
       .modal-step-content p { font-size:0.87rem;color:var(--text2);line-height:1.68; }
       .modal-kpi-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0; }
-      .modal-kpi { background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px 14px;text-align:center;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);transition:all 0.2s; }
+      .modal-kpi { background:#0a0f22;border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:20px 14px;text-align:center;box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);transition:all 0.2s; }
       .modal-kpi:hover { border-color:rgba(94,234,212,0.25);background:rgba(94,234,212,0.04); }
       .modal-kpi-val { font-family:var(--heading);font-size:1.7rem;font-weight:900;color:var(--accent);line-height:1;margin-bottom:6px;letter-spacing:-0.02em; }
       .modal-kpi-label { font-size:0.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-weight:500; }
@@ -180,11 +173,11 @@
 
       .sql-tab-row { display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap; }
       .sql-tab { padding:7px 16px;border-radius:100px;font-family:var(--mono);font-size:0.72rem;font-weight:600;cursor:pointer;border:1px solid rgba(129,140,248,0.25);background:rgba(129,140,248,0.06);color:var(--text2);transition:all 0.2s;letter-spacing:0.04em; }
-      .sql-tab.active { background:rgba(129,140,248,0.18);border-color:rgba(129,140,248,0.5);color:var(--accent2); }
+      .sql-tab.active { background:rgba(129,140,248,0.2);border-color:rgba(129,140,248,0.5);color:var(--accent2); }
       .sql-tab:hover:not(.active) { background:rgba(129,140,248,0.1);color:var(--text); }
       .sql-pane { display:none; }
       .sql-pane.active { display:block; }
-      .code-box { background:rgba(6,8,24,0.8);border:1px solid rgba(255,255,255,0.1);border-radius:14px;overflow:hidden;position:relative; }
+      .code-box { background:#040612;border:1px solid rgba(255,255,255,0.1);border-radius:14px;overflow:hidden;position:relative; }
       .code-topbar { display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.07); }
       .code-dots { display:flex;gap:5px; }
       .dot { width:10px;height:10px;border-radius:50%; }
@@ -201,7 +194,7 @@
       .col { color:#f1f5f9; }
       .tbl { color:#fb923c; }
       .sql-what-grid { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px; }
-      .sql-what-item { display:flex;gap:10px;align-items:flex-start;padding:10px 13px;background:rgba(129,140,248,0.05);border:1px solid rgba(129,140,248,0.12);border-radius:10px;border-left:2px solid rgba(129,140,248,0.4); }
+      .sql-what-item { display:flex;gap:10px;align-items:flex-start;padding:10px 13px;background:rgba(129,140,248,0.07);border:1px solid rgba(129,140,248,0.12);border-radius:10px;border-left:2px solid rgba(129,140,248,0.4); }
       .sql-what-item p { font-size:0.82rem;color:var(--text2);line-height:1.5;margin:0; }
 
       .dash-img-strip { display:flex;flex-direction:column;gap:16px;margin-top:10px; }
@@ -210,15 +203,15 @@
       .dash-img-strip img:hover { transform:scale(1.01);border-color:rgba(251,113,133,0.3); }
 
       .funnel-steps { display:flex;align-items:center;gap:0;margin:16px 0;flex-wrap:wrap; }
-      .funnel-step { display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:10px;font-size:0.78rem;color:var(--text2);font-family:var(--mono); }
+      .funnel-step { display:flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:10px;font-size:0.78rem;color:var(--text2);font-family:var(--mono); }
       .funnel-step span { color:var(--accent3);font-weight:700; }
       .funnel-arrow { color:var(--text3);font-size:0.8rem;padding:0 4px; }
 
       .skills-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px; }
-      .skill-group { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:28px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);position:relative;overflow:hidden; }
+      .skill-group { background:#0a0f22;border:1px solid rgba(255,255,255,0.09);border-radius:var(--radius);padding:28px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07);position:relative;overflow:hidden; }
       .skill-group::before { content:"";position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(180deg,rgba(94,234,212,0.04),transparent);pointer-events:none; }
       .skill-group:hover { border-color:rgba(255,255,255,0.16);transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.1); }
-      .skill-group-icon { width:40px;height:40px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px; }
+      .skill-group-icon { width:40px;height:40px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:14px; }
       .skill-group-title { font-family:var(--heading);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:18px;letter-spacing:-0.01em; }
       .skill-item { margin-bottom:14px; }
       .skill-row { display:flex;justify-content:space-between;align-items:center;margin-bottom:6px; }
@@ -227,15 +220,15 @@
       .skill-bar { height:3px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden; }
       .skill-bar-fill { height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:100px;width:0;transition:width 1.5s cubic-bezier(0.16,1,0.3,1);box-shadow:0 0 6px var(--accent-glow); }
       .skill-tags { display:flex;flex-wrap:wrap;gap:6px; }
-      .skill-tag { padding:4px 10px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:8px;font-size:0.72rem;color:var(--text2);font-family:var(--mono);transition:all 0.2s;backdrop-filter:blur(6px); }
+      .skill-tag { padding:4px 10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.09);border-radius:8px;font-size:0.72rem;color:var(--text2);font-family:var(--mono);transition:all 0.2s; }
       .skill-tag:hover { background:rgba(94,234,212,0.08);border-color:rgba(94,234,212,0.25);color:var(--accent); }
 
-      .exp-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;transition:all 0.35s;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08);position:relative;overflow:hidden; }
+      .exp-card { background:#0a0f22;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;transition:all 0.35s;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08);position:relative;overflow:hidden; }
       .exp-card::before { content:"";position:absolute;top:0;left:0;right:0;height:200px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none; }
       .exp-card:hover { border-color:rgba(94,234,212,0.22);box-shadow:0 20px 60px rgba(0,0,0,0.35),0 0 0 1px rgba(94,234,212,0.08),inset 0 1px 0 rgba(255,255,255,0.1); }
       .exp-role-row { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px; }
       .exp-role-row h3 { font-family:var(--heading);font-size:1.35rem;font-weight:800;color:var(--text);letter-spacing:-0.025em; }
-      .exp-tenure { display:inline-flex;align-items:center;gap:6px;padding:4px 13px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.25);border-radius:100px;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;letter-spacing:0.04em;white-space:nowrap;backdrop-filter:blur(8px); }
+      .exp-tenure { display:inline-flex;align-items:center;gap:6px;padding:4px 13px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.25);border-radius:100px;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;letter-spacing:0.04em;white-space:nowrap; }
       .exp-tenure::before { content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;box-shadow:0 0 8px var(--accent);animation:blink 2s infinite;flex-shrink:0; }
       .exp-org-row { display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px; }
       .exp-org { font-size:0.9rem;color:var(--text2);font-weight:400; }
@@ -243,12 +236,12 @@
       .exp-context { font-size:0.78rem;color:var(--text3);font-style:italic;line-height:1.5;margin-bottom:18px; }
       .exp-tool-row { display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px; }
       .exp-metrics { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid rgba(255,255,255,0.06); }
-      .exp-metrics span { font-size:0.74rem;padding:5px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;color:var(--accent);font-family:var(--mono);font-weight:600;backdrop-filter:blur(8px); }
+      .exp-metrics span { font-size:0.74rem;padding:5px 12px;background:rgba(94,234,212,0.07);border:1px solid rgba(94,234,212,0.18);border-radius:100px;color:var(--accent);font-family:var(--mono);font-weight:600; }
       .exp-blocks { display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:28px; }
       .exp-block h4 { font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-family:var(--mono);margin-bottom:10px; }
       .exp-block p { font-size:0.87rem;color:var(--text2);line-height:1.65; }
       .exp-block ul { list-style:none;display:flex;flex-direction:column;gap:7px; }
-      .exp-block ul li { font-size:0.84rem;color:var(--text2);line-height:1.5;display:flex;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);border-left:2px solid transparent;transition:all 0.2s;backdrop-filter:blur(6px); }
+      .exp-block ul li { font-size:0.84rem;color:var(--text2);line-height:1.5;display:flex;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);border-left:2px solid transparent;transition:all 0.2s; }
       .exp-block ul li:hover { background:rgba(94,234,212,0.05);border-left-color:var(--accent);border-color:rgba(94,234,212,0.15); }
       .exp-block ul li::before { content:"→";color:var(--accent);font-size:0.72rem;flex-shrink:0;margin-top:2px; }
 
@@ -261,7 +254,7 @@
       .timeline-role { font-family:var(--heading);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:4px;letter-spacing:-0.02em; }
       .timeline-org { font-size:0.88rem;color:var(--text2);margin-bottom:16px; }
       .timeline-impacts { list-style:none;display:flex;flex-direction:column;gap:8px; }
-      .timeline-impacts li { display:flex;gap:10px;font-size:0.87rem;color:var(--text2);line-height:1.55;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;border-left:2px solid transparent;transition:all 0.2s;backdrop-filter:blur(6px); }
+      .timeline-impacts li { display:flex;gap:10px;font-size:0.87rem;color:var(--text2);line-height:1.55;padding:10px 14px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;border-left:2px solid transparent;transition:all 0.2s; }
       .timeline-impacts li:hover { background:rgba(94,234,212,0.05);border-left-color:var(--accent);border-color:rgba(94,234,212,0.15); }
       .timeline-impacts li::before { content:"→";color:var(--accent);font-size:0.75rem;margin-top:2px;flex-shrink:0; }
       strong { color:var(--text);font-weight:600; }
@@ -269,12 +262,12 @@
       .about-grid { display:grid;grid-template-columns:1.8fr 1fr;gap:56px;align-items:start; }
       .about-text p { font-size:1.02rem;text-align:justify;color:var(--text2);line-height:1.78;margin-bottom:18px; }
       .about-text p strong { color:var(--accent);font-weight:600; }
-      .about-card { background:rgba(255,255,255,0.04);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
+      .about-card { background:#0a0f22;border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius);padding:28px;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08); }
       .about-card-title { font-family:var(--heading);font-size:0.8rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px; }
       .cert-item { display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.06);transition:all 0.2s; }
       .cert-item:last-child { border-bottom:none; }
       .cert-item:hover { padding-left:4px; }
-      .cert-icon { width:34px;height:34px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.88rem;flex-shrink:0;transition:transform 0.2s; }
+      .cert-icon { width:34px;height:34px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.15);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:0.88rem;flex-shrink:0;transition:transform 0.2s; }
       .cert-item:hover .cert-icon { transform:scale(1.1) rotate(-5deg); }
       .cert-name { font-size:0.83rem;color:var(--text);font-weight:500;line-height:1.4; }
       .cert-issuer { font-size:0.73rem;color:var(--text3);margin-top:2px; }
@@ -286,10 +279,10 @@
       .cta-sub { font-size:1rem;color:var(--text2);line-height:1.65;margin-bottom:44px;max-width:420px;margin-left:auto;margin-right:auto; }
       .cta-buttons { display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-bottom:52px; }
       .contact-grid { display:flex;justify-content:center;gap:8px;flex-wrap:wrap; }
-      .contact-link { display:flex;align-items:center;gap:7px;padding:9px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.25s;backdrop-filter:var(--blur);box-shadow:inset 0 1px 0 rgba(255,255,255,0.07); }
-      .contact-link:hover { background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12); }
+      .contact-link { display:flex;align-items:center;gap:7px;padding:9px 18px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--text2);text-decoration:none;font-size:0.8rem;transition:all 0.25s;box-shadow:inset 0 1px 0 rgba(255,255,255,0.07); }
+      .contact-link:hover { background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:var(--text);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.25),inset 0 1px 0 rgba(255,255,255,0.12); }
 
-      footer { border-top:1px solid rgba(255,255,255,0.06);padding:24px 80px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;background:rgba(6,8,24,0.5);backdrop-filter:blur(10px); }
+      footer { border-top:1px solid rgba(255,255,255,0.06);padding:24px 80px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;background:#060818; }
       .footer-left { font-size:0.78rem;color:var(--text3); }
       .footer-left span { color:var(--accent);font-weight:600; }
       .footer-right { font-size:0.73rem;color:var(--text3);font-family:var(--mono); }
@@ -443,23 +436,8 @@
         <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
 
-
-              <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
-            <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Admissions · BI</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
-            <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
-            <p class="project-problem">No end-to-end view of the student admission lifecycle — from lead to enrollment. YoY comparisons, UTD tracking, and funnel drop-off analysis all required manual work.</p>
-            <div class="project-metrics">
-              <div class="metric-pill">4-Stage Funnel Tracked</div>
-              <div class="metric-pill">YoY &amp; UTD Analysis</div>
-              <div class="metric-pill">Real-time Enrollment View</div>
-            </div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span><span class="tool-tag">Time Intelligence</span></div>
-            <span class="project-arrow" style="color:var(--accent3)">View Case Study →</span>
-          </div>
-
-          <div class="project-card reveal" onclick="openModal('modal2')">
-            <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Power BI · DAX</span></div>
+          <div class="project-card reveal" onclick="openModal('modal1')">
+            <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Power BI · DAX</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
             <div class="project-title">Telecalling Performance Intelligence</div>
             <p class="project-problem">Call center had zero visibility into agent performance. Manual tracking was slow, error-prone, and couldn't scale to 1M+ records.</p>
@@ -468,8 +446,8 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-          <div class="project-card reveal reveal-delay-1" onclick="openModal('modal3')">
-            <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Finance · BI</span></div>
+          <div class="project-card reveal reveal-delay-1" onclick="openModal('modal2')">
+            <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Finance · BI</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="75"></div></div>
             <div class="project-title">Financial Collections Dashboard</div>
             <p class="project-problem">Finance team relied on scattered Excel sheets to track ₹Cr+ in receivables. Leadership had no real-time view of collection health.</p>
@@ -478,8 +456,28 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-               <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal4')">
-            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">SQL · Business Analysis</span></div>
+          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
+            <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
+            <div class="project-title">Publisher Attribution Audit</div>
+            <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
+            <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
+            <span class="project-arrow">View Case Study →</span>
+          </div>
+
+          <div class="project-card reveal reveal-delay-3" onclick="openModal('modal4')">
+            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Applications Analytics</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
+            <div class="project-title">Applications Analytics Dashboard</div>
+            <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
+            <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
+            <span class="project-arrow">View Case Study →</span>
+          </div>
+
+          <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
+            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
             <div class="project-title">SQL Analytics</div>
             <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — requiring manual Excel work for every insight.</p>
@@ -492,31 +490,21 @@
             <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
           </div>
 
-          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal5')">
-            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">Marketing Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
-            <div class="project-title">Publisher Attribution Audit</div>
-            <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
-            <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">CRM</span></div>
-            <span class="project-arrow">View Case Study →</span>
+          <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal6')">
+            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">Admissions · BI</span></div>
+            <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
+            <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
+            <p class="project-problem">No end-to-end view of the student admission lifecycle — from lead to enrollment. YoY comparisons, UTD tracking, and funnel drop-off analysis all required manual work.</p>
+            <div class="project-metrics">
+              <div class="metric-pill">4-Stage Funnel Tracked</div>
+              <div class="metric-pill">YoY &amp; UTD Analysis</div>
+              <div class="metric-pill">Real-time Enrollment View</div>
+            </div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span><span class="tool-tag">Time Intelligence</span></div>
+            <span class="project-arrow" style="color:var(--accent3)">View Case Study →</span>
           </div>
 
-          <div class="project-card reveal reveal-delay-3" onclick="openModal('modal6')">
-            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">Applications Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
-            <div class="project-title">Applications Analytics Dashboard</div>
-            <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
-            <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
-            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span></div>
-            <span class="project-arrow">View Case Study →</span>
-          </div>
-
-     
-
-      
-
-          <!-- ── ADDITIONAL PROJECTS STRIP ── -->
+          <!-- ADDITIONAL PROJECTS -->
           <div class="reveal" style="grid-column:1/-1;margin-top:8px">
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
               <div class="section-tag" style="margin-bottom:0">Additional Projects</div>
@@ -524,8 +512,7 @@
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px" class="additional-projects-grid">
 
-              <!-- Mini card 07: IT Ticketing -->
-              <div class="add-proj-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(16px)">
+              <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
                   <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">07</span>
@@ -542,12 +529,11 @@
                 </div>
               </div>
 
-              <!-- Mini card 08: Creative & Communication -->
-              <div class="add-proj-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(16px)">
+              <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(129,140,248,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">08</span>
-                  <span style="font-size:0.65rem;padding:3px 9px;background:rgba(129,140,248,0.08);border:1px solid rgba(129,140,248,0.2);border-radius:100px;color:var(--accent);font-weight:500">Smartsheets · Power BI</span>
+                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent2);letter-spacing:0.1em;opacity:0.8">08</span>
+                  <span style="font-size:0.65rem;padding:3px 9px;background:rgba(129,140,248,0.08);border:1px solid rgba(129,140,248,0.2);border-radius:100px;color:var(--accent2);font-weight:500">Smartsheets · Power BI</span>
                 </div>
                 <div style="font-family:var(--heading);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;line-height:1.25">Creative &amp; Communication Dashboard</div>
                 <p style="font-size:0.8rem;color:var(--text2);line-height:1.6;margin-bottom:14px">Person-level task tracking across categories, status, and pending periods — surfacing % pending and overdue tasks to drive accountability in creative and comms teams.</p>
@@ -555,13 +541,12 @@
                   <span class="tool-tag">Excel</span><span class="tool-tag">Power BI</span><span class="tool-tag">Smartsheets</span>
                 </div>
                 <div style="display:flex;gap:6px;flex-wrap:wrap">
-                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.15);border-radius:100px;color:var(--accent);font-family:var(--mono)">Task Status Tracking</div>
-                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.15);border-radius:100px;color:var(--accent);font-family:var(--mono)">Pending % Analysis</div>
+                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.15);border-radius:100px;color:var(--accent2);font-family:var(--mono)">Task Status Tracking</div>
+                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(129,140,248,0.06);border:1px solid rgba(129,140,248,0.15);border-radius:100px;color:var(--accent2);font-family:var(--mono)">Pending % Analysis</div>
                 </div>
               </div>
 
-              <!-- Mini card 09: Automated Google Sheets -->
-              <div class="add-proj-card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;backdrop-filter:blur(16px)">
+              <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(251,113,133,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
                   <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent3);letter-spacing:0.1em;opacity:0.8">09</span>
@@ -573,24 +558,23 @@
                   <span class="tool-tag">Google Sheets</span><span class="tool-tag">Apps Script</span>
                 </div>
                 <div style="display:flex;gap:6px;flex-wrap:wrap">
-                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.15);border-radius:100px;color:var(--accent3);font-family:var(--mono)">&#8595; 70–80% Manual Work</div>
+                  <div style="font-size:0.68rem;padding:3px 9px;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.15);border-radius:100px;color:var(--accent3);font-family:var(--mono)">↓ 70–80% Manual Work</div>
                   <div style="font-size:0.68rem;padding:3px 9px;background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.15);border-radius:100px;color:var(--accent3);font-family:var(--mono)">Multi-Dept Automation</div>
                 </div>
               </div>
 
             </div>
           </div>
-          <!-- ── END ADDITIONAL PROJECTS ── -->
 
         </div>
       </div>
     </section>
 
     <!-- MODAL 01 -->
-    <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
+    <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal2')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 02</div>
+        <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 01</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Telecalling Performance Intelligence</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · MCUBE · Meritto CRM · Excel</p>
         <div class="modal-kpi-grid">
@@ -607,10 +591,10 @@
     </div>
 
     <!-- MODAL 02 -->
-    <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
+    <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal3')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 03</div>
+        <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 02</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Financial Collections Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · ERP (Juno) · CRM · Excel</p>
         <div class="modal-kpi-grid">
@@ -626,10 +610,10 @@
     </div>
 
     <!-- MODAL 03 -->
-    <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
+    <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 5</div>
+        <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 03</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Publisher Attribution Audit</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Google Sheets · CRM</p>
         <div class="modal-kpi-grid">
@@ -645,10 +629,10 @@
     </div>
 
     <!-- MODAL 04 -->
-    <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
+    <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal6')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 06</div>
+        <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px">Case Study · 04</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Applications Analytics Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
         <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Application data was fragmented across separate 2025 and 2026 datasets with no centralized reporting. Leadership had no real-time visibility into application volume, paid conversions, or growth.</p></div></div>
@@ -659,11 +643,11 @@
       </div>
     </div>
 
-    <!-- MODAL 05 — SQL PROJECT WITH CODE VIEWER -->
-    <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
+    <!-- MODAL 05 — SQL -->
+    <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
       <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal4')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 04</div>
+        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">SQL Analytics</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · SUBSTRING_INDEX · Subqueries</p>
         <div class="modal-kpi-grid">
@@ -792,10 +776,10 @@
     </div>
 
     <!-- MODAL 06 -->
-    <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
+    <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
       <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal1')">✕</button>
-        <div class="section-tag" style="margin-bottom:10px;color:var(--accent3);background:rgba(251,113,133,0.07);border-color:rgba(251,113,133,0.2)">Case Study · 01</div>
+        <button class="modal-close" onclick="closeModal('modal6')">✕</button>
+        <div class="section-tag" style="margin-bottom:10px;color:var(--accent3);background:rgba(251,113,133,0.07);border-color:rgba(251,113,133,0.2)">Case Study · 06</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Admissions Funnel &amp; Lead Conversion Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
         <div class="modal-kpi-grid">
@@ -1061,64 +1045,16 @@
       document.addEventListener("keydown",e=>{
         if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>{m.classList.remove("active");document.body.style.overflow="";});
       });
-
-      /* SQL tab switcher */
       function switchTab(id) {
         document.querySelectorAll('.sql-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.sql-pane').forEach(p => p.classList.remove('active'));
         event.currentTarget.classList.add('active');
         document.getElementById('pane-' + id).classList.add('active');
       }
-
-      /* Copy SQL */
       function copySql(queryId, btn) {
         const rawMap = {
-          q1: `SELECT
-    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1)) AS lead_owner,
-    COUNT(*) AS total_leads,
-    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,
-    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS ul_leads,
-    COUNT(applications.registered_name) AS total_apps,
-    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS total_npa,
-    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS total_pa,
-    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS total_adms,
-    ROUND(
-        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0
-        / NULLIF(COUNT(*), 0),
-    2) AS pa_conversion_percent
-FROM leads
-LEFT JOIN applications
-    ON leads.lead_id = applications.lead_id
-GROUP BY
-    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1))
-ORDER BY
-    total_pa DESC;`,
-          q2: `SELECT
-    leads.publisher_name,
-    COUNT(*) AS total_leads,
-    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,
-    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS unvl_leads,
-    COUNT(applications.registered_name) AS total_apps,
-    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS pending_apps,
-    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS paid_apps,
-    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS adms,
-    ROUND(
-        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0
-        / NULLIF(COUNT(applications.registered_name), 0),
-    1) AS app_to_paid_pct,
-    ROUND(
-        COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS' THEN 1 END) * 100.0
-        / NULLIF(COUNT(leads.registered_name), 0),
-    1) AS lead_verify_pct,
-    ROUND(
-        COUNT(CASE WHEN applications.enrolment_status = 'YES' THEN 1 END) * 100.0
-        / NULLIF(COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END), 0),
-    1) AS paid_to_enrolled_pct
-FROM leads
-LEFT JOIN applications
-    ON leads.user_id = applications.user_id
-GROUP BY leads.publisher_name
-ORDER BY paid_apps DESC;`
+          q1: `SELECT\n    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1)) AS lead_owner,\n    COUNT(*) AS total_leads,\n    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,\n    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS ul_leads,\n    COUNT(applications.registered_name) AS total_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS total_npa,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS total_pa,\n    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS total_adms,\n    ROUND(\n        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0\n        / NULLIF(COUNT(*), 0),\n    2) AS pa_conversion_percent\nFROM leads\nLEFT JOIN applications\n    ON leads.lead_id = applications.lead_id\nGROUP BY\n    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1))\nORDER BY\n    total_pa DESC;`,
+          q2: `SELECT\n    leads.publisher_name,\n    COUNT(*) AS total_leads,\n    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,\n    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS unvl_leads,\n    COUNT(applications.registered_name) AS total_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS pending_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS paid_apps,\n    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS adms,\n    ROUND(\n        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0\n        / NULLIF(COUNT(applications.registered_name), 0),\n    1) AS app_to_paid_pct,\n    ROUND(\n        COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS' THEN 1 END) * 100.0\n        / NULLIF(COUNT(leads.registered_name), 0),\n    1) AS lead_verify_pct,\n    ROUND(\n        COUNT(CASE WHEN applications.enrolment_status = 'YES' THEN 1 END) * 100.0\n        / NULLIF(COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END), 0),\n    1) AS paid_to_enrolled_pct\nFROM leads\nLEFT JOIN applications\n    ON leads.user_id = applications.user_id\nGROUP BY leads.publisher_name\nORDER BY paid_apps DESC;`
         };
         navigator.clipboard.writeText(rawMap[queryId]).then(() => {
           btn.textContent = 'Copied!';
