@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lokesh VR — Data Analyst | Excel · Power BI · SQL · CRM · Python</title>
-    <meta name="description" content="Data Analyst specializing in turning raw data into business decisions. Expert in Excel, Power BI, SQL, Python(Fundamentals). Based in Bangalore." />
+    <title>Lokesh VR — Data Analyst | Power BI · SQL · Excel · DAX · Business Intelligence</title>
+    <meta name="description" content="Data Analyst specializing in Power BI, SQL, Excel, DAX and Power Query — turning raw business data into dashboards, reporting automation and measurable business impact. Based in Bangalore." />
 
     <!-- Open Graph / LinkedIn / WhatsApp link preview -->
     <meta property="og:type" content="website" />
@@ -91,6 +91,8 @@
       .hero-h1 span { color:#5eead4; }
       .hero-eyebrow { display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(94,234,212,0.09);border:1px solid rgba(94,234,212,0.2);border-radius:100px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);font-weight:600;width:fit-content;margin-bottom:28px;opacity:0;animation:fadeUp 0.6s 0.1s ease forwards;font-family:var(--mono); }
       .hero-h1 { font-family:var(--heading);font-size:clamp(2.4rem,7vw,6.4rem);font-weight:900;line-height:1.02;letter-spacing:-0.04em;color:transparent;background:linear-gradient(150deg,#fff 0%,rgba(255,255,255,0.85) 40%,rgba(94,234,212,0.9) 70%,rgba(129,140,248,0.85) 100%);-webkit-background-clip:text;background-clip:text;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.25s ease forwards; }
+      .hero-position-row { display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;opacity:0;animation:fadeUp 0.7s 0.32s ease forwards; }
+      .hero-position-tag { font-family:var(--mono);font-size:0.74rem;padding:5px 13px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);border-radius:100px;color:var(--text2);letter-spacing:0.02em; }
       .hero-sub { font-size:1rem;color:var(--text2);max-width:560px;line-height:1.65;margin-bottom:28px;opacity:0;animation:fadeUp 0.7s 0.4s ease forwards;font-weight:400; }
       .hero-metric { display:inline-flex;align-items:center;gap:10px;padding:12px 20px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:14px;width:fit-content;font-size:0.85rem;color:var(--text);margin-bottom:40px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.1);opacity:0;animation:fadeUp 0.7s 0.55s ease forwards;transition:all 0.3s;flex-wrap:wrap; }
       .hero-metric:hover { border-color:rgba(94,234,212,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.3),0 0 0 1px rgba(94,234,212,0.15),inset 0 1px 0 rgba(255,255,255,0.12);transform:translateY(-2px); }
@@ -309,6 +311,21 @@
       .reveal-delay-4 { transition-delay:0.4s; }
       .reveal-delay-5 { transition-delay:0.5s; }
 
+      /* Business Problems Solved */
+      .problems-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px; }
+      .problem-card { background:#0a0f22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:20px;transition:all 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15),inset 0 1px 0 rgba(255,255,255,0.07); }
+      .problem-card:hover { border-color:rgba(94,234,212,0.25);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.25); }
+      .problem-icon { width:34px;height:34px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;margin-bottom:12px; }
+      .problem-title { font-family:var(--heading);font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:6px;letter-spacing:-0.01em; }
+      .problem-desc { font-size:0.78rem;color:var(--text2);line-height:1.55; }
+
+      /* Data Analytics Workflow */
+      .workflow-row { display:flex;align-items:center;gap:0;flex-wrap:wrap;margin-top:8px; }
+      .workflow-step { display:flex;flex-direction:column;gap:4px;padding:16px 20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;min-width:150px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.07); }
+      .workflow-step-label { font-size:0.66rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;font-family:var(--mono); }
+      .workflow-step-tools { font-size:0.84rem;color:var(--text);font-weight:600; }
+      .workflow-arrow { color:var(--accent);font-size:1.1rem;padding:0 10px;flex-shrink:0; }
+
       @media (max-width:1200px) { .project-grid { grid-template-columns:repeat(2,1fr); } }
       @media (max-width:768px) {
         nav { top:10px;padding:0 16px;height:52px; }
@@ -317,6 +334,8 @@
         .nav-hamburger { display:flex; }
         #hero { padding:88px 20px 80px;min-height:100svh; }
         .hero-h1 { font-size:clamp(2rem,9vw,3rem);margin-bottom:20px; }
+        .hero-position-row { margin-bottom:18px; }
+        .hero-position-tag { font-size:0.68rem;padding:4px 11px; }
         .hero-sub { font-size:0.92rem;margin-bottom:22px; }
         .hero-metric { font-size:0.78rem;padding:10px 14px;margin-bottom:28px;gap:8px; }
         .hero-ctas { gap:10px; }
@@ -344,6 +363,10 @@
         .project-images { grid-template-columns:1fr; }
         .skills-grid { grid-template-columns:1fr;gap:14px; }
         .skill-group { padding:22px; }
+        .problems-grid { grid-template-columns:1fr; }
+        .workflow-row { flex-direction:column;align-items:stretch; }
+        .workflow-arrow { transform:rotate(90deg);padding:6px 0;align-self:center; }
+        .workflow-step { min-width:0; }
         .exp-card { padding:20px; }
         .exp-role-row h3 { font-size:1.15rem; }
         .exp-blocks { grid-template-columns:1fr;gap:18px; }
@@ -418,7 +441,15 @@
         Data Analyst · Bangalore
       </div>
       <h1 class="hero-h1">Turning Raw Data<br />Into <span>Business Decisions</span><br />That Drive Results</h1>
-      <p class="hero-sub">Using data to solve operational problems, improve efficiency, and support business growth — with <strong style="color:var(--text);font-weight:600">Power BI · Excel · Google Sheets · SQL · CRM</strong></p>
+      <div class="hero-position-row">
+        <span class="hero-position-tag">Power BI</span>
+        <span class="hero-position-tag">SQL</span>
+        <span class="hero-position-tag">Excel</span>
+        <span class="hero-position-tag">DAX</span>
+        <span class="hero-position-tag">Power Query</span>
+        <span class="hero-position-tag">Business Analytics</span>
+      </div>
+      <p class="hero-sub">Data Analyst turning raw business data into decisions — using <strong style="color:var(--text);font-weight:600">Power BI · SQL · Excel · DAX · Power Query · Google Sheets/Apps Script</strong> to build dashboards, automate reporting, and uncover revenue-impacting insights.</p>
       <div class="hero-metric">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
         Analyzed <span class="highlight">1M+ records</span>, automated <span class="highlight">70% of manual workflows</span>, saving <span class="highlight">₹4.5L+</span> through Publisher Analysis
@@ -990,29 +1021,114 @@
         <div class="skills-grid">
           <div class="skill-group reveal">
             <div class="skill-group-icon">🗄️</div>
-            <div class="skill-group-title">Data Analysis &amp; Querying</div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">SQL / MySQL</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">Excel (Advanced)</span><span class="skill-level">Expert</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="92"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">Python</span><span class="skill-level">Fundamentals</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="55"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">Google Sheets</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
+            <div class="skill-group-title">Data Analytics</div>
+            <div class="skill-tags"><span class="skill-tag">SQL / MySQL</span><span class="skill-tag">Excel (Advanced)</span><span class="skill-tag">Data Analysis</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Google Sheets</span><span class="skill-tag">Python (Fundamentals)</span></div>
           </div>
           <div class="skill-group reveal reveal-delay-1">
             <div class="skill-group-icon">📈</div>
-            <div class="skill-group-title">Visualization &amp; BI</div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="90"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">DAX</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="85"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">Dashboard Design</span><span class="skill-level">Advanced</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="88"></div></div></div>
-            <div class="skill-item"><div class="skill-row"><span class="skill-name">KPI Design</span><span class="skill-level">Strong</span></div><div class="skill-bar"><div class="skill-bar-fill" data-width="82"></div></div></div>
+            <div class="skill-group-title">Business Intelligence</div>
+            <div class="skill-tags"><span class="skill-tag">Power BI</span><span class="skill-tag">DAX</span><span class="skill-tag">Power Query</span><span class="skill-tag">Data Modeling</span><span class="skill-tag">Time Intelligence</span><span class="skill-tag">KPI Design</span></div>
           </div>
           <div class="skill-group reveal reveal-delay-2">
             <div class="skill-group-icon">⚙️</div>
-            <div class="skill-group-title">Automation &amp; Tools</div>
-            <div class="skill-tags"><span class="skill-tag">Google Apps Script</span><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">CRM (Meritto)</span><span class="skill-tag">MCUBE</span><span class="skill-tag">STPL / Nettyfish</span><span class="skill-tag">Smartsheets</span><span class="skill-tag">Workflow Automation</span></div>
+            <div class="skill-group-title">Automation</div>
+            <div class="skill-tags"><span class="skill-tag">Google Apps Script</span><span class="skill-tag">Excel Automation</span><span class="skill-tag">ETL Pipelines</span><span class="skill-tag">Workflow Automation</span><span class="skill-tag">Smartsheets</span></div>
           </div>
           <div class="skill-group reveal reveal-delay-3">
+            <div class="skill-group-icon">🗃️</div>
+            <div class="skill-group-title">Databases &amp; Systems</div>
+            <div class="skill-tags"><span class="skill-tag">MySQL</span><span class="skill-tag">Meritto CRM</span><span class="skill-tag">MCUBE</span><span class="skill-tag">ERP (Juno)</span><span class="skill-tag">STPL / Nettyfish</span></div>
+          </div>
+          <div class="skill-group reveal reveal-delay-4">
             <div class="skill-group-icon">🧠</div>
-            <div class="skill-group-title">Domain Expertise</div>
-            <div class="skill-tags"><span class="skill-tag">Marketing Analytics</span><span class="skill-tag">CRM Analysis</span><span class="skill-tag">Funnel Analysis</span><span class="skill-tag">Attribution Modeling</span><span class="skill-tag">Financial Reporting</span><span class="skill-tag">Performance Mgmt</span><span class="skill-tag">Stakeholder Reporting</span><span class="skill-tag">Data Storytelling</span></div>
+            <div class="skill-group-title">Business Analytics</div>
+            <div class="skill-tags"><span class="skill-tag">Marketing Analytics</span><span class="skill-tag">Admissions Analytics</span><span class="skill-tag">Operations Analytics</span><span class="skill-tag">CRM Analysis</span><span class="skill-tag">Funnel Analysis</span><span class="skill-tag">Attribution Modeling</span><span class="skill-tag">Financial Reporting</span><span class="skill-tag">Performance Mgmt</span><span class="skill-tag">Stakeholder Reporting</span><span class="skill-tag">Data Storytelling</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS PROBLEMS SOLVED -->
+    <section id="problems">
+      <div class="section-inner">
+        <div class="section-tag reveal">Business Problems Solved</div>
+        <h2 class="section-h2 reveal reveal-delay-1">The Kind of Problems<br />I Get Called In For</h2>
+        <p class="section-desc reveal reveal-delay-2">Every dashboard or query I build starts with a specific business problem. Here's the range I've worked across.</p>
+        <div class="problems-grid">
+          <div class="problem-card reveal">
+            <div class="problem-icon">💸</div>
+            <div class="problem-title">Revenue Leakage</div>
+            <div class="problem-desc">Traced broken publisher attribution logic to stop ₹4.5L+ in leakage and recover 65+ misattributed applications.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-1">
+            <div class="problem-icon">🎯</div>
+            <div class="problem-title">Lead Conversion</div>
+            <div class="problem-desc">Built funnel dashboards tracking leads through to enrollment, surfacing drop-off points for the admissions team.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-2">
+            <div class="problem-icon">🎓</div>
+            <div class="problem-title">Admissions Analytics</div>
+            <div class="problem-desc">Unified year-over-year and UTD admissions data across programs and campuses into one live view.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-3">
+            <div class="problem-icon">📣</div>
+            <div class="problem-title">Marketing Analytics</div>
+            <div class="problem-desc">Audited publisher performance and campaign ROI to correct a 60% misattribution rate in ad spend tracking.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-4">
+            <div class="problem-icon">📞</div>
+            <div class="problem-title">CRM &amp; Calling Analytics</div>
+            <div class="problem-desc">Gave telecalling teams agent-level visibility into SLA, answer rate, and follow-up performance across 1M+ records.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-5">
+            <div class="problem-icon">🏢</div>
+            <div class="problem-title">Operational Performance</div>
+            <div class="problem-desc">Tracked IT ticket priority, hostel occupancy, and task completion across teams for real-time accountability.</div>
+          </div>
+          <div class="problem-card reveal">
+            <div class="problem-icon">✅</div>
+            <div class="problem-title">Data Quality</div>
+            <div class="problem-desc">Cleaned and standardized messy CRM and lead-owner data, migrating 1M+ records with under 1% error rate.</div>
+          </div>
+          <div class="problem-card reveal reveal-delay-1">
+            <div class="problem-icon">⚡</div>
+            <div class="problem-title">Reporting Automation</div>
+            <div class="problem-desc">Replaced manual weekly Excel reporting with live Power BI and Apps Script pipelines, cutting reporting time by up to 90%.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATA ANALYTICS WORKFLOW -->
+    <section id="workflow">
+      <div class="section-inner">
+        <div class="section-tag reveal">How I Work</div>
+        <h2 class="section-h2 reveal reveal-delay-1">End-to-End Analytics Workflow</h2>
+        <p class="section-desc reveal reveal-delay-2">From raw source data to a business decision — the same pipeline I use across every project above.</p>
+        <div class="workflow-row reveal reveal-delay-3">
+          <div class="workflow-step">
+            <span class="workflow-step-label">Sources</span>
+            <span class="workflow-step-tools">CRM · Excel · Google Sheets</span>
+          </div>
+          <span class="workflow-arrow">→</span>
+          <div class="workflow-step">
+            <span class="workflow-step-label">Clean &amp; Transform</span>
+            <span class="workflow-step-tools">SQL · Power Query</span>
+          </div>
+          <span class="workflow-arrow">→</span>
+          <div class="workflow-step">
+            <span class="workflow-step-label">Model &amp; Analyze</span>
+            <span class="workflow-step-tools">Data Modeling · DAX</span>
+          </div>
+          <span class="workflow-arrow">→</span>
+          <div class="workflow-step">
+            <span class="workflow-step-label">Visualize</span>
+            <span class="workflow-step-tools">Power BI</span>
+          </div>
+          <span class="workflow-arrow">→</span>
+          <div class="workflow-step">
+            <span class="workflow-step-label">Outcome</span>
+            <span class="workflow-step-tools">Business Insights</span>
           </div>
         </div>
       </div>
@@ -1073,8 +1189,8 @@
         <div class="about-grid">
           <div class="about-text reveal">
             <h2 class="section-h2" style="margin-bottom:24px">Think in Patterns,<br />Speak in Insights</h2>
-            <p>Data Analyst with 1+ year of experience turning messy, high-volume datasets into decisions that move the business. I work across <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Excel</strong>, and <strong>Google Sheets</strong> — not to build reports, but to solve the problem behind the problem.</p>
-            <p>At CMR University, I didn't just analyze data — I <strong>caught fraud</strong>, stopped <strong>₹4.5L+ in revenue leakage</strong>, <strong>automated 70% of manual workflows</strong>, and built dashboards that gave leadership real-time visibility across finance, marketing, and operations. I start with the business question, not the dataset — and I don't stop until the insight is actionable.</p>
+            <p>Data Analyst with 1+ year of hands-on experience turning messy, high-volume datasets into decisions that move the business. I work across <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Excel</strong>, <strong>DAX</strong>, <strong>Power Query</strong>, and <strong>Google Sheets/Apps Script</strong> — not to build reports, but to solve the problem behind the problem.</p>
+            <p>At CMR University, I've worked across <strong>admissions</strong>, <strong>marketing</strong>, <strong>operations</strong>, and <strong>CRM/telecalling analytics</strong> — where I caught fraud, stopped <strong>₹4.5L+ in revenue leakage</strong>, <strong>automated 70% of manual workflows</strong>, and built dashboards that gave leadership real-time visibility across finance, marketing, and operations. I start with the business question, not the dataset — and I don't stop until the insight is actionable.</p>
             <div style="margin-top:28px"><a href="mailto:lokesh2520031968@gmail.com" class="btn-primary" style="font-size:0.84rem;padding:12px 24px">Let's Talk →</a></div>
           </div>
           <div class="about-card reveal reveal-delay-2">
