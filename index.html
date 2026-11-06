@@ -164,16 +164,18 @@
       .project-card.funnel-card .project-arrow { color:var(--accent3); }
       .project-card.funnel-card .project-tag { background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.2);color:var(--accent3); }
 
+      .add-proj-card { cursor:default; }
+      .add-proj-card.clickable { cursor:pointer; }
       .add-proj-card:hover { border-color:rgba(255,255,255,0.18)!important;transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.35)!important; }
       @media (max-width:768px) { .additional-projects-grid { grid-template-columns:1fr!important; } }
       @media (max-width:1200px) and (min-width:769px) { .additional-projects-grid { grid-template-columns:1fr 1fr!important; } }
 
       .modal-overlay { position:fixed;inset:0;z-index:200;background:rgba(4,8,22,0.93);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity 0.3s; }
       .modal-overlay.active { opacity:1;pointer-events:all; }
-      .modal { background:#0c1228;border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:52px 44px 44px; }
+      .modal { position:relative;background:#0c1228;border:1px solid rgba(255,255,255,0.12);border-radius:24px;max-width:760px;width:100%;max-height:88vh;overflow-y:auto;padding:52px 44px 44px;transform:translateY(20px) scale(0.97);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1); }
       .modal::before { content:"";position:absolute;top:0;left:0;right:0;height:180px;background:linear-gradient(180deg,rgba(94,234,212,0.06),transparent);pointer-events:none;border-radius:24px 24px 0 0; }
       .modal-overlay.active .modal { transform:translateY(0) scale(1); }
-      .modal-close { position:absolute;top:18px;right:18px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;z-index:10;flex-shrink:0; }
+      .modal-close { position:sticky;top:0;float:right;margin:-34px -26px 0 0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:8px;color:var(--text2);width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:0.9rem;transition:all 0.2s;z-index:10;flex-shrink:0; }
       .modal-close:hover { color:var(--text);background:rgba(255,255,255,0.12); }
       .modal-step { display:flex;flex-direction:column;gap:12px;margin-bottom:28px; }
       .modal-step-num { min-width:28px;height:28px;background:rgba(94,234,212,0.1);border:1px solid rgba(94,234,212,0.25);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:0.68rem;color:var(--accent);font-weight:600;align-self:flex-start; }
@@ -357,6 +359,7 @@
         .project-title { font-size:1.05rem; }
         .modal-overlay { padding:12px; }
         .modal { padding:20px 16px;border-radius:18px;max-height:90vh; }
+        .modal-close { margin:-6px -2px 0 0; }
         .modal-kpi-grid { grid-template-columns:repeat(2,1fr);gap:8px; }
         .modal-kpi-val { font-size:1.3rem; }
         .modal-kpi { padding:14px 10px; }
@@ -419,7 +422,7 @@
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
-        <li><a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" class="nav-resume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resume</a></li>
+        <li><a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" rel="noopener" class="nav-resume"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Resume</a></li>
       </ul>
       <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -432,7 +435,7 @@
       <a href="#skills" onclick="closeMenu()">Skills</a>
       <a href="#experience" onclick="closeMenu()">Experience</a>
       <a href="#education" onclick="closeMenu()">Education</a>
-      <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" onclick="closeMenu()">↓ Resume</a>
+      <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" rel="noopener" onclick="closeMenu()">↓ Resume</a>
     </div>
 
     <section id="hero">
@@ -456,8 +459,8 @@
       </div>
       <div class="hero-ctas">
         <a href="#projects" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>View Projects</a>
-        <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
-        <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+        <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" rel="noopener" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
+        <a href="https://www.linkedin.com/in/lokesh252003" target="_blank" rel="noopener" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
       </div>
       <div class="hero-scroll"><div class="scroll-line"></div>Scroll to explore</div>
     </section>
@@ -473,6 +476,28 @@
       </div>
     </div>
 
+    <!-- ABOUT (moved up so page order matches the nav) -->
+    <section id="about">
+      <div class="section-inner">
+        <div class="section-tag reveal">About Me</div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <h2 class="section-h2" style="margin-bottom:24px">Think in Patterns,<br />Speak in Insights</h2>
+            <p>Data Analyst with nearly 2 years of hands-on experience turning messy, high-volume datasets into decisions that move the business. I work across <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Excel</strong>, <strong>DAX</strong>, <strong>Power Query</strong>, and <strong>Google Sheets/Apps Script</strong> — not to build reports, but to solve the problem behind the problem.</p>
+            <p>At CMR University, I've worked across <strong>admissions</strong>, <strong>marketing</strong>, <strong>operations</strong>, and <strong>CRM/telecalling analytics</strong> — where I caught fraud, stopped <strong>₹4.5L+ in revenue leakage</strong>, <strong>automated 70% of manual workflows</strong>, and built dashboards that gave leadership real-time visibility across finance, marketing, and operations. I start with the business question, not the dataset — and I don't stop until the insight is actionable.</p>
+            <div style="margin-top:28px"><a href="mailto:lokesh2520031968@gmail.com" class="btn-primary" style="font-size:0.84rem;padding:12px 24px">Let's Talk →</a></div>
+          </div>
+          <div class="about-card reveal reveal-delay-2">
+            <div class="about-card-title">Certifications</div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">SQL for Data Analysis</div><div class="cert-issuer">Udemy</div></div></div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Data Analytics Essentials</div><div class="cert-issuer">Infosys Springboard</div></div></div>
+            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Python for Data Science</div><div class="cert-issuer">Udemy</div></div></div>
+            <div class="cert-item" style="border-bottom:none"><div class="cert-icon">🎓</div><div><div class="cert-name">Power BI Fundamentals</div><div class="cert-issuer">Microsoft / Coursework</div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PROJECTS -->
     <section id="projects">
       <div class="section-inner">
@@ -481,7 +506,7 @@
         <p class="section-desc reveal reveal-delay-2">Each project is built around a real business problem — not just a dataset exercise. Click any card to see the full case study.</p>
         <div class="project-grid">
 
-               <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
+          <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
             <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Admissions · BI</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
             <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
@@ -505,7 +530,7 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-             <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
+          <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
             <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
             <div class="project-title">Publisher Attribution Audit</div>
@@ -525,7 +550,7 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
-              <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
+          <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
             <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
             <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
             <div class="project-title">SQL Analytics</div>
@@ -538,7 +563,6 @@
             <div class="project-tools"><span class="tool-tag">MySQL</span><span class="tool-tag">CTEs</span><span class="tool-tag">JOINs</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">Subqueries</span></div>
             <span class="project-arrow" style="color:var(--accent2)">View Case Study →</span>
           </div>
-
 
           <div class="project-card reveal reveal-delay-3" onclick="openModal('modal6')">
             <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">Applications Analytics</span></div>
@@ -610,7 +634,7 @@
               </div>
 
               <!-- PROJECT 10: HOSTEL OCCUPANCY DASHBOARD -->
-              <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;cursor:pointer;" onclick="openModal('modal10')">
+              <div class="add-proj-card clickable" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;" onclick="openModal('modal10')">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
                   <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">10</span>
@@ -621,10 +645,11 @@
                 <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:12px">
                   <span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Star Schema</span>
                 </div>
-                <div style="display:flex;gap:6px;flex-wrap:wrap">
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px">
                   <div style="font-size:0.68rem;padding:3px 9px;background:rgba(94,234,212,0.06);border:1px solid rgba(94,234,212,0.15);border-radius:100px;color:var(--accent);font-family:var(--mono)">Real-time Occupancy</div>
                   <div style="font-size:0.68rem;padding:3px 9px;background:rgba(94,234,212,0.06);border:1px solid rgba(94,234,212,0.15);border-radius:100px;color:var(--accent);font-family:var(--mono)">Capacity Planning</div>
                 </div>
+                <span class="project-arrow">View Case Study →</span>
               </div>
 
             </div>
@@ -637,7 +662,7 @@
     <!-- MODAL 01 -->
     <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
       <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal1')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal1')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px;color:var(--accent3);background:rgba(251,113,133,0.07);border-color:rgba(251,113,133,0.2)">Case Study · 01</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Admissions Funnel &amp; Lead Conversion Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
@@ -691,9 +716,9 @@
           <div class="modal-step-content">
             <h4>Dashboard Screenshots</h4>
             <div class="dash-img-strip">
-              <div><p class="dash-img-label">Overview · KPI Cards &amp; Funnel Summary</p><img src="L2A Home.png" alt="Lead to Admissions Report" /></div>
-              <div><p class="dash-img-label">Publisher Trends · 2025 vs 2026 Comparison</p><img src="Publisher Analysis.png" alt="Publisher Comparison" /></div>
-              <div><p class="dash-img-label">YTD / UTD Analysis · Conversion Funnel &amp; Growth %</p><img src="UTD Apps.png" alt="YTD / UTD Applications Analysis" /></div>
+              <div><p class="dash-img-label">Overview · KPI Cards &amp; Funnel Summary</p><img src="L2A%20Home.png" alt="Lead to Admissions Report" loading="lazy" /></div>
+              <div><p class="dash-img-label">Publisher Trends · 2025 vs 2026 Comparison</p><img src="Publisher%20Analysis.png" alt="Publisher Comparison" loading="lazy" /></div>
+              <div><p class="dash-img-label">YTD / UTD Analysis · Conversion Funnel &amp; Growth %</p><img src="UTD%20Apps.png" alt="YTD / UTD Applications Analysis" loading="lazy" /></div>
             </div>
           </div>
         </div>
@@ -707,7 +732,7 @@
     <!-- MODAL 02 -->
     <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal2')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal2')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px">Case Study · 02</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Telecalling Performance Intelligence</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · MCUBE · Meritto CRM · Excel</p>
@@ -719,7 +744,7 @@
         <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>The call center generated over 1M+ records but had no unified reporting layer. Managers spent 10+ hours/week manually compiling Excel sheets, with no visibility into agent productivity, SLA adherence, or campaign conversion rates.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Built an end-to-end Power BI solution by integrating telephony data (MCUBE) with CRM leads and admission records using a star-schema data model. Designed custom DAX measures for Answer Rate, SLA, and Conversion Rate per agent and campaign.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Answer Rate</span><span class="tool-tag">SLA Compliance</span><span class="tool-tag">First Call</span><span class="tool-tag">Unique Call</span><span class="tool-tag">Average Call Duration</span><span class="tool-tag">WoW &amp; MoM Performance</span><span class="tool-tag">Conversion Rate</span><span class="tool-tag">Follow-up Rate</span><span class="tool-tag">Calls per Agent</span><span class="tool-tag">Campaign Performance</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Images</h4><div class="project-images"><img src="Dashboard.png" alt="Dashboard overview"/><img src="Calling per.png" alt="Calling performance"/><img src="Conversion.png" alt="Conversion rates"/><img src="First Call.png" alt="First call metrics"/></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Images</h4><div class="project-images"><img src="Dashboard.png" alt="Dashboard overview" loading="lazy"/><img src="Calling%20per.png" alt="Calling performance" loading="lazy"/><img src="Conversion.png" alt="Conversion rates" loading="lazy"/><img src="First%20Call.png" alt="First call metrics" loading="lazy"/></div></div></div>
         <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Eliminated 10+ hours/week of manual reporting and enabled drill-through analysis across agent, campaign, and campus levels. Scaled visibility by sharing the dashboard across all teams, allowing real-time tracking of individual and team productivity. Empowered leadership to make faster, data-driven decisions on staffing and campaign performance — shifting from end-of-week reviews to real-time action.</p></div></div>
       </div>
     </div>
@@ -727,7 +752,7 @@
     <!-- MODAL 03 -->
     <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal3')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal3')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px">Case Study · 03</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Publisher Attribution Audit</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Google Sheets · CRM</p>
@@ -738,15 +763,15 @@
         </div>
         <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Marketing paid publishers for Primary, Secondary, and Tertiary campaign conversions — but attribution logic was broken. 60% of conversions were credited to the wrong publisher, skewing ROI data and leading to inflated payments to low-performing sources.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated CRM, application, admission, and campaign datasets into a unified Power BI model. Built DAX-based attribution logic to trace the true conversion path across touchpoints. Identified and flagged fraudulent/duplicate publisher credit records.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Attribution Logic (DAX)</h4><p style="font-size:0.75rem;color:var(--text3);margin-top:6px">Custom DAX logic used to determine correct payment attribution across campaign stages</p><img src="Publisher Logic.png" alt="DAX logic" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);margin-top:10px"/></div></div>
-        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Corrected a 60% misattribution rate that was silently inflating publisher payments. Recovered 65+ wrongly attributed applications and stopped ₹4.5L+ in revenue leakage. Changed the payment attribution model used by the marketing team going forward — shifting budget toward publishers with verified, genuine conversions.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Attribution Logic (DAX)</h4><p style="font-size:0.75rem;color:var(--text3);margin-top:6px">Custom DAX logic used to determine correct payment attribution across campaign stages</p><img src="Publisher%20Logic.png" alt="DAX logic" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);margin-top:10px"/></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Business Impact</h4><p>Corrected a 60% misattribution rate that was silently inflating publisher payments. Recovered 65+ wrongly attributed applications and stopped ₹4.5L+ in revenue leakage. Changed the payment attribution model used by the marketing team going forward — shifting budget toward publishers with verified, genuine conversions.</p></div></div>
       </div>
     </div>
 
     <!-- MODAL 04 -->
     <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal4')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal4')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px">Case Study · 04</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Financial Collections Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · ERP (Juno) · CRM · Excel</p>
@@ -758,14 +783,14 @@
         <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Finance and leadership had no unified view of revenue, receivables, or outstanding balances across 10+ branches. Data lived in disconnected ERP and CRM systems, updated manually each week.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated ERP billing data (Juno) with CRM customer records into a structured Power BI model. Built custom DAX measures for Collection %, Outstanding Amount, and program-wise financial performance with drill-through by campus and branch.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Revenue</span><span class="tool-tag">Collection %</span><span class="tool-tag">Receivables</span><span class="tool-tag">Outstanding Amount</span><span class="tool-tag">Paid vs Unpaid</span><span class="tool-tag">Program-wise P&amp;L</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Established a single source of truth for financial reporting. Finance teams could now proactively follow up on outstanding payments. Leadership had live financial health dashboards — no more end-of-month Excel scrambles.</p></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Business Impact</h4><p>Established a single source of truth for financial reporting. Finance teams could now proactively follow up on outstanding payments. Leadership had live financial health dashboards — no more end-of-month Excel scrambles.</p></div></div>
       </div>
     </div>
 
     <!-- MODAL 05 -->
     <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
       <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal5')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal5')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">SQL Analytics</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · SUBSTRING_INDEX · Subqueries</p>
@@ -787,8 +812,8 @@
           <div class="modal-step-content">
             <h4>Sample Queries</h4>
             <div class="sql-tab-row" style="margin-top:14px">
-              <button class="sql-tab active" onclick="switchTab('q1')">Counsellor Scorecard</button>
-              <button class="sql-tab" onclick="switchTab('q2')">Publisher Funnel</button>
+              <button class="sql-tab active" onclick="switchTab('q1', this)">Counsellor Scorecard</button>
+              <button class="sql-tab" onclick="switchTab('q2', this)">Publisher Funnel</button>
             </div>
             <div class="sql-pane active" id="pane-q1">
               <div class="code-box">
@@ -897,14 +922,14 @@
     <!-- MODAL 06 -->
     <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
       <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal6')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal6')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px">Case Study · 06</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Applications Analytics Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
         <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Application data was fragmented across separate 2025 and 2026 datasets with no centralized reporting. Leadership had no real-time visibility into application volume, paid conversions, or growth.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Appended multi-year datasets using Power Query and built DAX measures for YoY and UTD comparisons.</p></div></div>
         <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid Applications</span><span class="tool-tag">Conversion Rate %</span><span class="tool-tag">UTD Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Program Performance</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Screenshots</h4><div style="display:flex;flex-direction:column;gap:16px;margin-top:8px"><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p><img src="Apps Home.png" alt="Overview" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p><img src="Apps MOM.png" alt="Month on Month" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p><img src="Apps YTD.png" alt="YTD Comparison" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div></div></div></div>
+        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Screenshots</h4><div style="display:flex;flex-direction:column;gap:16px;margin-top:8px"><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p><img src="Apps%20Home.png" alt="Overview" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p><img src="Apps%20MOM.png" alt="Month on Month" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p><img src="Apps%20YTD.png" alt="YTD Comparison" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div></div></div></div>
         <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Replaced time-consuming manual Excel tracking with a live Power BI dashboard — enabling real-time monitoring of application inflow and paid conversion rates across programs and branches.</p></div></div>
       </div>
     </div>
@@ -912,7 +937,7 @@
     <!-- MODAL 10: HOSTEL OCCUPANCY & VACANCY DASHBOARD -->
     <div class="modal-overlay" id="modal10" onclick="closeModalOutside(event,'modal10')">
       <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal10')">✕</button>
+        <button class="modal-close" onclick="closeModal('modal10')" aria-label="Close">✕</button>
         <div class="section-tag" style="margin-bottom:10px">Case Study · 10</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Hostel Occupancy &amp; Vacancy Dashboard</h2>
         <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Star Schema Modeling · Excel / CSV</p>
@@ -1022,7 +1047,7 @@
           <div class="skill-group reveal">
             <div class="skill-group-icon">🗄️</div>
             <div class="skill-group-title">Data Analytics</div>
-           <div class="skill-tags"><span class="skill-tag">SQL / MySQL</span><span class="skill-tag">Excel (Advanced)</span><span class="skill-tag">Data Analysis</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Google Sheets</span><span class="skill-tag"></span></div>
+            <div class="skill-tags"><span class="skill-tag">SQL / MySQL</span><span class="skill-tag">Excel (Advanced)</span><span class="skill-tag">Data Analysis</span><span class="skill-tag">Data Cleaning</span><span class="skill-tag">Google Sheets</span></div>
           </div>
           <div class="skill-group reveal reveal-delay-1">
             <div class="skill-group-icon">📈</div>
@@ -1141,7 +1166,7 @@
         <h2 class="section-h2 reveal reveal-delay-1">Where I Created Business Impact</h2>
         <p class="section-desc reveal reveal-delay-2">Real-world problems solved using data — focused on measurable outcomes, not just reporting.</p>
         <div class="exp-card reveal reveal-delay-3">
-          <div class="exp-role-row"><h3>Data Analyst</h3><span class="exp-tenure">1.5 yr+ · Current</span></div>
+          <div class="exp-role-row"><h3>Data Analyst</h3><span class="exp-tenure" id="expTenure">1 yr 9 mo · Current</span></div>
           <div class="exp-org-row"><span class="exp-org">Edufice - CMR University · Bangalore</span><span class="exp-date">Feb 2025 – Present</span></div>
           <p class="exp-context">Full-time analyst role embedded within the university's Admissions, Marketing &amp; Finance operations — not academic staff.</p>
           <div class="exp-tool-row"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">SQL</span><span class="tool-tag">Excel</span><span class="tool-tag">Google Sheets</span><span class="tool-tag">Apps Script</span><span class="tool-tag">Meritto CRM</span><span class="tool-tag">MCUBE</span><span class="tool-tag">ERP (Juno)</span></div>
@@ -1182,28 +1207,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-inner">
-        <div class="section-tag reveal">About Me</div>
-        <div class="about-grid">
-          <div class="about-text reveal">
-            <h2 class="section-h2" style="margin-bottom:24px">Think in Patterns,<br />Speak in Insights</h2>
-            <p>Data Analyst with 1.5+ year of hands-on experience turning messy, high-volume datasets into decisions that move the business. I work across <strong>Power BI</strong>, <strong>SQL</strong>, <strong>Excel</strong>, <strong>DAX</strong>, <strong>Power Query</strong>, and <strong>Google Sheets/Apps Script</strong> — not to build reports, but to solve the problem behind the problem.</p>
-            <p>At CMR University, I've worked across <strong>admissions</strong>, <strong>marketing</strong>, <strong>operations</strong>, and <strong>CRM/telecalling analytics</strong> — where I caught fraud, stopped <strong>₹4.5L+ in revenue leakage</strong>, <strong>automated 70% of manual workflows</strong>, and built dashboards that gave leadership real-time visibility across finance, marketing, and operations. I start with the business question, not the dataset — and I don't stop until the insight is actionable.</p>
-            <div style="margin-top:28px"><a href="mailto:lokesh2520031968@gmail.com" class="btn-primary" style="font-size:0.84rem;padding:12px 24px">Let's Talk →</a></div>
-          </div>
-          <div class="about-card reveal reveal-delay-2">
-            <div class="about-card-title">Certifications</div>
-            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">SQL for Data Analysis</div><div class="cert-issuer">Udemy</div></div></div>
-            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Data Analytics Essentials</div><div class="cert-issuer">Infosys Springboard</div></div></div>
-            <div class="cert-item"><div class="cert-icon">🎓</div><div><div class="cert-name">Python for Data Science</div><div class="cert-issuer">Udemy</div></div></div>
-            <div class="cert-item" style="border-bottom:none"><div class="cert-icon">🎓</div><div><div class="cert-name">Power BI Fundamentals</div><div class="cert-issuer">Microsoft / Coursework</div></div></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- CTA -->
     <section id="cta">
       <div class="cta-inner">
@@ -1212,10 +1215,10 @@
         <p class="cta-sub reveal reveal-delay-2">If you're looking for someone who turns messy datasets into clear business decisions — let's connect.</p>
         <div class="cta-buttons reveal reveal-delay-3">
           <a href="mailto:lokesh2520031968@gmail.com" class="btn-primary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Send me an email</a>
-          <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
+          <a href="https://drive.google.com/drive/folders/1AkMNUIv3m83rrri_qiD86rJ97Mk60JU5" target="_blank" rel="noopener" class="btn-secondary"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download Resume</a>
         </div>
         <div class="contact-grid reveal reveal-delay-4">
-          <a href="http://www.linkedin.com/in/lokesh252003" target="_blank" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/lokesh252003</a>
+          <a href="https://www.linkedin.com/in/lokesh252003" target="_blank" rel="noopener" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>linkedin.com/in/lokesh252003</a>
           <a href="tel:+919731992962" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+91 97319 92962</a>
           <a href="mailto:lokesh2520031968@gmail.com" class="contact-link"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>lokesh2520031968@gmail.com</a>
         </div>
@@ -1238,6 +1241,21 @@
         const m=document.getElementById("mobileMenu"),b=document.getElementById("hamburger");
         if(!m.contains(e.target)&&!b.contains(e.target)){m.classList.remove("open");b.classList.remove("open");}
       });
+
+      // Auto-calculate tenure from start date (Feb 2025) so it never goes stale
+      (function(){
+        try{
+          const start=new Date(2025,1,1),now=new Date();
+          let months=(now.getFullYear()-start.getFullYear())*12+(now.getMonth()-start.getMonth());
+          if(months<1) months=1;
+          const y=Math.floor(months/12),m=months%12;
+          const parts=[];
+          if(y>0) parts.push(y+" yr");
+          if(m>0) parts.push(m+" mo");
+          document.getElementById("expTenure").textContent=parts.join(" ")+" · Current";
+        }catch(err){}
+      })();
+
       document.querySelectorAll(".project-card").forEach(card=>{
         card.addEventListener("mousemove",e=>{
           const r=card.getBoundingClientRect();
@@ -1287,6 +1305,7 @@
               }
             };
             u();
+            io.unobserve(el);
           }
         });
       },{threshold:0.4});
@@ -1297,18 +1316,17 @@
       document.addEventListener("keydown",e=>{
         if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>{m.classList.remove("active");document.body.style.overflow="";});
       });
-      function switchTab(id) {
+      // Tab switcher now receives the clicked button explicitly (no reliance on global `event`)
+      function switchTab(id, btn) {
         document.querySelectorAll('.sql-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.sql-pane').forEach(p => p.classList.remove('active'));
-        event.currentTarget.classList.add('active');
+        btn.classList.add('active');
         document.getElementById('pane-' + id).classList.add('active');
       }
+      // Copy the plain-text SQL straight from the rendered <pre> so it can never drift out of sync
       function copySql(queryId, btn) {
-        const rawMap = {
-          q1: `SELECT\n    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1)) AS lead_owner,\n    COUNT(*) AS total_leads,\n    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,\n    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS ul_leads,\n    COUNT(applications.registered_name) AS total_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS total_npa,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS total_pa,\n    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS total_adms,\n    ROUND(\n        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0\n        / NULLIF(COUNT(*), 0),\n    2) AS pa_conversion_percent\nFROM leads\nLEFT JOIN applications\n    ON leads.lead_id = applications.lead_id\nGROUP BY\n    TRIM(SUBSTRING_INDEX(leads.lead_owner, '(', 1))\nORDER BY\n    total_pa DESC;`,
-          q2: `SELECT\n    leads.publisher_name,\n    COUNT(*) AS total_leads,\n    COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS'   THEN 1 END) AS vl_leads,\n    COUNT(CASE WHEN leads.lead_status = 'UNVERIFIED LEADS' THEN 1 END) AS unvl_leads,\n    COUNT(applications.registered_name) AS total_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT PENDING'  THEN 1 END) AS pending_apps,\n    COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) AS paid_apps,\n    COUNT(CASE WHEN applications.enrolment_status = 'YES'            THEN 1 END) AS adms,\n    ROUND(\n        COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END) * 100.0\n        / NULLIF(COUNT(applications.registered_name), 0),\n    1) AS app_to_paid_pct,\n    ROUND(\n        COUNT(CASE WHEN leads.lead_status = 'VERIFIED LEADS' THEN 1 END) * 100.0\n        / NULLIF(COUNT(leads.registered_name), 0),\n    1) AS lead_verify_pct,\n    ROUND(\n        COUNT(CASE WHEN applications.enrolment_status = 'YES' THEN 1 END) * 100.0\n        / NULLIF(COUNT(CASE WHEN applications.payment_status = 'PAYMENT APPROVED' THEN 1 END), 0),\n    1) AS paid_to_enrolled_pct\nFROM leads\nLEFT JOIN applications\n    ON leads.user_id = applications.user_id\nGROUP BY leads.publisher_name\nORDER BY paid_apps DESC;`
-        };
-        navigator.clipboard.writeText(rawMap[queryId]).then(() => {
+        const text = document.getElementById('raw-' + queryId).innerText;
+        navigator.clipboard.writeText(text).then(() => {
           btn.textContent = 'Copied!';
           setTimeout(() => btn.textContent = 'Copy', 2000);
         });
