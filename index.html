@@ -328,6 +328,101 @@
       .workflow-step-tools { font-size:0.84rem;color:var(--text);font-weight:600; }
       .workflow-arrow { color:var(--accent);font-size:1.1rem;padding:0 10px;flex-shrink:0; }
 
+      /* Infrastructure case study (Project 04) */
+      .cs-kpi-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0; }
+      .cs-entities { display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px; }
+      .cs-entity { padding:14px 12px;background:color-mix(in srgb,var(--cs) 6%,transparent);border:1px solid color-mix(in srgb,var(--cs) 18%,transparent);border-radius:12px;text-align:center; }
+      .cs-entity b { display:block;font-family:var(--heading);font-size:1.05rem;color:var(--accent);letter-spacing:-0.01em; }
+      .cs-entity span { font-size:0.7rem;color:var(--text3); }
+      .cs-tiers { display:flex;flex-direction:column;gap:8px;margin-top:12px; }
+      .cs-tier { display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:stretch; }
+      .cs-tier-label { display:flex;flex-direction:column;justify-content:center;padding:10px 12px;background:rgba(129,140,248,0.08);border:1px solid rgba(129,140,248,0.2);border-radius:10px; }
+      .cs-tier-label b { font-family:var(--mono);font-size:0.72rem;color:var(--accent2); }
+      .cs-tier-label span { font-size:0.68rem;color:var(--text3);line-height:1.3; }
+      .cs-tier-items { display:flex;flex-wrap:wrap;gap:8px; }
+      .cs-node { flex:1 1 140px;padding:10px 12px;background:#0a0f22;border:1px solid rgba(255,255,255,0.1);border-radius:10px;transition:all 0.2s; }
+      .cs-node:hover { border-color:rgba(94,234,212,0.3);background:rgba(94,234,212,0.04); }
+      .cs-node b { display:block;font-family:var(--mono);font-size:0.66rem;color:var(--accent);letter-spacing:0.06em; }
+      .cs-node span { font-size:0.8rem;color:var(--text); }
+      .cs-flow { display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin-top:12px; }
+      .cs-flow-step { flex:1 1 140px;padding:12px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px; }
+      .cs-flow-step b { display:block;font-family:var(--heading);font-size:1.15rem;color:var(--accent);line-height:1.1; }
+      .cs-flow-step span { font-size:0.74rem;color:var(--text2);line-height:1.4;display:block;margin-top:4px; }
+      .cs-flow-arrow { display:flex;align-items:center;color:var(--accent);padding:0 8px; }
+      .cs-modules { display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px; }
+      .cs-module { display:flex;gap:10px;align-items:flex-start;padding:11px 12px;background:#0a0f22;border:1px solid rgba(255,255,255,0.09);border-radius:10px;transition:all 0.2s; }
+      .cs-module:hover { border-color:rgba(94,234,212,0.28);transform:translateY(-2px); }
+      .cs-module i { font-style:normal;font-size:1rem;line-height:1.2; }
+      .cs-module b { display:block;font-size:0.8rem;color:var(--text);font-weight:600;line-height:1.3; }
+      .cs-module span { font-size:0.7rem;color:var(--text3);line-height:1.35; }
+      .cs-ba { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px; }
+      .cs-ba > div { padding:14px 16px;border-radius:12px; }
+      .cs-ba .before { background:rgba(251,113,133,0.06);border:1px solid rgba(251,113,133,0.18); }
+      .cs-ba .after { background:rgba(94,234,212,0.06);border:1px solid rgba(94,234,212,0.2); }
+      .cs-ba h5 { font-family:var(--mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px; }
+      .cs-ba .before h5 { color:var(--accent3); } .cs-ba .after h5 { color:var(--accent); }
+      .cs-ba ul { list-style:none;display:flex;flex-direction:column;gap:6px; }
+      .cs-ba li { font-size:0.8rem;color:var(--text2);line-height:1.45;padding-left:14px;position:relative; }
+      .cs-ba .before li::before { content:"✕";position:absolute;left:0;color:var(--accent3);font-size:0.65rem;top:2px; }
+      .cs-ba .after li::before { content:"✓";position:absolute;left:0;color:var(--accent);font-size:0.7rem;top:1px; }
+      .cs-impact { display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px; }
+      .cs-impact div { padding:12px 14px;background:rgba(94,234,212,0.05);border:1px solid rgba(94,234,212,0.14);border-left:2px solid var(--accent);border-radius:10px; }
+      .cs-impact b { display:block;font-size:0.84rem;color:var(--text);margin-bottom:3px; }
+      .cs-impact span { font-size:0.78rem;color:var(--text2);line-height:1.45; }
+      @media (max-width:768px) {
+        .cs-kpi-grid { grid-template-columns:repeat(2,1fr);gap:8px; }
+        .cs-entities { grid-template-columns:repeat(2,1fr); }
+        .cs-tier { grid-template-columns:1fr; }
+        .cs-flow { flex-direction:column; }
+        .cs-flow-arrow { justify-content:center;transform:rotate(90deg);padding:4px 0; }
+        .cs-modules { grid-template-columns:1fr 1fr; }
+        .cs-ba,.cs-impact { grid-template-columns:1fr; }
+      }
+      @media (max-width:390px) { .cs-modules { grid-template-columns:1fr; } }
+
+      /* ===== UI refresh: case studies & cards ===== */
+      .modal { --cs:var(--accent); }
+      .modal::before { background:linear-gradient(180deg,color-mix(in srgb,var(--cs) 9%,transparent),transparent); }
+      .modal::after { content:"";position:absolute;top:0;left:44px;right:44px;height:2px;background:linear-gradient(90deg,transparent,var(--cs),transparent);opacity:0.7; }
+      .modal .cs-tag { color:var(--cs);background:color-mix(in srgb,var(--cs) 9%,transparent);border-color:color-mix(in srgb,var(--cs) 25%,transparent); }
+      .cs-stack { color:var(--text3);font-size:0.78rem;font-family:var(--mono);margin-bottom:0; }
+      .cs-summary { color:var(--text2);font-size:0.92rem;line-height:1.7;margin-top:14px;max-width:680px; }
+      .modal .modal-step { display:grid;grid-template-columns:30px 1fr;gap:14px;margin-bottom:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.06); }
+      .modal .modal-step-content { min-width:0; }
+      .modal .modal-step-content h4 { margin-top:4px;margin-bottom:12px;font-size:0.98rem; }
+      .modal .modal-step-num { color:var(--cs);background:color-mix(in srgb,var(--cs) 10%,transparent);border-color:color-mix(in srgb,var(--cs) 28%,transparent); }
+      .modal .modal-kpi { border-color:color-mix(in srgb,var(--cs) 16%,rgba(255,255,255,0.08)); }
+      .modal .modal-kpi-val { color:var(--cs); }
+      .cs-groups { display:grid;grid-template-columns:1fr 1fr;gap:16px; }
+      .cs-group-title { font-size:0.68rem;color:var(--cs);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px; }
+      .modal .cs-flow-step b,.modal .cs-node b,.modal .cs-entity b { color:var(--cs); }
+      .modal .cs-flow-arrow { color:var(--cs); }
+      .modal .cs-ba .after { background:color-mix(in srgb,var(--cs) 6%,transparent);border-color:color-mix(in srgb,var(--cs) 22%,transparent); }
+      .modal .cs-ba .after h5,.modal .cs-ba .after li::before { color:var(--cs); }
+      .modal .cs-impact div { background:color-mix(in srgb,var(--cs) 5%,transparent);border-color:color-mix(in srgb,var(--cs) 15%,transparent);border-left-color:var(--cs); }
+      .modal .dash-img-strip img:hover { border-color:color-mix(in srgb,var(--cs) 40%,transparent); }
+      .modal .copy-sql-btn { border-color:color-mix(in srgb,var(--cs) 35%,transparent);color:var(--cs);background:color-mix(in srgb,var(--cs) 8%,transparent); }
+      .modal .modal-step-content p.cs-group-title { font-size:0.68rem;color:var(--cs);line-height:1.4; }
+      .modal .modal-step-content p.dash-img-label { font-size:0.72rem;color:var(--text3);line-height:1.4; }
+      .cs-flow { flex-wrap:nowrap; }
+      .cs-flow-step { flex:1 1 0;min-width:0; }
+      .cs-flow-arrow { padding:0 6px; }
+      .modal .modal-step-num { justify-self:start;width:30px; }
+      .cs-flow-step span { overflow-wrap:anywhere; }
+      .card-stat { display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 0;margin-bottom:18px;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07); }
+      .card-stat b { font-family:var(--heading);font-size:1.9rem;font-weight:900;letter-spacing:-0.03em;line-height:1;background:linear-gradient(135deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent; }
+      .card-stat span { font-size:0.74rem;color:var(--text3);font-family:var(--mono);letter-spacing:0.02em; }
+      .project-card.funnel-card .card-stat b { background:linear-gradient(135deg,var(--text),var(--accent3));-webkit-background-clip:text;background-clip:text; }
+      .project-card.sql-card .card-stat b { background:linear-gradient(135deg,var(--text),var(--accent2));-webkit-background-clip:text;background-clip:text; }
+      .project-card { display:flex;flex-direction:column; }
+      .project-card .project-arrow { margin-top:auto; }
+      @media (max-width:768px) {
+        .modal .modal-step { grid-template-columns:1fr;gap:10px; }
+        .cs-groups { grid-template-columns:1fr; }
+        .modal::after { left:20px;right:20px; }
+        .card-stat b { font-size:1.6rem; }
+      }
+
       @media (max-width:1200px) { .project-grid { grid-template-columns:repeat(2,1fr); } }
       @media (max-width:768px) {
         nav { top:10px;padding:0 16px;height:52px; }
@@ -508,7 +603,7 @@
 
           <div class="project-card funnel-card reveal reveal-delay-5" onclick="openModal('modal1')">
             <div class="project-card-top"><span class="project-num">01</span><span class="project-tag">Admissions · BI</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="92"></div></div>
+            <div class="card-stat"><b>4</b><span>stage funnel · lead → enrolment</span></div>
             <div class="project-title">Admissions Funnel &amp; Lead Conversion Dashboard</div>
             <p class="project-problem">No end-to-end view of the student admission lifecycle — from lead to enrollment. YoY comparisons, UTD tracking, and funnel drop-off analysis all required manual work.</p>
             <div class="project-metrics">
@@ -522,7 +617,7 @@
 
           <div class="project-card reveal" onclick="openModal('modal2')">
             <div class="project-card-top"><span class="project-num">02</span><span class="project-tag">Power BI · DAX</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="90"></div></div>
+            <div class="card-stat"><b>90%</b><span>less time spent on reporting</span></div>
             <div class="project-title">Telecalling Performance Intelligence</div>
             <p class="project-problem">Call center had zero visibility into agent performance. Manual tracking was slow, error-prone, and couldn't scale to 1M+ records.</p>
             <div class="project-metrics"><div class="metric-pill">↓ 90% Reporting Time</div><div class="metric-pill">↑ 25% Follow-up Rate</div></div>
@@ -532,7 +627,7 @@
 
           <div class="project-card reveal reveal-delay-2" onclick="openModal('modal3')">
             <div class="project-card-top"><span class="project-num">03</span><span class="project-tag">Marketing Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="85"></div></div>
+            <div class="card-stat"><b>₹4.5L+</b><span>revenue leakage stopped</span></div>
             <div class="project-title">Publisher Attribution Audit</div>
             <p class="project-problem">Marketing was paying publishers for conversions they didn't drive. A 60% misattribution rate was silently bleeding the ad budget.</p>
             <div class="project-metrics"><div class="metric-pill">₹4.5L+ Saved</div><div class="metric-pill">65+ Apps Recovered</div><div class="metric-pill">Attribution Fixed</div></div>
@@ -540,9 +635,19 @@
             <span class="project-arrow">View Case Study →</span>
           </div>
 
+          <div class="project-card reveal reveal-delay-3" onclick="openModal('modalInfra')">
+            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Infrastructure · BI</span></div>
+            <div class="card-stat"><b>10 → 1</b><span>datasets unified in one model</span></div>
+            <div class="project-title">Infrastructure Management &amp; Analytics Dashboard</div>
+            <p class="project-problem">Campus infrastructure for CMRU, CMRIT, Hostels and Ekya Schools lived in 10 disconnected Excel datasets with inconsistent campus names. Built one Power BI report covering buildings, assets, AMC, R&amp;M, projects and utility spend.</p>
+            <div class="project-metrics"><div class="metric-pill">10 Datasets → 1 Model</div><div class="metric-pill">22 Campuses Mapped</div><div class="metric-pill">11 Report Pages</div></div>
+            <div class="project-tools"><span class="tool-tag">Power BI</span><span class="tool-tag">DAX</span><span class="tool-tag">Power Query</span><span class="tool-tag">Data Modeling</span><span class="tool-tag">Excel</span></div>
+            <span class="project-arrow">View Case Study →</span>
+          </div>
+
           <div class="project-card reveal reveal-delay-1" onclick="openModal('modal4')">
-            <div class="project-card-top"><span class="project-num">04</span><span class="project-tag">Finance · BI</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="75"></div></div>
+            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">Finance · BI</span></div>
+            <div class="card-stat"><b>10+</b><span>branches in one finance view</span></div>
             <div class="project-title">Financial Collections Dashboard</div>
             <p class="project-problem">Finance team relied on scattered Excel sheets to track ₹Cr+ in receivables. Leadership had no real-time view of collection health.</p>
             <div class="project-metrics"><div class="metric-pill">Real-time Tracking</div><div class="metric-pill">Single Source of Truth</div></div>
@@ -551,8 +656,8 @@
           </div>
 
           <div class="project-card sql-card reveal reveal-delay-4" onclick="openModal('modal5')">
-            <div class="project-card-top"><span class="project-num">05</span><span class="project-tag">SQL · Business Analysis</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="88"></div></div>
+            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">SQL · Business Analysis</span></div>
+            <div class="card-stat"><b>1M+</b><span>records queried with SQL</span></div>
             <div class="project-title">SQL Analytics</div>
             <p class="project-problem">Leadership had no single query layer to answer operational questions across leads, applications, payments, and enrolments — requiring manual Excel work for every insight.</p>
             <div class="project-metrics">
@@ -565,8 +670,8 @@
           </div>
 
           <div class="project-card reveal reveal-delay-3" onclick="openModal('modal6')">
-            <div class="project-card-top"><span class="project-num">06</span><span class="project-tag">Applications Analytics</span></div>
-            <div class="project-viz"><div class="project-viz-bar" data-width="80"></div></div>
+            <div class="project-card-top"><span class="project-num">07</span><span class="project-tag">Applications Analytics</span></div>
+            <div class="card-stat"><b>2025 + 26</b><span>applications in one dashboard</span></div>
             <div class="project-title">Applications Analytics Dashboard</div>
             <p class="project-problem">Application data split across 2025 &amp; 2026 datasets with no centralized system. Leadership had no visibility into growth, conversions, or YoY performance.</p>
             <div class="project-metrics"><div class="metric-pill">YoY Growth Tracked</div><div class="metric-pill">Eliminated Excel Reporting</div><div class="metric-pill">UTD Logic</div></div>
@@ -585,7 +690,7 @@
               <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">07</span>
+                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">08</span>
                   <span style="font-size:0.65rem;padding:3px 9px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.2);border-radius:100px;color:var(--accent);font-weight:500">Excel · Power BI</span>
                 </div>
                 <div style="font-family:var(--heading);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;line-height:1.25">IT Ticketing Dashboard</div>
@@ -602,7 +707,7 @@
               <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(129,140,248,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">08</span>
+                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">09</span>
                   <span style="font-size:0.65rem;padding:3px 9px;background:rgba(129,140,248,0.08);border:1px solid rgba(129,140,248,0.2);border-radius:100px;color:var(--accent);font-weight:500">Smartsheets · Power BI</span>
                 </div>
                 <div style="font-family:var(--heading);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;line-height:1.25">Creative &amp; Communication Dashboard</div>
@@ -619,7 +724,7 @@
               <div class="add-proj-card" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(251,113,133,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">09</span>
+                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">10</span>
                   <span style="font-size:0.65rem;padding:3px 9px;background:rgba(251,113,133,0.08);border:1px solid rgba(251,113,133,0.2);border-radius:100px;color:var(--accent);font-weight:500">Apps Script · Sheets</span>
                 </div>
                 <div style="font-family:var(--heading);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;line-height:1.25">Automated Campus Admissions Tracker</div>
@@ -637,7 +742,7 @@
               <div class="add-proj-card clickable" style="background:#0a0e22;border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:22px;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;" onclick="openModal('modal10')">
                 <div style="position:absolute;top:0;left:0;right:0;height:60px;background:linear-gradient(180deg,rgba(94,234,212,0.05),transparent);pointer-events:none"></div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">
-                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">10</span>
+                  <span style="font-family:var(--mono);font-size:0.65rem;color:var(--accent);letter-spacing:0.1em;opacity:0.8">11</span>
                   <span style="font-size:0.65rem;padding:3px 9px;background:rgba(94,234,212,0.08);border:1px solid rgba(94,234,212,0.2);border-radius:100px;color:var(--accent);font-weight:500">Power BI · Star Schema</span>
                 </div>
                 <div style="font-family:var(--heading);font-size:1rem;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.02em;line-height:1.25">Hostel Occupancy &amp; Vacancy Dashboard</div>
@@ -659,159 +764,341 @@
       </div>
     </section>
 
-    <!-- MODAL 01 -->
+    <!-- MODAL 01 · ADMISSIONS FUNNEL -->
     <div class="modal-overlay" id="modal1" onclick="closeModalOutside(event,'modal1')">
-      <div class="modal" style="max-width:820px">
+      <div class="modal" style="max-width:880px;--cs:var(--accent3)">
         <button class="modal-close" onclick="closeModal('modal1')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px;color:var(--accent3);background:rgba(251,113,133,0.07);border-color:rgba(251,113,133,0.2)">Case Study · 01</div>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 01</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Admissions Funnel &amp; Lead Conversion Dashboard</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi" style="border-color:rgba(251,113,133,0.15)"><div class="modal-kpi-val" style="color:var(--accent3)">4</div><div class="modal-kpi-label">Funnel Stages Tracked</div></div>
-          <div class="modal-kpi" style="border-color:rgba(251,113,133,0.15)"><div class="modal-kpi-val" style="color:var(--accent3)">2025–26</div><div class="modal-kpi-label">YoY Comparison</div></div>
-          <div class="modal-kpi" style="border-color:rgba(251,113,133,0.15)"><div class="modal-kpi-val" style="color:var(--accent3)">Real-time</div><div class="modal-kpi-label">UTD Enrollment View</div></div>
+        <p class="cs-stack">Power BI · DAX · Power Query · Data Modeling</p>
+        <p class="cs-summary">One Power BI model that follows every prospective student from first lead to final enrolment, with 2025 vs 2026 comparisons and up-to-date (UTD) tracking.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">4</div><div class="modal-kpi-label">Funnel Stages</div></div><div class="modal-kpi"><div class="modal-kpi-val">2025–26</div><div class="modal-kpi-label">YoY Comparison</div></div><div class="modal-kpi"><div class="modal-kpi-val">4</div><div class="modal-kpi-label">Model Tables</div></div><div class="modal-kpi"><div class="modal-kpi-val">Live</div><div class="modal-kpi-label">UTD Enrolment View</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>Leads, applications, payments and enrolments sat in separate systems</li><li>Every report needed hours of manual consolidation</li><li>Numbers were already outdated when leadership saw them</li><li>No 2025 vs 2026 comparison or funnel drop-off view</li></ul></div><div class="after"><h5>After</h5><ul><li>One model covering the full admissions pipeline</li><li>Live drill-through replaced weekly manual work</li><li>YoY and UTD comparisons built into every page</li><li>Drop-off points visible within the same enrolment cycle</li></ul></div></div>
+          </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">01</div>
-          <div class="modal-step-content"><h4>Problem</h4><p>The university's admissions team had no end-to-end view of the student acquisition lifecycle. Lead data, application records, payment approvals, and final enrollment figures lived in separate systems. Every report required hours of manual consolidation — and by the time leadership saw numbers, they were already outdated. There was no way to compare 2025 vs. 2026 performance or identify where prospects were dropping off in the funnel.</p></div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">02</div>
+          <div class="modal-step-num">02</div>
           <div class="modal-step-content">
             <h4>Admission Funnel Tracked</h4>
-            <div class="funnel-steps">
-              <div class="funnel-step"><span>01</span> Leads</div>
-              <div class="funnel-arrow">→</div>
-              <div class="funnel-step"><span>02</span> Applications</div>
-              <div class="funnel-arrow">→</div>
-              <div class="funnel-step"><span>03</span> Payment Approved</div>
-              <div class="funnel-arrow">→</div>
-              <div class="funnel-step"><span>04</span> Admissions</div>
-            </div>
-            <p style="margin-top:12px">Built a unified Power BI model integrating <strong>Leads</strong>, <strong>Overall Apps</strong>, <strong>Appended Applications</strong>, and <strong>Calendar</strong> dimension tables. Used Power Query to append 2025 and 2026 datasets into a single fact table, then created DAX time-intelligence measures for UTD, YoY growth, and month-wise trend analysis.</p>
+            <div class="cs-flow"><div class="cs-flow-step"><b>Leads</b><span>Total, verified, unverified, lead source</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Applications</b><span>Total, paid vs unpaid, UTD</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Payment Approved</b><span>Paid applications by program</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Admissions</b><span>Total, UTD, growth % — excl. withdrawals &amp; duplicates</span></div></div>
           </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">03</div>
+          <div class="modal-step-num">03</div>
           <div class="modal-step-content">
-            <h4>Key KPIs &amp; DAX Measures Delivered</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
-              <div><p style="font-size:0.68rem;color:var(--accent3);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Lead Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Leads</span><span class="tool-tag">Verified Leads</span><span class="tool-tag">Unverified Leads</span><span class="tool-tag">Lead Source Performance</span></div></div>
-              <div><p style="font-size:0.68rem;color:var(--accent3);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Application Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid vs Unpaid</span><span class="tool-tag">UTD Application Analysis</span></div></div>
-              <div><p style="font-size:0.68rem;color:var(--accent3);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Admission Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Admissions</span><span class="tool-tag">Admissions UTD</span><span class="tool-tag">Admission Growth %</span><span class="tool-tag">Excl. Withdrawals &amp; Duplicates</span></div></div>
-              <div><p style="font-size:0.68rem;color:var(--accent3);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Comparative Analysis</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">2025 vs 2026 Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Daily UTD Tracking</span><span class="tool-tag">Demand Ratio</span></div></div>
-            </div>
+            <h4>Data Model</h4>
+            <div class="cs-tiers"><div class="cs-tier"><div class="cs-tier-label"><b>Facts</b><span>Funnel data</span></div><div class="cs-tier-items"><div class="cs-node"><b>LEADS</b><span>Leads</span></div><div class="cs-node"><b>OVERALL APPS</b><span>Overall Apps</span></div><div class="cs-node"><b>APPENDED</b><span>Appended Applications (2025 + 2026)</span></div></div></div><div class="cs-tier"><div class="cs-tier-label"><b>Dimension</b><span>Time</span></div><div class="cs-tier-items"><div class="cs-node"><b>CALENDAR</b><span>Calendar — UTD, YTD, month-wise</span></div></div></div></div><p style="margin-top:12px">Power Query appends the 2025 and 2026 datasets into one fact table. A star schema with a Calendar dimension drives DAX time-intelligence measures for UTD, YoY growth and month-wise trends.</p>
           </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">04</div>
+          <div class="modal-step-num">04</div>
           <div class="modal-step-content">
-            <h4>Advanced DAX &amp; Data Modeling</h4>
-            <p style="margin-bottom:12px">Implemented production-grade Power BI patterns to handle multi-year data and complex time comparisons:</p>
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Lead Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Leads</span><span class="tool-tag">Verified Leads</span><span class="tool-tag">Unverified Leads</span><span class="tool-tag">Lead Source Performance</span></div></div><div><p class="cs-group-title">Application Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid vs Unpaid</span><span class="tool-tag">UTD Application Analysis</span></div></div><div><p class="cs-group-title">Admission Analytics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Admissions</span><span class="tool-tag">Admissions UTD</span><span class="tool-tag">Admission Growth %</span><span class="tool-tag">Excl. Withdrawals &amp; Duplicates</span></div></div><div><p class="cs-group-title">Comparative Analysis</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">2025 vs 2026 Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Daily UTD Tracking</span><span class="tool-tag">Demand Ratio</span></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">05</div>
+          <div class="modal-step-content">
+            <h4>DAX &amp; Modeling Techniques</h4>
             <div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">CALCULATE()</span><span class="tool-tag">FILTER()</span><span class="tool-tag">DIVIDE()</span><span class="tool-tag">DATESYTD()</span><span class="tool-tag">USERELATIONSHIP()</span><span class="tool-tag">UTD / YTD Calculations</span><span class="tool-tag">Custom Growth %</span><span class="tool-tag">Conditional Filtering</span><span class="tool-tag">Star Schema Modeling</span></div>
           </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">05</div>
+          <div class="modal-step-num">06</div>
           <div class="modal-step-content">
             <h4>Dashboard Screenshots</h4>
-            <div class="dash-img-strip">
-              <div><p class="dash-img-label">Overview · KPI Cards &amp; Funnel Summary</p><img src="L2A%20Home.png" alt="Lead to Admissions Report" loading="lazy" /></div>
-              <div><p class="dash-img-label">Publisher Trends · 2025 vs 2026 Comparison</p><img src="Publisher%20Analysis.png" alt="Publisher Comparison" loading="lazy" /></div>
-              <div><p class="dash-img-label">YTD / UTD Analysis · Conversion Funnel &amp; Growth %</p><img src="UTD%20Apps.png" alt="YTD / UTD Applications Analysis" loading="lazy" /></div>
-            </div>
+            <div class="dash-img-strip"><div><p class="dash-img-label">Overview · KPI Cards &amp; Funnel Summary</p><img src="L2A%20Home.png" alt="Lead to Admissions Report" loading="lazy" /></div><div><p class="dash-img-label">Publisher Trends · 2025 vs 2026 Comparison</p><img src="Publisher%20Analysis.png" alt="Publisher Comparison" loading="lazy" /></div><div><p class="dash-img-label">YTD / UTD Analysis · Conversion Funnel &amp; Growth %</p><img src="UTD%20Apps.png" alt="YTD / UTD Applications Analysis" loading="lazy" /></div></div>
           </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent3);background:rgba(251,113,133,0.08);border-color:rgba(251,113,133,0.25)">06</div>
-          <div class="modal-step-content"><h4>Business Impact</h4><p>Gave leadership the first-ever unified view of the complete admissions pipeline — from initial lead contact to final enrollment — in a single dashboard. Replaced hours of weekly manual consolidation with live, drill-through reporting. Enabled the admissions team to spot funnel drop-off points in real time and act on them during the same enrollment cycle. Year-over-year comparison and UTD tracking turned historical data into a forward-looking planning tool — helping management allocate counsellor resources and marketing spend more strategically across programs and branches.</p></div>
+          <div class="modal-step-num">07</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>First unified pipeline view</b><span>Lead to enrolment in a single dashboard for leadership.</span></div><div><b>Hours saved every week</b><span>Live drill-through replaced manual weekly consolidation.</span></div><div><b>Real-time drop-off action</b><span>Admissions team acts on funnel leaks within the same cycle.</span></div><div><b>Forward-looking planning</b><span>YoY and UTD tracking turned history into a planning tool.</span></div><div><b>Smarter resource allocation</b><span>Counsellor time and marketing spend directed by program and branch.</span></div><div><b>Clean admission counts</b><span>Withdrawals and duplicates excluded from reported numbers.</span></div></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- MODAL 02 -->
+    <!-- MODAL 02 · TELECALLING -->
     <div class="modal-overlay" id="modal2" onclick="closeModalOutside(event,'modal2')">
-      <div class="modal">
+      <div class="modal" style="max-width:860px">
         <button class="modal-close" onclick="closeModal('modal2')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 02</div>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 02</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Telecalling Performance Intelligence</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · MCUBE · Meritto CRM · Excel</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi"><div class="modal-kpi-val">1M+</div><div class="modal-kpi-label">Records Processed</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Reporting Reduction</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">25%</div><div class="modal-kpi-label">Follow-up Improvement</div></div>
+        <p class="cs-stack">Power BI · DAX · MCUBE · Meritto CRM · Excel</p>
+        <p class="cs-summary">A Power BI reporting layer for the call centre that joins MCUBE call data with CRM leads and admission records to show agent, campaign and campus performance.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">1M+</div><div class="modal-kpi-label">Records Processed</div></div><div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Less Reporting Time</div></div><div class="modal-kpi"><div class="modal-kpi-val">25%</div><div class="modal-kpi-label">Follow-up Improvement</div></div><div class="modal-kpi"><div class="modal-kpi-val">10+ hrs</div><div class="modal-kpi-label">Saved Per Week</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>1M+ call records with no unified reporting layer</li><li>Managers spent 10+ hours a week compiling Excel sheets</li><li>No view of agent productivity or SLA adherence</li><li>Campaign conversion rates unknown</li></ul></div><div class="after"><h5>After</h5><ul><li>Telephony, CRM and admissions linked in one model</li><li>Drill-through by agent, campaign and campus</li><li>Dashboard shared across all teams</li><li>Real-time action instead of end-of-week reviews</li></ul></div></div>
+          </div>
         </div>
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>The call center generated over 1M+ records but had no unified reporting layer. Managers spent 10+ hours/week manually compiling Excel sheets, with no visibility into agent productivity, SLA adherence, or campaign conversion rates.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Built an end-to-end Power BI solution by integrating telephony data (MCUBE) with CRM leads and admission records using a star-schema data model. Designed custom DAX measures for Answer Rate, SLA, and Conversion Rate per agent and campaign.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Answer Rate</span><span class="tool-tag">SLA Compliance</span><span class="tool-tag">First Call</span><span class="tool-tag">Unique Call</span><span class="tool-tag">Average Call Duration</span><span class="tool-tag">WoW &amp; MoM Performance</span><span class="tool-tag">Conversion Rate</span><span class="tool-tag">Follow-up Rate</span><span class="tool-tag">Calls per Agent</span><span class="tool-tag">Campaign Performance</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Images</h4><div class="project-images"><img src="Dashboard.png" alt="Dashboard overview" loading="lazy"/><img src="Calling%20per.png" alt="Calling performance" loading="lazy"/><img src="Conversion.png" alt="Conversion rates" loading="lazy"/><img src="First%20Call.png" alt="First call metrics" loading="lazy"/></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Eliminated 10+ hours/week of manual reporting and enabled drill-through analysis across agent, campaign, and campus levels. Scaled visibility by sharing the dashboard across all teams, allowing real-time tracking of individual and team productivity. Empowered leadership to make faster, data-driven decisions on staffing and campaign performance — shifting from end-of-week reviews to real-time action.</p></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>How the Data Comes Together</h4>
+            <div class="cs-flow"><div class="cs-flow-step"><b>MCUBE</b><span>Telephony call logs</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Meritto CRM</b><span>Lead records</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Admissions</b><span>Enrolment outcomes</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Star Schema</b><span>Power BI model with custom DAX</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Dashboards</b><span>Agent · campaign · campus views</span></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Call Activity</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Calls per Agent</span><span class="tool-tag">First Call</span><span class="tool-tag">Unique Call</span><span class="tool-tag">Average Call Duration</span></div></div><div><p class="cs-group-title">Quality &amp; SLA</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Answer Rate</span><span class="tool-tag">SLA Compliance</span><span class="tool-tag">Follow-up Rate</span></div></div><div><p class="cs-group-title">Outcomes</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Conversion Rate</span><span class="tool-tag">Campaign Performance</span></div></div><div><p class="cs-group-title">Trends</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">WoW Performance</span><span class="tool-tag">MoM Performance</span></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Dashboard Screenshots</h4>
+            <div class="dash-img-strip"><div><p class="dash-img-label">Overview</p><img src="Dashboard.png" alt="Dashboard overview" loading="lazy" /></div><div><p class="dash-img-label">Calling Performance</p><img src="Calling%20per.png" alt="Calling performance" loading="lazy" /></div><div><p class="dash-img-label">Conversion Rates</p><img src="Conversion.png" alt="Conversion rates" loading="lazy" /></div><div><p class="dash-img-label">First Call Metrics</p><img src="First%20Call.png" alt="First call metrics" loading="lazy" /></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">05</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>Manual reporting eliminated</b><span>10+ hours a week of Excel compilation removed.</span></div><div><b>90% faster reporting</b><span>Reports that took days now refresh automatically.</span></div><div><b>Follow-ups up 25%</b><span>Agents and managers see pending follow-ups clearly.</span></div><div><b>Team-wide visibility</b><span>Individual and team productivity tracked in real time.</span></div><div><b>Better staffing calls</b><span>Leadership adjusts staffing using live call data.</span></div><div><b>Campaign accountability</b><span>Each campaign judged on conversion, not call volume.</span></div></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MODAL 03 -->
+    <!-- MODAL 03 · PUBLISHER ATTRIBUTION -->
     <div class="modal-overlay" id="modal3" onclick="closeModalOutside(event,'modal3')">
-      <div class="modal">
+      <div class="modal" style="max-width:860px">
         <button class="modal-close" onclick="closeModal('modal3')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 03</div>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 03</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Publisher Attribution Audit</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Google Sheets · CRM</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi"><div class="modal-kpi-val">60%</div><div class="modal-kpi-label">Misattribution Corrected</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">₹4.5L+</div><div class="modal-kpi-label">Revenue Leakage Stopped</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">65+</div><div class="modal-kpi-label">Applications Recovered</div></div>
+        <p class="cs-stack">Power BI · DAX · Google Sheets · CRM</p>
+        <p class="cs-summary">An audit of how conversions were credited to advertising publishers across Primary, Secondary and Tertiary campaigns — so marketing pays only for results publishers actually drove.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">60%</div><div class="modal-kpi-label">Misattribution Corrected</div></div><div class="modal-kpi"><div class="modal-kpi-val">₹4.5L+</div><div class="modal-kpi-label">Leakage Stopped</div></div><div class="modal-kpi"><div class="modal-kpi-val">65+</div><div class="modal-kpi-label">Applications Recovered</div></div><div class="modal-kpi"><div class="modal-kpi-val">3</div><div class="modal-kpi-label">Campaign Stages Audited</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>60% of conversions credited to the wrong publisher</li><li>ROI data skewed by broken attribution logic</li><li>Inflated payments to low-performing sources</li><li>Duplicate and fraudulent credits went unnoticed</li></ul></div><div class="after"><h5>After</h5><ul><li>True conversion path traced across touchpoints</li><li>Fraudulent and duplicate credits flagged</li><li>₹4.5L+ in leakage stopped, 65+ applications recovered</li><li>Payment model updated for all future campaigns</li></ul></div></div>
+          </div>
         </div>
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Marketing paid publishers for Primary, Secondary, and Tertiary campaign conversions — but attribution logic was broken. 60% of conversions were credited to the wrong publisher, skewing ROI data and leading to inflated payments to low-performing sources.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated CRM, application, admission, and campaign datasets into a unified Power BI model. Built DAX-based attribution logic to trace the true conversion path across touchpoints. Identified and flagged fraudulent/duplicate publisher credit records.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Attribution Logic (DAX)</h4><p style="font-size:0.75rem;color:var(--text3);margin-top:6px">Custom DAX logic used to determine correct payment attribution across campaign stages</p><img src="Publisher%20Logic.png" alt="DAX logic" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);margin-top:10px"/></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Business Impact</h4><p>Corrected a 60% misattribution rate that was silently inflating publisher payments. Recovered 65+ wrongly attributed applications and stopped ₹4.5L+ in revenue leakage. Changed the payment attribution model used by the marketing team going forward — shifting budget toward publishers with verified, genuine conversions.</p></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>Audit Approach</h4>
+            <div class="cs-flow"><div class="cs-flow-step"><b>Combine</b><span>CRM, application, admission and campaign data</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Model</b><span>Unified Power BI data model</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Attribute</b><span>DAX logic traces the real conversion path</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Flag</b><span>Duplicate and fraudulent publisher credits</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Correct</b><span>Payouts aligned to verified conversions</span></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Attribution Logic (DAX)</h4>
+            <p style="margin-top:0px">Custom DAX logic used to decide the correct publisher for each conversion across campaign stages.</p><img src="Publisher%20Logic.png" alt="DAX attribution logic" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1);margin-top:10px"/>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>₹4.5L+ leakage stopped</b><span>Payments for conversions publishers did not drive were halted.</span></div><div><b>65+ applications recovered</b><span>Wrongly attributed applications credited to the right source.</span></div><div><b>Accurate ROI</b><span>Publisher performance now reflects genuine conversions.</span></div><div><b>New attribution model</b><span>Marketing adopted the corrected logic going forward.</span></div><div><b>Budget reallocation</b><span>Spend shifted toward publishers with verified results.</span></div><div><b>Fraud visibility</b><span>Duplicate and suspicious credits are flagged automatically.</span></div></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MODAL 04 -->
+    <!-- MODAL 04 · INFRASTRUCTURE -->
+    <div class="modal-overlay" id="modalInfra" onclick="closeModalOutside(event,'modalInfra')">
+      <div class="modal" style="max-width:860px">
+        <button class="modal-close" onclick="closeModal('modalInfra')" aria-label="Close">✕</button>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 04</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Infrastructure Management &amp; Analytics Dashboard</h2>
+        <p class="cs-stack">CMR Group · Power BI · Power Query · DAX · Data Modeling · Excel</p>
+        <p class="cs-summary">One Power BI report that gives CMR Group management a campus-by-campus view of land, buildings, sports, horticulture, assets, maintenance contracts, repairs, projects and utility spend across all four entities.</p>
+        <div class="cs-kpi-grid">
+          <div class="modal-kpi"><div class="modal-kpi-val">10</div><div class="modal-kpi-label">Datasets Unified</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">22</div><div class="modal-kpi-label">Campus Names Mapped</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">4</div><div class="modal-kpi-label">Entities</div></div>
+          <div class="modal-kpi"><div class="modal-kpi-val">11</div><div class="modal-kpi-label">Report Pages</div></div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba">
+              <div class="before"><h5>Before</h5><ul>
+                <li>Infrastructure data spread across 10 separate Excel datasets</li>
+                <li>Same campus spelled differently from sheet to sheet</li>
+                <li>Numbers stored as text, breaking totals in reports</li>
+                <li>No link between campus, building, asset and maintenance data</li>
+              </ul></div>
+              <div class="after"><h5>After</h5><ul>
+                <li>One connected Power BI model with 11 report pages</li>
+                <li>A single campus list driving every filter</li>
+                <li>Clean, accurate totals across all matrix visuals</li>
+                <li>Drill from group → entity → campus → building</li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>Scope · 4 Entities Under One View</h4>
+            <div class="cs-entities">
+              <div class="cs-entity"><b>CMRU</b><span>CMR University</span></div>
+              <div class="cs-entity"><b>CMRIT</b><span>CMR Institute of Technology</span></div>
+              <div class="cs-entity"><b>Hostel</b><span>Residential campuses</span></div>
+              <div class="cs-entity"><b>EKYA</b><span>Ekya Schools</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Data Architecture · Level of Detail</h4>
+            <p style="margin-bottom:4px">Each dataset sits at the reporting level it belongs to, from the group summary down to day-to-day operations and spend.</p>
+            <div class="cs-tiers"><div class="cs-tier"><div class="cs-tier-label"><b>LOD 0</b><span>Group</span></div><div class="cs-tier-items"><div class="cs-node"><b>LOD 0</b><span>CMR Group Overview</span></div></div></div><div class="cs-tier"><div class="cs-tier-label"><b>LOD 1</b><span>Campus</span></div><div class="cs-tier-items"><div class="cs-node"><b>LOD 1</b><span>Campus Master — land, buildings, BUA, projects</span></div></div></div><div class="cs-tier"><div class="cs-tier-label"><b>LOD 2</b><span>Physical assets</span></div><div class="cs-tier-items"><div class="cs-node"><b>LOD 2A</b><span>Building Level</span></div><div class="cs-node"><b>LOD 2B</b><span>Sports Infrastructure</span></div><div class="cs-node"><b>LOD 2C</b><span>Horticulture</span></div></div></div><div class="cs-tier"><div class="cs-tier-label"><b>LOD 3</b><span>Operations &amp; spend</span></div><div class="cs-tier-items"><div class="cs-node"><b>LOD 3A</b><span>Assets &amp; Equipment</span></div><div class="cs-node"><b>LOD 3B</b><span>AMC</span></div><div class="cs-node"><b>LOD 3C</b><span>R&amp;M Work Detail</span></div><div class="cs-node"><b>LOD 3D</b><span>Projects</span></div><div class="cs-node"><b>LOD 3E</b><span>Utilities &amp; Consumables</span></div></div></div></div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Data Modeling · Standardising Campuses</h4>
+            <div class="cs-flow">
+              <div class="cs-flow-step"><b>22</b><span>Raw campus names, written differently across datasets</span></div>
+              <div class="cs-flow-arrow">→</div>
+              <div class="cs-flow-step"><b>1</b><span>Central campus mapping table (blanks tagged NA)</span></div>
+              <div class="cs-flow-arrow">→</div>
+              <div class="cs-flow-step"><b>4</b><span>Entities: CMRU, CMRIT, Hostel, EKYA</span></div>
+              <div class="cs-flow-arrow">→</div>
+              <div class="cs-flow-step"><b>11</b><span>Report pages filtered the same way</span></div>
+            </div>
+            <p style="margin-top:12px">Added building ID-to-campus mapping for building-level relationships, connected campus-level tables to every infrastructure dataset, and cleaned inconsistent formats in Power Query. DAX measures (SUMX, VALUE, IFERROR) convert text-stored numbers so AMC, R&amp;M and utility totals add up correctly and respond to campus and entity filters.</p>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">05</div>
+          <div class="modal-step-content">
+            <h4>11 Report Pages</h4>
+            <div class="cs-modules"><div class="cs-module"><i>🏛️</i><div><b>Overview</b><span>Group KPIs &amp; entity performance</span></div></div><div class="cs-module"><i>📍</i><div><b>Campus Level</b><span>Land area, buildings, BUA, projects</span></div></div><div class="cs-module"><i>🏢</i><div><b>Building</b><span>Building-wise infrastructure</span></div></div><div class="cs-module"><i>🏏</i><div><b>Sports</b><span>Indoor / outdoor facilities by entity</span></div></div><div class="cs-module"><i>🌳</i><div><b>Horticulture</b><span>Campus landscaping details</span></div></div><div class="cs-module"><i>🧰</i><div><b>Assets &amp; Equipment</b><span>Inventory, working vs not working</span></div></div><div class="cs-module"><i>📄</i><div><b>AMC</b><span>Contract value, scheduled / done / pending</span></div></div><div class="cs-module"><i>🔧</i><div><b>R&amp;M Work</b><span>Repair activity &amp; actual cost</span></div></div><div class="cs-module"><i>🏗️</i><div><b>Projects</b><span>Infrastructure project tracker</span></div></div><div class="cs-module"><i>🧯</i><div><b>Utilities (FE)</b><span>Fire extinguisher reporting</span></div></div><div class="cs-module"><i>⚡</i><div><b>Utilities &amp; Consumables</b><span>Bills &amp; consumable spend</span></div></div></div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">06</div>
+          <div class="modal-step-content">
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Campus &amp; Infrastructure</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Campuses</span><span class="tool-tag">Total Buildings</span><span class="tool-tag">Land Area (Acres / Sqft)</span><span class="tool-tag">Built-Up Area (BUA)</span><span class="tool-tag">Active Projects</span></div></div><div><p class="cs-group-title">Sports &amp; Assets</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Sports Infra</span><span class="tool-tag">Indoor vs Outdoor</span><span class="tool-tag">Entity-wise Sports Split</span><span class="tool-tag">Total Assets</span><span class="tool-tag">Working vs Not Working</span></div></div><div><p class="cs-group-title">AMC &amp; R&amp;M</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total AMC Value</span><span class="tool-tag">Scheduled Services</span><span class="tool-tag">Services Completed</span><span class="tool-tag">Services Pending</span><span class="tool-tag">Actual R&amp;M Cost</span></div></div><div><p class="cs-group-title">Utilities &amp; Consumables</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Bill Amount</span><span class="tool-tag">Fire Extinguisher Spend</span><span class="tool-tag">Entity-wise Utility Spend</span></div></div></div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">07</div>
+          <div class="modal-step-content">
+            <h4>Dashboard Screenshots</h4>
+            <div class="dash-img-strip">
+              <div><p class="dash-img-label">Overview · Group KPIs &amp; Entity Performance</p><img src="Campus Level.png" alt="Infrastructure dashboard overview" loading="lazy" /></div>
+              <div><p class="dash-img-label">Module Detail · Campus-wise Reporting</p><img src="Sports Level.png" alt="Infrastructure dashboard module detail" loading="lazy" /></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-step">
+          <div class="modal-step-num">08</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact">
+              <div><b>Single source of truth</b><span>All campus infrastructure in one report instead of 10 spreadsheets.</span></div>
+              <div><b>Maintenance follow-up</b><span>AMC scheduled vs completed vs pending services visible per campus.</span></div>
+              <div><b>Asset accountability</b><span>Working and non-working assets tracked by campus and entity.</span></div>
+              <div><b>Cost control</b><span>R&amp;M, utility and fire-extinguisher spend compared across campuses.</span></div>
+              <div><b>Consistent reporting</b><span>One campus and entity classification shared by every page.</span></div>
+              <div><b>Planning support</b><span>Land, BUA and project data ready for infrastructure decisions.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 05 · FINANCIAL COLLECTIONS -->
     <div class="modal-overlay" id="modal4" onclick="closeModalOutside(event,'modal4')">
-      <div class="modal">
+      <div class="modal" style="max-width:860px">
         <button class="modal-close" onclick="closeModal('modal4')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 04</div>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 05</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Financial Collections Dashboard</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · ERP (Juno) · CRM · Excel</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi"><div class="modal-kpi-val">Real-time</div><div class="modal-kpi-label">Financial Visibility</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Manual Reports Replaced</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">10+</div><div class="modal-kpi-label">Branches Tracked</div></div>
+        <p class="cs-stack">Power BI · DAX · ERP (Juno) · CRM · Excel</p>
+        <p class="cs-summary">A single Power BI view of revenue, receivables and outstanding balances across 10+ branches, combining Juno ERP billing with CRM records.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">Real-time</div><div class="modal-kpi-label">Financial Visibility</div></div><div class="modal-kpi"><div class="modal-kpi-val">90%</div><div class="modal-kpi-label">Manual Reports Replaced</div></div><div class="modal-kpi"><div class="modal-kpi-val">10+</div><div class="modal-kpi-label">Branches Tracked</div></div><div class="modal-kpi"><div class="modal-kpi-val">1</div><div class="modal-kpi-label">Source of Truth</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>No unified view of revenue or receivables across 10+ branches</li><li>Data split between disconnected ERP and CRM systems</li><li>Figures updated manually every week</li><li>End-of-month Excel scrambles for leadership</li></ul></div><div class="after"><h5>After</h5><ul><li>ERP billing and CRM records in one structured model</li><li>Collection % and outstanding amounts by campus and branch</li><li>Finance follows up on dues proactively</li><li>Live financial health dashboards for leadership</li></ul></div></div>
+          </div>
         </div>
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Finance and leadership had no unified view of revenue, receivables, or outstanding balances across 10+ branches. Data lived in disconnected ERP and CRM systems, updated manually each week.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Integrated ERP billing data (Juno) with CRM customer records into a structured Power BI model. Built custom DAX measures for Collection %, Outstanding Amount, and program-wise financial performance with drill-through by campus and branch.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Revenue</span><span class="tool-tag">Collection %</span><span class="tool-tag">Receivables</span><span class="tool-tag">Outstanding Amount</span><span class="tool-tag">Paid vs Unpaid</span><span class="tool-tag">Program-wise P&amp;L</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Business Impact</h4><p>Established a single source of truth for financial reporting. Finance teams could now proactively follow up on outstanding payments. Leadership had live financial health dashboards — no more end-of-month Excel scrambles.</p></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>How the Data Comes Together</h4>
+            <div class="cs-flow"><div class="cs-flow-step"><b>Juno ERP</b><span>Billing and fee data</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>CRM</b><span>Student and customer records</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Power BI Model</b><span>Custom DAX measures</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Drill-through</b><span>By program, campus and branch</span></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Revenue</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Revenue</span><span class="tool-tag">Program-wise P&amp;L</span></div></div><div><p class="cs-group-title">Collections</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Collection %</span><span class="tool-tag">Paid vs Unpaid</span></div></div><div><p class="cs-group-title">Receivables</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Receivables</span><span class="tool-tag">Outstanding Amount</span></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>Single source of truth</b><span>One trusted place for financial reporting.</span></div><div><b>Proactive follow-up</b><span>Outstanding payments identified before they age.</span></div><div><b>No month-end scramble</b><span>Live dashboards replaced manual Excel consolidation.</span></div><div><b>Branch comparison</b><span>Collection health compared across 10+ branches.</span></div></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MODAL 05 -->
+    <!-- MODAL 06 · SQL ANALYTICS -->
     <div class="modal-overlay" id="modal5" onclick="closeModalOutside(event,'modal5')">
-      <div class="modal" style="max-width:820px">
+      <div class="modal" style="max-width:880px;--cs:var(--accent2)">
         <button class="modal-close" onclick="closeModal('modal5')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px;color:var(--accent2);background:rgba(129,140,248,0.07);border-color:rgba(129,140,248,0.2)">Case Study · 05</div>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 06</div>
         <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">SQL Analytics</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">MySQL · CTEs · JOINs · CASE WHEN · SUBSTRING_INDEX · Subqueries</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">4</div><div class="modal-kpi-label">Funnel Stages Tracked</div></div>
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">10+</div><div class="modal-kpi-label">KPIs per Counsellor</div></div>
-          <div class="modal-kpi" style="border-color:rgba(129,140,248,0.15)"><div class="modal-kpi-val" style="color:var(--accent2)">1M+</div><div class="modal-kpi-label">Records Queried</div></div>
+        <p class="cs-stack">MySQL · JOINs · CASE WHEN · NULLIF · SUBSTRING_INDEX · Subqueries</p>
+        <p class="cs-summary">A SQL query layer across leads, applications, payments and enrolments that answers counsellor-performance and publisher-ROI questions directly from the data.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">4</div><div class="modal-kpi-label">Funnel Stages</div></div><div class="modal-kpi"><div class="modal-kpi-val">10+</div><div class="modal-kpi-label">KPIs per Counsellor</div></div><div class="modal-kpi"><div class="modal-kpi-val">1M+</div><div class="modal-kpi-label">Records Queried</div></div><div class="modal-kpi"><div class="modal-kpi-val">Seconds</div><div class="modal-kpi-label">Not Days, to Answer</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>Admissions data spread across multiple systems</li><li>No single query layer for operational questions</li><li>Counsellor and publisher reports built manually in Excel</li><li>Insights took days, not minutes</li></ul></div><div class="after"><h5>After</h5><ul><li>Leads, applications and enrolments joined in SQL</li><li>Counsellor scorecards with 10+ KPIs each</li><li>Publisher funnel with three conversion rates</li><li>Turnaround cut from days to seconds</li></ul></div></div>
+          </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">01</div>
-          <div class="modal-step-content"><h4>Problem</h4><p>The admissions operation ran across multiple systems with no single query layer. Basic insights — counsellor performance, publisher ROI, funnel drop-off — required manual Excel work and were not available in real time.</p></div>
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>Query Approach</h4>
+            <div class="cs-flow"><div class="cs-flow-step"><b>Join</b><span>LEFT JOIN leads to applications</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Clean</b><span>TRIM + SUBSTRING_INDEX on owner names</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Aggregate</b><span>CASE WHEN counts per funnel stage</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Protect</b><span>NULLIF for safe division</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Rank</b><span>ORDER BY paid applications</span></div></div>
+          </div>
         </div>
         <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">02</div>
-          <div class="modal-step-content"><h4>Approach</h4><p>Wrote production SQL queries using LEFT JOINs, CASE WHEN aggregations, NULLIF for safe division, and SUBSTRING_INDEX to clean messy lead-owner name strings — joining leads, applications, and enrolment tables into unified insight layers.</p></div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">03</div>
+          <div class="modal-step-num">03</div>
           <div class="modal-step-content">
             <h4>Sample Queries</h4>
-            <div class="sql-tab-row" style="margin-top:14px">
+                        <div class="sql-tab-row" style="margin-top:14px">
               <button class="sql-tab active" onclick="switchTab('q1', this)">Counsellor Scorecard</button>
               <button class="sql-tab" onclick="switchTab('q2', this)">Publisher Funnel</button>
             </div>
@@ -849,10 +1136,10 @@
                 </div>
               </div>
               <div class="sql-what-grid">
-                <div class="sql-what-item"><p>Cleans messy lead-owner strings like <code style="font-size:0.78rem;color:var(--accent2)">"Ravi Kumar (BLR)"</code> → <code style="font-size:0.78rem;color:var(--accent2)">"Ravi Kumar"</code> using <code style="font-size:0.78rem;color:var(--accent2)">TRIM + SUBSTRING_INDEX</code></p></div>
+                <div class="sql-what-item"><p>Cleans messy lead-owner strings like <code style="font-size:0.78rem;color:var(--cs)">"Ravi Kumar (BLR)"</code> → <code style="font-size:0.78rem;color:var(--cs)">"Ravi Kumar"</code> using <code style="font-size:0.78rem;color:var(--cs)">TRIM + SUBSTRING_INDEX</code></p></div>
                 <div class="sql-what-item"><p>Tracks each counsellor's full funnel — total leads, verified leads, apps, pending, paid, and enrollments</p></div>
-                <div class="sql-what-item"><p>Calculates lead-to-paid conversion % with <code style="font-size:0.78rem;color:var(--accent2)">NULLIF</code> to safely handle zero-lead counsellors</p></div>
-                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--accent2)">lead_id</code> and ranks output by paid applications to surface top performers</p></div>
+                <div class="sql-what-item"><p>Calculates lead-to-paid conversion % with <code style="font-size:0.78rem;color:var(--cs)">NULLIF</code> to safely handle zero-lead counsellors</p></div>
+                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--cs)">lead_id</code> and ranks output by paid applications to surface top performers</p></div>
               </div>
             </div>
             <div class="sql-pane" id="pane-q2">
@@ -897,142 +1184,112 @@
               <div class="sql-what-grid">
                 <div class="sql-what-item"><p>Groups the entire lead-to-enrollment funnel by publisher — showing which channels actually convert vs. just generate volume</p></div>
                 <div class="sql-what-item"><p>Calculates 3 independent conversion rates: app→paid, lead→verified, and paid→enrolled per publisher</p></div>
-                <div class="sql-what-item"><p>Uses <code style="font-size:0.78rem;color:var(--accent2)">NULLIF</code> on all denominators to prevent division-by-zero errors in production</p></div>
-                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--accent2)">user_id</code> (vs. <code style="font-size:0.78rem;color:var(--accent2)">lead_id</code> in counsellor query) — exposing cross-table relationships</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">04</div>
-          <div class="modal-step-content">
-            <h4>SQL Techniques Used</h4>
-            <div class="project-tools" style="margin-top:8px">
-              <span class="tool-tag">LEFT JOIN</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">NULLIF</span><span class="tool-tag">SUBSTRING_INDEX</span><span class="tool-tag">TRIM</span><span class="tool-tag">GROUP BY</span><span class="tool-tag">ORDER BY</span><span class="tool-tag">Aggregate Functions</span>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num" style="color:var(--accent2);background:rgba(129,140,248,0.08);border-color:rgba(129,140,248,0.25)">05</div>
-          <div class="modal-step-content"><h4>Business Impact</h4><p>Eliminated manual Excel reporting for counsellor performance and publisher ROI tracking. Leadership could query live data at any time — reducing turnaround from days to seconds and enabling faster decisions on counsellor coaching and marketing spend reallocation.</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- MODAL 06 -->
-    <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
-      <div class="modal">
-        <button class="modal-close" onclick="closeModal('modal6')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 06</div>
-        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Applications Analytics Dashboard</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Data Modeling</p>
-        <div class="modal-step"><div class="modal-step-num">01</div><div class="modal-step-content"><h4>Problem</h4><p>Application data was fragmented across separate 2025 and 2026 datasets with no centralized reporting. Leadership had no real-time visibility into application volume, paid conversions, or growth.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">02</div><div class="modal-step-content"><h4>Approach</h4><p>Appended multi-year datasets using Power Query and built DAX measures for YoY and UTD comparisons.</p></div></div>
-        <div class="modal-step"><div class="modal-step-num">03</div><div class="modal-step-content"><h4>Key KPIs Delivered</h4><div class="project-tools" style="margin:0"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid Applications</span><span class="tool-tag">Conversion Rate %</span><span class="tool-tag">UTD Growth %</span><span class="tool-tag">Month-wise Trends</span><span class="tool-tag">Program Performance</span></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">04</div><div class="modal-step-content"><h4>Dashboard Screenshots</h4><div style="display:flex;flex-direction:column;gap:16px;margin-top:8px"><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">OVERVIEW · KPI CARDS &amp; COURSE COMPARISON</p><img src="Apps%20Home.png" alt="Overview" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">MONTH ON MONTH APPLICATIONS · 2025 VS 2026</p><img src="Apps%20MOM.png" alt="Month on Month" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div><div><p style="font-size:0.72rem;color:var(--text3);margin-bottom:6px;font-family:var(--mono);letter-spacing:0.06em">YTD COMPARISON · COURSE-WISE UTD GROWTH</p><img src="Apps%20YTD.png" alt="YTD Comparison" loading="lazy" style="width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/></div></div></div></div>
-        <div class="modal-step"><div class="modal-step-num">05</div><div class="modal-step-content"><h4>Business Impact</h4><p>Replaced time-consuming manual Excel tracking with a live Power BI dashboard — enabling real-time monitoring of application inflow and paid conversion rates across programs and branches.</p></div></div>
-      </div>
-    </div>
-
-    <!-- MODAL 10: HOSTEL OCCUPANCY & VACANCY DASHBOARD -->
-    <div class="modal-overlay" id="modal10" onclick="closeModalOutside(event,'modal10')">
-      <div class="modal" style="max-width:820px">
-        <button class="modal-close" onclick="closeModal('modal10')" aria-label="Close">✕</button>
-        <div class="section-tag" style="margin-bottom:10px">Case Study · 10</div>
-        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Hostel Occupancy &amp; Vacancy Dashboard</h2>
-        <p style="color:var(--text3);font-size:0.8rem;margin-bottom:28px;font-family:var(--mono)">Power BI · DAX · Power Query · Star Schema Modeling · Excel / CSV</p>
-        <div class="modal-kpi-grid">
-          <div class="modal-kpi"><div class="modal-kpi-val">Real-time</div><div class="modal-kpi-label">Occupancy Visibility</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">Multi</div><div class="modal-kpi-label">Hostel Locations</div></div>
-          <div class="modal-kpi"><div class="modal-kpi-val">Auto</div><div class="modal-kpi-label">Reporting Replaced</div></div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">01</div>
-          <div class="modal-step-content"><h4>Problem</h4><p>Hostel administration had no centralized system to track bed occupancy, vacancies, or capacity utilization across multiple facilities. Room allocation decisions relied on disconnected spreadsheets — making it impossible to quickly identify available capacity, monitor target achievement, or understand gender-wise distribution across hostel groups. Leadership had no live view of accommodation health.</p></div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">02</div>
-          <div class="modal-step-content">
-            <h4>Data Model · Star Schema</h4>
-            <p style="margin-bottom:14px">Designed a production-grade star schema to support flexible slicing and fast DAX aggregations across hostel groups, locations, and academic years.</p>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Fact Table · Fact_HostelOccupancy</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Student ID</span>
-                  <span class="tool-tag">Hostel ID</span>
-                  <span class="tool-tag">Hostel Group</span>
-                  <span class="tool-tag">Admission Date</span>
-                  <span class="tool-tag">Occupied Beds</span>
-                  <span class="tool-tag">Occupancy Status</span>
-                  <span class="tool-tag">Academic Year</span>
-                </div>
-              </div>
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Dimension Tables</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Dim_Hostel — Name, Group, Gender, Location</span>
-                  <span class="tool-tag">Dim_Date — Month, Quarter, Academic Year</span>
-                  <span class="tool-tag">Dim_Target — Capacity &amp; Vacancy Targets</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="modal-step">
-          <div class="modal-step-num">03</div>
-          <div class="modal-step-content">
-            <h4>Key KPIs &amp; DAX Measures Delivered</h4>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px">
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Occupancy Metrics</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Total Occupied Beds</span>
-                  <span class="tool-tag">Occupancy %</span>
-                  <span class="tool-tag">Capacity Utilization %</span>
-                  <span class="tool-tag">Hostel-wise Occupancy</span>
-                  <span class="tool-tag">Gender-wise Distribution</span>
-                </div>
-              </div>
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Vacancy &amp; Target Metrics</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Available Vacancies</span>
-                  <span class="tool-tag">Vacancy %</span>
-                  <span class="tool-tag">Total Capacity</span>
-                  <span class="tool-tag">Target Achievement %</span>
-                  <span class="tool-tag">Hostel Group Comparisons</span>
-                </div>
-              </div>
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">DAX Measures Built</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Occupied Count</span>
-                  <span class="tool-tag">Vacancy Count</span>
-                  <span class="tool-tag">Occupancy %</span>
-                  <span class="tool-tag">Vacancy %</span>
-                  <span class="tool-tag">Dynamic Group Comparisons</span>
-                  <span class="tool-tag">CALCULATE()</span>
-                  <span class="tool-tag">DIVIDE()</span>
-                  <span class="tool-tag">FILTER()</span>
-                </div>
-              </div>
-              <div>
-                <p style="font-size:0.68rem;color:var(--accent);font-family:var(--mono);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px">Dashboard Features</p>
-                <div class="project-tools" style="margin:0;gap:6px">
-                  <span class="tool-tag">Interactive Slicers</span>
-                  <span class="tool-tag">Hostel Group Filter</span>
-                  <span class="tool-tag">Academic Year Filter</span>
-                  <span class="tool-tag">KPI Cards</span>
-                  <span class="tool-tag">Management Summary View</span>
-                </div>
+                <div class="sql-what-item"><p>Uses <code style="font-size:0.78rem;color:var(--cs)">NULLIF</code> on all denominators to prevent division-by-zero errors in production</p></div>
+                <div class="sql-what-item"><p>Joins on <code style="font-size:0.78rem;color:var(--cs)">user_id</code> (vs. <code style="font-size:0.78rem;color:var(--cs)">lead_id</code> in counsellor query) — exposing cross-table relationships</p></div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-step">
           <div class="modal-step-num">04</div>
-          <div class="modal-step-content"><h4>Business Impact</h4><p>Gave hostel administration the first centralized, real-time view of bed availability and capacity utilization across all facilities. Eliminated manual spreadsheet tracking — enabling faster, more accurate room allocation decisions. Management could instantly identify which hostel groups had vacancies, how utilization compared to targets, and how gender-wise capacity was distributed. Automated reporting freed hostel staff from time-consuming data consolidation, shifting their focus to student support and proactive accommodation planning.</p></div>
+          <div class="modal-step-content">
+            <h4>SQL Techniques Used</h4>
+            <div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">LEFT JOIN</span><span class="tool-tag">CASE WHEN</span><span class="tool-tag">NULLIF</span><span class="tool-tag">SUBSTRING_INDEX</span><span class="tool-tag">TRIM</span><span class="tool-tag">GROUP BY</span><span class="tool-tag">ORDER BY</span><span class="tool-tag">Aggregate Functions</span></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">05</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>Manual Excel removed</b><span>Counsellor and publisher reports come straight from SQL.</span></div><div><b>Days → seconds</b><span>Leadership can query live data any time.</span></div><div><b>Coaching focus</b><span>Counsellor scorecards show who needs support.</span></div><div><b>Smarter marketing spend</b><span>Publisher funnels show which channels truly convert.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 07 · APPLICATIONS ANALYTICS -->
+    <div class="modal-overlay" id="modal6" onclick="closeModalOutside(event,'modal6')">
+      <div class="modal" style="max-width:860px">
+        <button class="modal-close" onclick="closeModal('modal6')" aria-label="Close">✕</button>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 07</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Applications Analytics Dashboard</h2>
+        <p class="cs-stack">Power BI · DAX · Power Query · Data Modeling</p>
+        <p class="cs-summary">A live dashboard of application volume, paid conversions and growth that brings the separate 2025 and 2026 application datasets together.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">2</div><div class="modal-kpi-label">Years Combined</div></div><div class="modal-kpi"><div class="modal-kpi-val">YoY</div><div class="modal-kpi-label">Growth Tracking</div></div><div class="modal-kpi"><div class="modal-kpi-val">UTD</div><div class="modal-kpi-label">Like-for-like View</div></div><div class="modal-kpi"><div class="modal-kpi-val">3</div><div class="modal-kpi-label">Report Views</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>2025 and 2026 applications in separate datasets</li><li>No centralised reporting</li><li>No visibility into volume, paid conversions or growth</li><li>Manual Excel tracking</li></ul></div><div class="after"><h5>After</h5><ul><li>Both years appended into one model</li><li>YoY and UTD growth calculated automatically</li><li>Program and branch-level performance</li><li>Live dashboard replaced Excel tracking</li></ul></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>How the Data Comes Together</h4>
+            <div class="cs-flow"><div class="cs-flow-step"><b>2025 Data</b><span>Application records</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>2026 Data</b><span>Application records</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Power Query</b><span>Appended into one table</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>DAX</b><span>YoY and UTD measures</span></div><div class="cs-flow-arrow">→</div><div class="cs-flow-step"><b>Dashboard</b><span>Overview, MoM and YTD views</span></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Volume</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Applications</span><span class="tool-tag">Paid Applications</span><span class="tool-tag">Month-wise Trends</span></div></div><div><p class="cs-group-title">Performance</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Conversion Rate %</span><span class="tool-tag">UTD Growth %</span><span class="tool-tag">Program Performance</span></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Dashboard Screenshots</h4>
+            <div class="dash-img-strip"><div><p class="dash-img-label">Overview · KPI Cards &amp; Course Comparison</p><img src="Apps%20Home.png" alt="Overview" loading="lazy" /></div><div><p class="dash-img-label">Month on Month Applications · 2025 vs 2026</p><img src="Apps%20MOM.png" alt="Month on Month" loading="lazy" /></div><div><p class="dash-img-label">YTD Comparison · Course-wise UTD Growth</p><img src="Apps%20YTD.png" alt="YTD Comparison" loading="lazy" /></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">05</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>Excel tracking replaced</b><span>Applications monitored in a live Power BI dashboard.</span></div><div><b>Real-time inflow</b><span>Daily application volume visible as it happens.</span></div><div><b>Conversion focus</b><span>Paid conversion rates tracked by program and branch.</span></div><div><b>Fair comparisons</b><span>UTD logic compares the same point in each cycle.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL 11 · HOSTEL OCCUPANCY -->
+    <div class="modal-overlay" id="modal10" onclick="closeModalOutside(event,'modal10')">
+      <div class="modal" style="max-width:860px">
+        <button class="modal-close" onclick="closeModal('modal10')" aria-label="Close">✕</button>
+        <div class="section-tag cs-tag" style="margin-bottom:10px">Case Study · 11</div>
+        <h2 class="section-h2" style="margin-bottom:8px;font-size:1.5rem">Hostel Occupancy &amp; Vacancy Dashboard</h2>
+        <p class="cs-stack">Power BI · DAX · Power Query · Star Schema Modeling · Excel / CSV</p>
+        <p class="cs-summary">A multi-hostel dashboard showing bed occupancy, vacancies, capacity use, gender-wise distribution and target achievement for administration and planning teams.</p>
+        <div class="cs-kpi-grid"><div class="modal-kpi"><div class="modal-kpi-val">Real-time</div><div class="modal-kpi-label">Occupancy View</div></div><div class="modal-kpi"><div class="modal-kpi-val">Multi</div><div class="modal-kpi-label">Hostel Locations</div></div><div class="modal-kpi"><div class="modal-kpi-val">3</div><div class="modal-kpi-label">Dimension Tables</div></div><div class="modal-kpi"><div class="modal-kpi-val">Auto</div><div class="modal-kpi-label">Reporting</div></div></div>
+        <div class="modal-step">
+          <div class="modal-step-num">01</div>
+          <div class="modal-step-content">
+            <h4>The Problem → The Outcome</h4>
+            <div class="cs-ba"><div class="before"><h5>Before</h5><ul><li>No central system for bed occupancy or vacancies</li><li>Room allocation relied on disconnected spreadsheets</li><li>Hard to spot free capacity or track targets</li><li>No live view of gender-wise distribution</li></ul></div><div class="after"><h5>After</h5><ul><li>Star-schema model across hostel groups and locations</li><li>Occupancy, vacancy and target % on one screen</li><li>Filters by hostel group and academic year</li><li>Automated reporting for administration</li></ul></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">02</div>
+          <div class="modal-step-content">
+            <h4>Data Model · Star Schema</h4>
+            <div class="cs-tiers"><div class="cs-tier"><div class="cs-tier-label"><b>Fact</b><span>Occupancy</span></div><div class="cs-tier-items"><div class="cs-node"><b>FACT_HOSTELOCCUPANCY</b><span>Student ID · Hostel ID · Hostel Group · Admission Date · Occupied Beds · Status · Academic Year</span></div></div></div><div class="cs-tier"><div class="cs-tier-label"><b>Dimensions</b><span>Lookups</span></div><div class="cs-tier-items"><div class="cs-node"><b>DIM_HOSTEL</b><span>Name, Group, Gender, Location</span></div><div class="cs-node"><b>DIM_DATE</b><span>Month, Quarter, Academic Year</span></div><div class="cs-node"><b>DIM_TARGET</b><span>Capacity &amp; Vacancy Targets</span></div></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">03</div>
+          <div class="modal-step-content">
+            <h4>Key KPIs Delivered</h4>
+            <div class="cs-groups"><div><p class="cs-group-title">Occupancy Metrics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Total Occupied Beds</span><span class="tool-tag">Occupancy %</span><span class="tool-tag">Capacity Utilization %</span><span class="tool-tag">Hostel-wise Occupancy</span><span class="tool-tag">Gender-wise Distribution</span></div></div><div><p class="cs-group-title">Vacancy &amp; Target Metrics</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Available Vacancies</span><span class="tool-tag">Vacancy %</span><span class="tool-tag">Total Capacity</span><span class="tool-tag">Target Achievement %</span><span class="tool-tag">Hostel Group Comparisons</span></div></div><div><p class="cs-group-title">DAX Measures Built</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Occupied Count</span><span class="tool-tag">Vacancy Count</span><span class="tool-tag">Occupancy %</span><span class="tool-tag">Vacancy %</span><span class="tool-tag">Dynamic Group Comparisons</span><span class="tool-tag">CALCULATE()</span><span class="tool-tag">DIVIDE()</span><span class="tool-tag">FILTER()</span></div></div><div><p class="cs-group-title">Dashboard Features</p><div class="project-tools" style="margin:0;gap:6px"><span class="tool-tag">Interactive Slicers</span><span class="tool-tag">Hostel Group Filter</span><span class="tool-tag">Academic Year Filter</span><span class="tool-tag">KPI Cards</span><span class="tool-tag">Management Summary View</span></div></div></div>
+          </div>
+        </div>
+        <div class="modal-step">
+          <div class="modal-step-num">04</div>
+          <div class="modal-step-content">
+            <h4>Business Impact</h4>
+            <div class="cs-impact"><div><b>First central view</b><span>Bed availability across all facilities in one place.</span></div><div><b>Faster allocation</b><span>Room decisions made from live, accurate data.</span></div><div><b>Target tracking</b><span>Utilisation compared against capacity targets.</span></div><div><b>Gender-wise planning</b><span>Capacity distribution visible by hostel group.</span></div><div><b>Staff time freed</b><span>Automated reporting replaced manual consolidation.</span></div><div><b>Proactive planning</b><span>Vacancies spotted early for accommodation planning.</span></div></div>
+          </div>
         </div>
       </div>
     </div>
