@@ -409,6 +409,9 @@
       .cs-flow-arrow { padding:0 6px; }
       .modal .modal-step-num { justify-self:start;width:30px; }
       .cs-flow-step span { overflow-wrap:anywhere; }
+      .cs-head-row { display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px; }
+      .cs-copy-link { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;font-family:var(--mono);font-size:0.68rem;letter-spacing:0.04em;cursor:pointer;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);color:var(--text2);transition:all 0.2s; }
+      .cs-copy-link:hover { color:var(--cs,var(--accent));border-color:var(--cs,var(--accent));background:rgba(255,255,255,0.08); }
       .card-stat { display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding:14px 0;margin-bottom:18px;border-top:1px solid rgba(255,255,255,0.07);border-bottom:1px solid rgba(255,255,255,0.07); }
       .card-stat b { font-family:var(--heading);font-size:1.9rem;font-weight:900;letter-spacing:-0.03em;line-height:1;background:linear-gradient(135deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent; }
       .card-stat span { font-size:0.74rem;color:var(--text3);font-family:var(--mono);letter-spacing:0.02em; }
@@ -1567,11 +1570,58 @@
         });
       },{threshold:0.4});
       document.querySelectorAll(".impact-item").forEach(item=>io.observe(item));
-      function openModal(id){document.getElementById(id).classList.add("active");document.body.style.overflow="hidden";}
-      function closeModal(id){document.getElementById(id).classList.remove("active");document.body.style.overflow="";}
+      // ===== Shareable project links (e.g. .../#sql-analytics opens that case study) =====
+      const PROJECT_LINKS={
+        "admissions-funnel":"modal1",
+        "telecalling-performance":"modal2",
+        "publisher-attribution":"modal3",
+        "infrastructure-dashboard":"modalInfra",
+        "financial-collections":"modal4",
+        "sql-analytics":"modal5",
+        "applications-analytics":"modal6",
+        "hostel-occupancy":"modal10"
+      };
+      const MODAL_TO_SLUG=Object.fromEntries(Object.entries(PROJECT_LINKS).map(([k,v])=>[v,k]));
+      function projectUrl(slug){return location.origin+location.pathname+location.search+"#"+slug;}
+      function openModal(id){
+        const m=document.getElementById(id); if(!m) return;
+        m.classList.add("active");document.body.style.overflow="hidden";
+        const slug=MODAL_TO_SLUG[id];
+        if(slug && location.hash!=="#"+slug){ try{history.replaceState(null,"","#"+slug);}catch(e){} }
+      }
+      function closeModal(id){
+        document.getElementById(id).classList.remove("active");document.body.style.overflow="";
+        if(MODAL_TO_SLUG[id] && location.hash==="#"+MODAL_TO_SLUG[id]){ try{history.replaceState(null,"",location.pathname+location.search+"#projects");}catch(e){} }
+      }
+      function openFromHash(){
+        const id=PROJECT_LINKS[location.hash.replace("#","")];
+        if(id){
+          document.querySelectorAll(".modal-overlay.active").forEach(m=>{if(m.id!==id)m.classList.remove("active");});
+          document.getElementById("projects").scrollIntoView();
+          openModal(id);
+        }
+      }
+      window.addEventListener("hashchange",openFromHash);
+      window.addEventListener("load",openFromHash);
+      // Add a "Copy link" button to every case study
+      Object.entries(PROJECT_LINKS).forEach(([slug,id])=>{
+        const modal=document.querySelector("#"+id+" .modal"); if(!modal) return;
+        const tag=modal.querySelector(".section-tag"); if(!tag) return;
+        const row=document.createElement("div"); row.className="cs-head-row";
+        tag.parentNode.insertBefore(row,tag); row.appendChild(tag); tag.style.marginBottom="0";
+        const btn=document.createElement("button"); btn.type="button"; btn.className="cs-copy-link";
+        btn.innerHTML='<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 007.07 0l3-3a5 5 0 00-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 00-7.07 0l-3 3a5 5 0 007.07 7.07l1.5-1.5"/></svg><span>Copy link</span>';
+        btn.onclick=e=>{
+          e.stopPropagation(); const url=projectUrl(slug), label=btn.querySelector("span");
+          const done=()=>{label.textContent="Link copied!";setTimeout(()=>label.textContent="Copy link",2000);};
+          if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,()=>{prompt("Copy this link:",url);});}
+          else{prompt("Copy this link:",url);}
+        };
+        row.appendChild(btn);
+      });
       function closeModalOutside(e,id){if(e.target.classList.contains("modal-overlay"))closeModal(id);}
       document.addEventListener("keydown",e=>{
-        if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>{m.classList.remove("active");document.body.style.overflow="";});
+        if(e.key==="Escape") document.querySelectorAll(".modal-overlay.active").forEach(m=>closeModal(m.id));
       });
       // Tab switcher now receives the clicked button explicitly (no reliance on global `event`)
       function switchTab(id, btn) {
